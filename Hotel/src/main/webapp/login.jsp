@@ -13,8 +13,20 @@
 	
 	<body class="bg_main0 vh-100 position-relative">
 		<div class="position-absolute top-50 start-50 translate-middle">
-			<form class="needs-validation" method="post" action="/login">
+			<form class="needs-validation" method="post" action="./login">
 				<h4 class="text-center">登入</h4>
+				
+				<!-- 顯示錯誤提示，如果有錯誤信息存在 -->
+				<%
+					String error=(String)request.getAttribute("error");
+					if(error!=null)
+					{
+				%>
+				<div class="alert alert-danger" role="alert">
+					<%= error %>
+				</div>
+				<%	} %>
+				
 				<div>
 					<label for="username" class="form-label">帳號</label>
 					<input type="text" class="form-control" id="username" name="username" value="" required>
