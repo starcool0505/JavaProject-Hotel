@@ -13,7 +13,7 @@
 	</head>
 
 	<body>
-		<nav class="navbar navbar-expand-lg bg_main3">
+		<nav class="navbar navbar-expand-lg bg_main3 fixed-top">
 			<div class="container-fluid" style="margin: 0 20%">
 				<a class="navbar-brand text-light me-0" href="./index.jsp">XX飯店</a>
 				

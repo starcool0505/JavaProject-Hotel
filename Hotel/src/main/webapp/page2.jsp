@@ -14,7 +14,7 @@
 	</head>
 	
 	<body class="bg_main0 vh-100">
-		<div style="margin: 0 20%">最新消息</div>
+		<div style="margin: 0 20%; margin-top: 10vh">最新消息</div>
 	</body>
 </html>
 

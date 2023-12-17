@@ -13,7 +13,7 @@
 	</head>
 	
 	<body class="bg_main0 vh-100">
-		<div style="margin: 0 20%">首頁</div>
+		<div style="margin: 0 20%; margin-top: 10vh">首頁</div>
 	</body>
 </html>
 

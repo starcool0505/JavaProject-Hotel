@@ -7,6 +7,7 @@
 		<meta charset="UTF-8">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+		<link rel="stylesheet" href="./css/main_color.css">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 	</head>
@@ -38,7 +39,7 @@
 					<div class="invalid-feedback">請輸入密碼</div>
 				</div>
 				<div class="d-flex justify-content-center mt-3">
-					<button class="btn" type="submit" style="background-color: #B0A695; color: #F3EEEA">登入</button>
+					<button class="btn bg_main3 font_c1" type="submit">登入</button>
 				</div>
 			</form>
 		</div>
