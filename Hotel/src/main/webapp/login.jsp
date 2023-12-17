@@ -11,22 +11,22 @@
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 	</head>
 	
-	<body class="bg_main0 vh-100">
-		<div class="d-flex justify-content-center align-items-center">
-			<form class="needs-validation" method="post" action="/login2">
-				<h4 class="text-center">Login</h4>
+	<body class="bg_main0 vh-100 position-relative">
+		<div class="position-absolute top-50 start-50 translate-middle">
+			<form class="needs-validation" method="post" action="/login">
+				<h4 class="text-center">登入</h4>
 				<div>
-					<label for="username" class="form-label">Username</label>
+					<label for="username" class="form-label">帳號</label>
 					<input type="text" class="form-control" id="username" name="username" value="" required>
 					<div class="invalid-feedback">請輸入帳號</div>
 				</div>
 				<div>
-					<label for="password" class="form-label">Password</label>
+					<label for="password" class="form-label">密碼</label>
 					<input type="password" class="form-control" id="password" name="password" value="" required>
 					<div class="invalid-feedback">請輸入密碼</div>
 				</div>
 				<div class="d-flex justify-content-center mt-3">
-					<button class="btn btn-primary" type="submit">登入</button>
+					<button class="btn" type="submit" style="background-color: #B0A695; color: #F3EEEA">登入</button>
 				</div>
 			</form>
 		</div>
