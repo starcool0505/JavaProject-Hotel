@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="data.RoomData" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
 
 <%@ include file="/WEB-INF/views/header.jsp" %>
 
@@ -28,6 +30,12 @@
 	</head>
 	
 	<body class="bg_main0" style="min-height: 100%">
+		<%
+			String roomTypeStr = request.getParameter("type");
+			int roomType = Integer.parseInt(roomTypeStr);
+			out.println("Received type parameter: " + roomType);
+		%>
+		
 		<div class="position-relative text-center" style="margin: 0 20%; margin-top: 10vh">
 			<div class="fs-1">房型介紹</div>
 			<div>
@@ -47,7 +55,7 @@
 							}
 					%>
 						<div class="col-2">
-							<button type="button" class="btn bg_main3 mb-4 text-light" style="min-width: 10vw;"><%= RoomData.roomImgTitle[i] %></button>
+							<button type="button" class="btn bg_main3 mb-4 text-light" style="min-width: 10vw;"><%=RoomData.roomImgTitle[i] %></button>
 						</div>
 						<div class="w-100"></div>
 					<%
@@ -56,8 +64,8 @@
 								</div>
 				</div>
 				<div class="col-5 text-start ms-5">
-					<h1 class="mt-3">標題</h1>
-					<p>內容</p>
+					<h1 class="mt-3"><%=RoomData.roomImgTitle[roomType] %></h1>
+					<p><%=RoomData.roomImgContext[roomType] %></p>
 					<div class="fs-3">價格</div>
 					<div class="row mt-3">
 						<div class="col">樓層：內容</div>

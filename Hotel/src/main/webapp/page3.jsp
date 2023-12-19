@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="data.RoomData" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
 
 <%@ include file="/WEB-INF/views/header.jsp" %>
 
@@ -47,10 +49,6 @@
 			<% 
 				for(int i=0; i<RoomData.roomImgPaths.length; i++)
 				{
-					String roomImgPath=RoomData.roomImgPaths[i];
-					String roomImgTitle=RoomData.roomImgTitle[i];
-					String roomImgType=(i<4)?RoomData.roomImgType[0]:RoomData.roomImgType[1];
-					String roomImgContext=RoomData.roomImgContext[0];
 					if(i%3==0)
 					{
 			%>
@@ -60,16 +58,16 @@
 			%>
 					<div class="col-md-4">
 						<div class="image-container">
-							<img src="<%= roomImgPath %>" alt="Image <%= i+1 %>" class="img-fluid">
+							<img src="<%= RoomData.roomImgPaths[i] %>" alt="Image <%= i+1 %>" class="img-fluid">
 							<div class="image-description">
 								<div class="d-flex h-20 justify-content-between align-items-center" style="font-weight: bold; color: #180A0A">
-									<p style="font-size: 24px;"><%= roomImgTitle %></p>
-									<p style="font-size: 18px;"><%= roomImgType %></p>
+									<p style="font-size: 24px;"><%= RoomData.roomImgTitle[i] %></p>
+									<p style="font-size: 18px;"><%= RoomData.roomImgType[i] %></p>
 								</div>
 								<div style="height: 80%;">
-									<p><%= roomImgContext %></p>
+									<p><%= RoomData.roomImgContext[i] %></p>
 									<div class="mt-3 text-center">
-										<a href="./room_index<%= i %>.jsp" class="btn bg_main4 text-light">了解更多</a>
+										<a href="./room_index.jsp?type=<%= i %>" class="btn bg_main4 text-light">了解更多</a>
 									</div>
 								</div>
 							</div>
