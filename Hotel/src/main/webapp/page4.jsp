@@ -34,36 +34,31 @@
             width: 100%; /* Adjust width as needed */
         }
 
-        /* 新增的樣式 */
-        .traffic-info {
-            position: absolute;
-            top: 0;
-            left: 0;
-            margin: 20px; /* 調整邊距 */
-            z-index: 1; /* 確保交通資訊在地圖之上 */
-        }
+       
     </style>
 </head>
 <body class="bg_main0">
-    <!-- 交通資訊移到這裡 -->
-    <div class="traffic-info">
+    <div class="mt-3 mb-3 d-flex justify-content-center">
         交通資訊
     </div>
     
     <div class="content-container">
-        <div class="left-sidebar">
-            <!-- 空白 -->
-        </div>
+        
         <div class="map-container">
-            <gmp-map center="25.05818748474121,121.54263305664062" zoom="14" map-id="DEMO_MAP_ID">
-                <gmp-advanced-marker position="25.05818748474121,121.54263305664062" title="My location">
+            <gmp-map center="25.05818748474121,121.54263305664062" zoom="16" map-id="DEMO_MAP_ID">
+                <gmp-advanced-marker position="25.05818748474121,121.54263305664062" title="Hotel">
                 </gmp-advanced-marker>
             </gmp-map>
         </div>
         <div class="right-sidebar">
             <!-- Place your icons and address information here -->
             <div class="icon-container">
-                <!-- Your icons go here -->
+                <div class="icon-image">
+                	<img width="40px" height="40px" src="image/telephone.png">
+                </div>
+                <span style="text-align-center">TEL</span>
+                +886-3-2251234
+                
             </div>
             <div class="address-container">
                 <!-- Your address information goes here -->
