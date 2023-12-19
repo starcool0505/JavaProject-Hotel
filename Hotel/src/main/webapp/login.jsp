@@ -39,7 +39,7 @@
 					<div class="invalid-feedback">請輸入密碼</div>
 				</div>
 				<div class="d-flex justify-content-center mt-3">
-					<button class="btn bg_main3 font_c1" type="submit">登入</button>
+					<button class="btn bg_main3 text-light font_c1" type="submit">登入</button>
 				</div>
 			</form>
 		</div>
