@@ -34,6 +34,7 @@
 		  width: 100%;
 		  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		  margin-top: 20px;
+		  position: relative;
 		}
 
 		.room-preview img {
@@ -61,6 +62,26 @@
 		  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		  z-index: 2;
 		}
+		
+		.arrow {
+		  position: absolute;
+		  top: 50%;
+		  transform: translateY(-50%);
+		  font-size: 24px;
+		  cursor: pointer;
+		  background: none;
+		  border: none;
+		  color: #fff;
+		  outline: none;
+		}
+		
+		#prevArrow {
+		  left: 10px;
+		}
+		
+		#nextArrow {
+		  right: 10px;
+		}
 	  </style>
 	</head>
 	<body>
@@ -84,16 +105,18 @@
       <button onclick="checkBooking()">查詢</button>
 
       <div class="room-preview">
-        <img src="./image/room1.jpg" alt="雙人房型">
-        <div class="room-details">
-          <p>雙人房型</p>
-          <p>雙床 150*200 X 2</p>
-          <p>坪數：8.5坪/ 28平方公尺</p>
-          <p>衛浴設備：分離式淋浴間、免治馬桶、吹風機</p>
-          <p>衛浴備品：沐浴洗髮乳、潤髮乳、洗手乳</p>
-          <p>舒適設備：英國斯林百蘭床墊、戶外陽台、大金空調、遮光窗簾、室內拖鞋</p>
-          <p>娛樂設施：50吋4K電視、有線頻道、USB充電座、Wi-Fi</p>
-        </div>
+		  <button class="arrow" id="prevArrow">&lt;</button>
+		  <img src="./image/room1.jpg" alt="雙人房型" id="roomImage">
+		  <button class="arrow" id="nextArrow">&gt;</button>
+		  <div class="room-details">
+	          <p>雙人房型</p>
+	          <p>雙床 150*200 X 2</p>
+	          <p>坪數：8.5坪/ 28平方公尺</p>
+	          <p>衛浴設備：分離式淋浴間、免治馬桶、吹風機</p>
+	          <p>衛浴備品：沐浴洗髮乳、潤髮乳、洗手乳</p>
+	          <p>舒適設備：英國斯林百蘭床墊、戶外陽台、大金空調、遮光窗簾、室內拖鞋</p>
+	          <p>娛樂設施：50吋4K電視、有線頻道、USB充電座、Wi-Fi</p>
+	      </div>
       </div>
     </div>
   </div>
@@ -114,21 +137,56 @@
 			  }
 	
 			  const guests = document.getElementById('guests').value;
-			  const popup = document.createElement('div');
-			  popup.className = 'popup';
-			  popup.innerHTML = `<p>入住時間: ${checkinTime.toLocaleString()}</p>
-			                     <p>退房時間: ${checkoutTime.toLocaleString()}</p>
-			                     <p>人數: ${guests}人</p>
-			                     <button onclick="closePopup()">確認</button>`;
-			  document.body.appendChild(popup);
-			}
-	
-			function closePopup() {
-			  const popup = document.querySelector('.popup');
-			  if (popup) {
-			    popup.remove();
-			  }
-			}
+			//cument.getElementById('roomImage').addEventListener('click', function() {
+			//  // 創建彈出視窗
+			//  const popup = document.createElement('div');
+			//  popup.className = 'image-popup';
+			//  
+			//  // 創建大圖片元素
+			//  const largeImage = document.createElement('img');
+			//  largeImage.src = 'room_large_image.jpg'; // 更大的圖片 URL
+			//  largeImage.alt = '雙人房型';
+			//  
+			//  // 將大圖片添加到彈出視窗
+			//  popup.appendChild(largeImage);
+			//  
+			//  // 添加關閉按鈕
+			//  const closeButton = document.createElement('span');
+			//  closeButton.className = 'close-button';
+			//  closeButton.innerHTML = '&times;'; // 用 X 表示關閉
+			//  closeButton.addEventListener('click', function() {
+			//    popup.remove(); // 關閉彈出視窗
+			//  });
+			//  popup.appendChild(closeButton);
+			//  
+			//  // 將彈出視窗添加到 body 中
+			//  document.body.appendChild(popup);
+			//});
+			  
+			  document.addEventListener('DOMContentLoaded', function() {
+				    const images = ["room1.jpg", "room2.jpg", "room3.jpeg"];
+				    let currentIndex = 0;
+
+				    // 更新圖片顯示
+				    function updateImage() {
+				      const roomImage = document.getElementById('roomImage');
+				      roomImage.src = images[currentIndex];
+				    }
+
+				    // 點擊箭頭切換圖片
+				    document.getElementById('prevArrow').addEventListener('click', function() {
+				      currentIndex = (currentIndex - 1 + images.length) % images.length;
+				      updateImage();
+				    });
+
+				    document.getElementById('nextArrow').addEventListener('click', function() {
+				      currentIndex = (currentIndex + 1) % images.length;
+				      updateImage();
+				    });
+
+				    // 初始載入
+				    updateImage();
+				  });
 	  </script>
 	</body>
 </html>
