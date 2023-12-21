@@ -106,7 +106,7 @@
 		
 		      <div class="room-preview">
 				  <button class="arrow" id="prevArrow">&lt;</button>
-				  <img src="images/room1.jpg" alt="雙人房型" id="roomImage">
+				  <img src="images/aroom1.jpg" alt="雙人房型" id="roomImage">
 				  <button class="arrow" id="nextArrow">&gt;</button>
 				  <div class="room-details">
 			          <p>雙人房型</p>
