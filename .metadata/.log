@@ -2818,3 +2818,193 @@ java.lang.NullPointerException: Cannot invoke "org.sonarlint.eclipse.core.intern
 	at org.eclipse.egit.ui.internal.branch.BranchOperationUI.doCheckout(BranchOperationUI.java:196)
 	at org.eclipse.egit.ui.internal.branch.BranchOperationUI$CheckoutJob.run(BranchOperationUI.java:260)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.resources 4 2 2023-12-21 14:22:06.697
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.sonarlint.eclipse.core.internal.tracking.ProjectIssueTracker.flushAll()" because "removed" is null
+	at org.sonarlint.eclipse.core.internal.tracking.ProjectIssueTrackers.resourceChanged(ProjectIssueTrackers.java:56)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:307)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:297)
+	at org.eclipse.core.internal.events.NotificationManager.handleEvent(NotificationManager.java:261)
+	at org.eclipse.core.internal.resources.Workspace.broadcastEvent(Workspace.java:383)
+	at org.eclipse.core.internal.resources.Project.close(Project.java:199)
+	at org.eclipse.egit.core.op.BranchOperation$1.closeProjectsMissingAfterCheckout(BranchOperation.java:197)
+	at org.eclipse.egit.core.op.BranchOperation$1.checkoutRepository(BranchOperation.java:158)
+	at org.eclipse.egit.core.op.BranchOperation$1.run(BranchOperation.java:137)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2382)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2407)
+	at org.eclipse.egit.core.op.BranchOperation.execute(BranchOperation.java:233)
+	at org.eclipse.egit.ui.internal.branch.BranchOperationUI.doCheckout(BranchOperationUI.java:196)
+	at org.eclipse.egit.ui.internal.branch.BranchOperationUI$CheckoutJob.run(BranchOperationUI.java:260)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.sonarlint.eclipse.core 4 0 2023-12-21 14:22:35.878
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in org.sonarlint.eclipse.core.internal.SonarLintCorePlugin.stop() of bundle org.sonarlint.eclipse.core.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:895)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1046)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:376)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:660)
+	at org.eclipse.osgi.container.Module.stop(Module.java:521)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1893)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1768)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:275)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:208)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:660)
+	at org.eclipse.osgi.container.Module.stop(Module.java:521)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:207)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.IllegalStateException: Failed to read local issue store index
+	at org.sonarlint.eclipse.core.internal.tracking.StringStoreIndex.load(StringStoreIndex.java:53)
+	at org.sonarlint.eclipse.core.internal.tracking.StringStoreIndex.save(StringStoreIndex.java:61)
+	at org.sonarlint.eclipse.core.internal.tracking.StringStoreIndex.save(StringStoreIndex.java:1)
+	at org.sonarlint.eclipse.core.internal.tracking.IndexedObjectStore.write(IndexedObjectStore.java:100)
+	at org.sonarlint.eclipse.core.internal.tracking.PersistentLocalIssueStore.save(PersistentLocalIssueStore.java:70)
+	at org.sonarlint.eclipse.core.internal.tracking.ProjectIssueTracker.lambda$7(ProjectIssueTracker.java:192)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.sonarlint.eclipse.core.internal.tracking.ProjectIssueTracker.flushAll(ProjectIssueTracker.java:190)
+	at org.sonarlint.eclipse.core.internal.tracking.ProjectIssueTrackers.shutdown(ProjectIssueTrackers.java:46)
+	at org.sonarlint.eclipse.core.internal.SonarLintCorePlugin.stop(SonarLintCorePlugin.java:144)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:875)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:867)
+	... 13 more
+Caused by: com.google.protobuf.InvalidProtocolBufferException$InvalidWireTypeException: Protocol message tag had invalid wire type.
+	at com.google.protobuf.InvalidProtocolBufferException.invalidWireType(InvalidProtocolBufferException.java:142)
+	at com.google.protobuf.UnknownFieldSet$Builder.mergeFieldFrom(UnknownFieldSet.java:527)
+	at com.google.protobuf.GeneratedMessageV3$Builder.parseUnknownField(GeneratedMessageV3.java:863)
+	at org.sonarlint.eclipse.core.internal.proto.Sonarlint$StorageIndex$Builder.mergeFrom(Sonarlint.java:3045)
+	at org.sonarlint.eclipse.core.internal.proto.Sonarlint$StorageIndex$1.parsePartialFrom(Sonarlint.java:3226)
+	at org.sonarlint.eclipse.core.internal.proto.Sonarlint$StorageIndex$1.parsePartialFrom(Sonarlint.java:1)
+	at com.google.protobuf.AbstractParser.parsePartialFrom(AbstractParser.java:215)
+	at com.google.protobuf.AbstractParser.parseFrom(AbstractParser.java:232)
+	at com.google.protobuf.AbstractParser.parseFrom(AbstractParser.java:237)
+	at com.google.protobuf.AbstractParser.parseFrom(AbstractParser.java:48)
+	at com.google.protobuf.GeneratedMessageV3.parseWithIOException(GeneratedMessageV3.java:346)
+	at org.sonarlint.eclipse.core.internal.proto.Sonarlint$StorageIndex.parseFrom(Sonarlint.java:2820)
+	at org.sonarlint.eclipse.core.internal.tracking.StringStoreIndex.load(StringStoreIndex.java:51)
+	... 26 more
+Root exception:
+java.lang.IllegalStateException: Failed to read local issue store index
+	at org.sonarlint.eclipse.core.internal.tracking.StringStoreIndex.load(StringStoreIndex.java:53)
+	at org.sonarlint.eclipse.core.internal.tracking.StringStoreIndex.save(StringStoreIndex.java:61)
+	at org.sonarlint.eclipse.core.internal.tracking.StringStoreIndex.save(StringStoreIndex.java:1)
+	at org.sonarlint.eclipse.core.internal.tracking.IndexedObjectStore.write(IndexedObjectStore.java:100)
+	at org.sonarlint.eclipse.core.internal.tracking.PersistentLocalIssueStore.save(PersistentLocalIssueStore.java:70)
+	at org.sonarlint.eclipse.core.internal.tracking.ProjectIssueTracker.lambda$7(ProjectIssueTracker.java:192)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.sonarlint.eclipse.core.internal.tracking.ProjectIssueTracker.flushAll(ProjectIssueTracker.java:190)
+	at org.sonarlint.eclipse.core.internal.tracking.ProjectIssueTrackers.shutdown(ProjectIssueTrackers.java:46)
+	at org.sonarlint.eclipse.core.internal.SonarLintCorePlugin.stop(SonarLintCorePlugin.java:144)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:875)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:867)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1046)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:376)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:660)
+	at org.eclipse.osgi.container.Module.stop(Module.java:521)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1893)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1768)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:275)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:208)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:660)
+	at org.eclipse.osgi.container.Module.stop(Module.java:521)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:207)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:226)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: com.google.protobuf.InvalidProtocolBufferException$InvalidWireTypeException: Protocol message tag had invalid wire type.
+	at com.google.protobuf.InvalidProtocolBufferException.invalidWireType(InvalidProtocolBufferException.java:142)
+	at com.google.protobuf.UnknownFieldSet$Builder.mergeFieldFrom(UnknownFieldSet.java:527)
+	at com.google.protobuf.GeneratedMessageV3$Builder.parseUnknownField(GeneratedMessageV3.java:863)
+	at org.sonarlint.eclipse.core.internal.proto.Sonarlint$StorageIndex$Builder.mergeFrom(Sonarlint.java:3045)
+	at org.sonarlint.eclipse.core.internal.proto.Sonarlint$StorageIndex$1.parsePartialFrom(Sonarlint.java:3226)
+	at org.sonarlint.eclipse.core.internal.proto.Sonarlint$StorageIndex$1.parsePartialFrom(Sonarlint.java:1)
+	at com.google.protobuf.AbstractParser.parsePartialFrom(AbstractParser.java:215)
+	at com.google.protobuf.AbstractParser.parseFrom(AbstractParser.java:232)
+	at com.google.protobuf.AbstractParser.parseFrom(AbstractParser.java:237)
+	at com.google.protobuf.AbstractParser.parseFrom(AbstractParser.java:48)
+	at com.google.protobuf.GeneratedMessageV3.parseWithIOException(GeneratedMessageV3.java:346)
+	at org.sonarlint.eclipse.core.internal.proto.Sonarlint$StorageIndex.parseFrom(Sonarlint.java:2820)
+	at org.sonarlint.eclipse.core.internal.tracking.StringStoreIndex.load(StringStoreIndex.java:51)
+	... 26 more
+!SESSION 2023-12-21 14:22:40.501 -----------------------------------------------
+eclipse.buildId=4.28.0.20230608-1200
+java.version=17.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_TW
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.emf.ecore 2 0 2023-12-21 14:22:41.878
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY org.eclipse.jface 2 0 2023-12-21 14:23:08.991
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-12-21 14:23:08.991
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-12-21 14:23:15.428
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\NTPU'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.sonarlint.eclipse.core 2 0 2023-12-21 14:23:19.425
+!MESSAGE Error when executing SonarLint analysis
+!STACK 0
+java.lang.IllegalStateException: Failed to read local issue store index
+	at org.sonarlint.eclipse.core.internal.tracking.StringStoreIndex.load(StringStoreIndex.java:53)
+	at org.sonarlint.eclipse.core.internal.tracking.StringStoreIndex.keys(StringStoreIndex.java:43)
+	at org.sonarlint.eclipse.core.internal.tracking.IndexedObjectStore.deleteInvalid(IndexedObjectStore.java:75)
+	at org.sonarlint.eclipse.core.internal.tracking.PersistentLocalIssueStore.<init>(PersistentLocalIssueStore.java:62)
+	at org.sonarlint.eclipse.core.internal.tracking.ProjectIssueTracker.<init>(ProjectIssueTracker.java:57)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708)
+	at org.sonarlint.eclipse.core.internal.tracking.ProjectIssueTrackers.getOrCreate(ProjectIssueTrackers.java:37)
+	at org.sonarlint.eclipse.core.internal.SonarLintCorePlugin.getOrCreateIssueTracker(SonarLintCorePlugin.java:167)
+	at org.sonarlint.eclipse.core.internal.jobs.AbstractAnalyzeProjectJob.trackIssues(AbstractAnalyzeProjectJob.java:308)
+	at org.sonarlint.eclipse.core.internal.jobs.AbstractAnalyzeProjectJob.lambda$19(AbstractAnalyzeProjectJob.java:295)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2382)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2402)
+	at org.sonarlint.eclipse.core.internal.jobs.AbstractAnalyzeProjectJob.updateMarkers(AbstractAnalyzeProjectJob.java:295)
+	at org.sonarlint.eclipse.core.internal.jobs.AbstractAnalyzeProjectJob.runAnalysisAndUpdateMarkers(AbstractAnalyzeProjectJob.java:202)
+	at org.sonarlint.eclipse.core.internal.jobs.AbstractAnalyzeProjectJob.doRun(AbstractAnalyzeProjectJob.java:156)
+	at org.sonarlint.eclipse.core.internal.jobs.AbstractSonarJob.run(AbstractSonarJob.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: com.google.protobuf.InvalidProtocolBufferException$InvalidWireTypeException: Protocol message tag had invalid wire type.
+	at com.google.protobuf.InvalidProtocolBufferException.invalidWireType(InvalidProtocolBufferException.java:142)
+	at com.google.protobuf.UnknownFieldSet$Builder.mergeFieldFrom(UnknownFieldSet.java:527)
+	at com.google.protobuf.GeneratedMessageV3$Builder.parseUnknownField(GeneratedMessageV3.java:863)
+	at org.sonarlint.eclipse.core.internal.proto.Sonarlint$StorageIndex$Builder.mergeFrom(Sonarlint.java:3045)
+	at org.sonarlint.eclipse.core.internal.proto.Sonarlint$StorageIndex$1.parsePartialFrom(Sonarlint.java:3226)
+	at org.sonarlint.eclipse.core.internal.proto.Sonarlint$StorageIndex$1.parsePartialFrom(Sonarlint.java:1)
+	at com.google.protobuf.AbstractParser.parsePartialFrom(AbstractParser.java:215)
+	at com.google.protobuf.AbstractParser.parseFrom(AbstractParser.java:232)
+	at com.google.protobuf.AbstractParser.parseFrom(AbstractParser.java:237)
+	at com.google.protobuf.AbstractParser.parseFrom(AbstractParser.java:48)
+	at com.google.protobuf.GeneratedMessageV3.parseWithIOException(GeneratedMessageV3.java:346)
+	at org.sonarlint.eclipse.core.internal.proto.Sonarlint$StorageIndex.parseFrom(Sonarlint.java:2820)
+	at org.sonarlint.eclipse.core.internal.tracking.StringStoreIndex.load(StringStoreIndex.java:51)
+	... 16 more
