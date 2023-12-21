@@ -73,10 +73,10 @@
        <div class="right-sidebar">
             <div class="icon-container">
                 <div class="icon-image">
-                    <img src="image/telephone.png" alt="Telephone Icon">
+                    <img src="images/telephone.png" alt="Telephone Icon">
                 </div>
                 <div class="icon-image">
-                    <img src="image/email.png" alt="Email Icon" title="email">
+                    <img src="images/email.png" alt="Email Icon" title="email">
                 </div>
             </div>
             <div class="contact-info-container">
