@@ -58,16 +58,16 @@
 			%>
 					<div class="col-md-4">
 						<div class="image-container">
-							<img src="<%= RoomData.roomImgPaths[i] %>" alt="Image <%= i+1 %>" class="img-fluid">
+							<img src="<%= RoomData.roomImgPaths[i] %>" alt="Image <%= i%>" class="img-fluid">
 							<div class="image-description">
 								<div class="d-flex h-20 justify-content-between align-items-center" style="font-weight: bold; color: #180A0A">
-									<p style="font-size: 24px;"><%= RoomData.roomImgTitle[i] %></p>
-									<p style="font-size: 18px;"><%= RoomData.roomImgType[i] %></p>
+									<p style="font-size: 24px;"><%= RoomData.roomTitle[i] %></p>
+									<p style="font-size: 18px;"><%= RoomData.roomType[i] %></p>
 								</div>
 								<div style="height: 80%;">
-									<p><%= RoomData.roomImgContext[i] %></p>
+									<p><%= RoomData.roomContext[i] %></p>
 									<div class="mt-3 text-center">
-										<a href="./room_index.jsp?type=<%= i %>" class="btn bg_main4 text-light">了解更多</a>
+										<a href="./room_index.jsp?no=<%= i %>" class="btn bg_main4 text-light">了解更多</a>
 									</div>
 								</div>
 							</div>
