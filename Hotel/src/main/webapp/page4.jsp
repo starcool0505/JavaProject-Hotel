@@ -21,12 +21,14 @@
             margin: 0 10%;
             display: flex;
             height: 100vh;
+            margin-top: 5%;
         }
 
         .left-sidebar, .right-sidebar {
             flex: 1;
-            background-color: #f0f0f0; 
+            min-width: 40%;
             padding: 20px;
+            
         }
 
         .map-container {
@@ -35,31 +37,29 @@
             max-height: 70%; 
             display: flex;
         }
-         .icon-container {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .icon-image img {
+		.contactInfoList {
+		  display: flex;
+		  flex-direction: row; 
+		  padding: 0;
+		  list-style-type: none; 
+		  justify-content: space-around;
+		}
+		
+		.contactInfoItem {
+		  margin-right: 10%;
+		  text-align: center;
+		  
+		}
+	    
+        .contactInfoIcon img {
             width: 40px;
             height: 40px;
         }
 
-        .contact-info-container {
-            display: flex;
-            flex-direction: row;
-             align-items:  baseline;
-        }
-
-        .tel-info, .email-info {
-            text-align: center;
-            white-space: nowrap;
-        }
     </style>
 </head>
-<body class="bg_main0">
-    <div class="mt-3 mb-3 d-flex justify-content-center">
+<body class="bg_main0 mt-5">
+    <div class="mt-5 mb-3 d-flex justify-content-center pt-2">
         交通資訊
     </div>
     
@@ -72,36 +72,27 @@
             </gmp-map>
         </div>
        <div class="right-sidebar">
-       	<ul class="">
-       	
-       	</ul>
-                   <div class="icon-container">
-                <div class="icon-image">
-                    <img src="images/telephone.png" alt="Telephone Icon">
-                </div>
-                <div class="icon-image">
-                    <img src="images/email.png" alt="Email Icon" title="email">
-                </div>
-            </div>
-            <div class="contact-info-container">
-                <div class="tel-info">
-                    <div>
-                        <p>TEL:</p>
-                        <p>+886-3-2251234</p>
-                    </div>
-                </div>
-                <div class="email-info">
-                    <div>
-                        <p>Email:</p>
-                        <p>abcde@gmail.com</p>
-                    </div>
-                </div>
-            </div>
+	       <ul class="contactInfoList">
+	       		<li class="contactInfoItem">
+	       			<div class="contactInfoIcon">
+	       				<img src="images/telephone.png">
+	       				<p class="mt-2 mb-1">TEL:</p>
+	                    <p>+886-3-2251234</p>
+	       			</div>
+	       		</li>
+	       		<li class="contactInfoItem">
+	       			<div class="contactInfoIcon">
+	       				<img src="images/email.png">
+	       				<p class="mt-2 mb-1">Email:</p>
+	                    <p>abcde@gmail.com</p>
+	       			</div>
+	       		</li>
+	       	</ul>
+                
         </div>
     </div>
 </body>
 </html>
-
 
 
 <%@ include file="/WEB-INF/views/footer.jsp" %>
