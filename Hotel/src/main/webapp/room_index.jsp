@@ -6,8 +6,8 @@
 <%@ include file="/WEB-INF/views/header.jsp" %>
 
 <%
-	String roomTypeStr=request.getParameter("no");
-	int roomType=Integer.parseInt(roomTypeStr);
+	String roomNoStr=request.getParameter("no");
+	int roomNo=Integer.parseInt(roomNoStr);
 %>
 
 <!DOCTYPE html>
