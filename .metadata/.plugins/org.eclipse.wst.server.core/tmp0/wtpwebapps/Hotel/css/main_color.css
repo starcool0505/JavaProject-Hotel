@@ -1,0 +1,25 @@
+/* 背景顏色用的主色調 */
+.bg_main0
+{
+	background-color: rgb(251, 249, 247);
+}
+.bg_main1
+{
+	background-color: #F3EEEA;
+	/* 最淺 */
+}
+.bg_main2
+{
+	background-color: #EBE3D5;
+	/* 次之 */
+}
+.bg_main3
+{
+	background-color: #B0A695;
+	/* 再次之 */
+}
+.bg_main4
+{
+	background-color: #776B5D;
+	/* 最深 */
+}
