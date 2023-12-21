@@ -20,14 +20,16 @@
 		
 		.container {
 		  display: flex;
+		  justify-content: center;
 		  flex-direction: column;
+		    height: 100vh; 
 		  align-items: center; 
 		  margin: 0 10%;
 		  margin-top: 5%;
 		}
 		
 		.booking-form {
-		  width: 100%;
+		   margin: 0 10%;
 		}
 		
 		.room-preview {

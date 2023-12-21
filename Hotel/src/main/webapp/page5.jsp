@@ -22,7 +22,7 @@
 		
 		    .container {
 		      max-width: 800px;
-		      margin: 50px auto;
+		     
 		      overflow: hidden;
 		      background-color: #fff;
 		      border-radius: 8px;

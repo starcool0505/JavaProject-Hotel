@@ -31,7 +31,8 @@
 
         .map-container {
             flex: 4;
-            width: 100%; 
+            max-width: 80%; 
+            max-height: 70%; 
             display: flex;
         }
          .icon-container {
@@ -71,7 +72,10 @@
             </gmp-map>
         </div>
        <div class="right-sidebar">
-            <div class="icon-container">
+       	<ul class="">
+       	
+       	</ul>
+                   <div class="icon-container">
                 <div class="icon-image">
                     <img src="images/telephone.png" alt="Telephone Icon">
                 </div>
