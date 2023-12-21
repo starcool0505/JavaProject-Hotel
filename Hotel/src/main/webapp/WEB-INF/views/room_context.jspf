@@ -40,7 +40,7 @@
 				<div class="col">人數：<%=RoomData.roomPeople[roomType] %></div>
 			</div>
 			<div class="mt-3">
-				<button type="button" class="btn bg_main3 text-light">前往訂房</button>
+				<button type="button" class="btn bg_main3 text-light" onclick="window.location.href='./page5.jsp'">前往訂房</button>
 			</div>
 		</div>
 		
