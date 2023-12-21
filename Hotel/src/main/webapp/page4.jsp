@@ -25,16 +25,36 @@
 
         .left-sidebar, .right-sidebar {
             flex: 1;
-            background-color: #f0f0f0; /* Set the background color as needed */
-            padding: 20px; /* Add padding as needed */
+            background-color: #f0f0f0; 
+            padding: 20px;
         }
 
         .map-container {
             flex: 4;
-            width: 100%; /* Adjust width as needed */
+            width: 100%; 
+            display: flex;
+        }
+         .icon-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
         }
 
-       
+        .icon-image img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .contact-info-container {
+            display: flex;
+            flex-direction: row;
+             align-items:  baseline;
+        }
+
+        .tel-info, .email-info {
+            text-align: center;
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body class="bg_main0">
@@ -50,18 +70,28 @@
                 </gmp-advanced-marker>
             </gmp-map>
         </div>
-        <div class="right-sidebar">
-            <!-- Place your icons and address information here -->
+       <div class="right-sidebar">
             <div class="icon-container">
                 <div class="icon-image">
-                	<img width="40px" height="40px" src="image/telephone.png">
+                    <img src="image/telephone.png" alt="Telephone Icon">
                 </div>
-                <span style="text-align-center">TEL</span>
-                +886-3-2251234
-                
+                <div class="icon-image">
+                    <img src="image/email.png" alt="Email Icon" title="email">
+                </div>
             </div>
-            <div class="address-container">
-                <!-- Your address information goes here -->
+            <div class="contact-info-container">
+                <div class="tel-info">
+                    <div>
+                        <p>TEL:</p>
+                        <p>+886-3-2251234</p>
+                    </div>
+                </div>
+                <div class="email-info">
+                    <div>
+                        <p>Email:</p>
+                        <p>abcde@gmail.com</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
