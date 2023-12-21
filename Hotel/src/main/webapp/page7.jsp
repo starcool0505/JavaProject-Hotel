@@ -21,8 +21,8 @@
 		
 		.container {
 		  display: flex;
-		  flex-direction: column; /* 將元素排列改為垂直方向 */
-		  align-items: center; /* 讓元素在水平方向居中 */
+		  flex-direction: column;
+		  align-items: center; 
 		  margin: 0 10%;
 		}
 		
