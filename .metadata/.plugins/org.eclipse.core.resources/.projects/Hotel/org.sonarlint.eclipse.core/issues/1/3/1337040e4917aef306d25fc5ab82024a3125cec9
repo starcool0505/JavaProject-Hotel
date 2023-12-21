@@ -1,27 +1,0 @@
-
-Œ
-java:S1104"XMake roomImgPaths a static final constant or non-public and provide accessors if needed.b 11c305f8b0ca23a8b63118fa2ecda3bbh
-Œ
-java:S1104"XMake roomImgTitle a static final constant or non-public and provide accessors if needed.b 498337e8a933538d8f02409354c645ech
-‹
-java:S1104"WMake roomImgType a static final constant or non-public and provide accessors if needed.b 6d98c59a1bde9f3a2040b4a02fccb909h
-Ž
-java:S1104"ZMake roomImgContext a static final constant or non-public and provide accessors if needed.b 2ea103afefc4bdee0478bfdc12a21282h
-f
-java:S1444"2Make this "public static roomImgPaths" field finalb 11c305f8b0ca23a8b63118fa2ecda3bbh
-f
-java:S1444"2Make this "public static roomImgTitle" field finalb 498337e8a933538d8f02409354c645ech
-e
-java:S1444"1Make this "public static roomImgType" field finalb 6d98c59a1bde9f3a2040b4a02fccb909h
-h
-java:S1444"4Make this "public static roomImgContext" field finalb 2ea103afefc4bdee0478bfdc12a21282h
-Q
-java:S2386"Make this member "protected".b 11c305f8b0ca23a8b63118fa2ecda3bbh
-Q
-java:S2386"Make this member "protected".b 498337e8a933538d8f02409354c645ech
-Q
-java:S2386"Make this member "protected".b 6d98c59a1bde9f3a2040b4a02fccb909h
-Q
-java:S2386"Make this member "protected".b 2ea103afefc4bdee0478bfdc12a21282h
-n
-java:S1118":Add a private constructor to hide the implicit public one.b c53116555616a9b0f76df042f2b88c28h
