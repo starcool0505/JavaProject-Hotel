@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="./data.RoomData" %>
+<%@ page import="data.RoomData" %>
 
 <div class="col-4 text-start">
 	<h2 class="mt-3">相關設備</h2>

@@ -1,0 +1,41 @@
+.custom-container
+{
+	max-width: 20%;
+	margin: 0;
+}
+.list-unstyled
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.icon_ul
+{
+	list-style: none;
+	padding: 0;
+	display: flex;
+ }
+.icon_li
+{
+	margin: 0 6%;
+	list-style-type: none;
+}
+.icon_div
+{
+	text-align: center;
+}
+.icon
+{
+	font-size: 3em;
+	color: lightgray;
+}
+.icon_true
+{
+	font-size: 3em;
+	color: black;
+}
+.icon_text
+{
+	color: lightgray;
+}
