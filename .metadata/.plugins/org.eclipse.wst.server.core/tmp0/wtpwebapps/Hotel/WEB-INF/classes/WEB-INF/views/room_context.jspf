@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="data.RoomData" %>
+
 <div class="position-relative text-center" style="margin: 0 20%; margin-top: 10vh">
 	<div class="fs-1">房型介紹</div>
 	<div>
-		<img src="<%= RoomData.roomImgPaths[roomType] %>" alt="Image <%= roomType %>" class="img-fluid mt-3">
+		<img src="<%= RoomData.roomImgPaths[roomNo] %>" alt="Image <%= roomNo %>" class="img-fluid mt-3">
 	</div>
-	<div class="row" style="max-height: auto;">
+	<div class="row mb-5" style="max-height: auto;">
 		<div class="col-2 custom-container">
 			<%
 				for(int i=0; i<RoomData.roomTitle.length; i++)
@@ -28,110 +30,22 @@
 		</div>
 		
 		<div class="col-5 text-start ms-5">
-			<h1 class="mt-3"><%=RoomData.roomTitle[roomType] %></h1>
+			<h1 class="mt-3"><%=RoomData.roomTitle[roomNo] %></h1>
 			<p></p>
-			<div class="fs-3">價格：<%=RoomData.roomPrice[roomType] %></div>
+			<div class="fs-3">價格：<%=RoomData.roomPrice[roomNo] %></div>
 			<div class="row mt-3">
-				<div class="col">樓層：<%=RoomData.roomfloor[roomType] %></div>
-				<div class="col">坪數：<%=RoomData.roomSquare[roomType] %></div>
+				<div class="col">樓層：<%=RoomData.roomfloor[roomNo] %></div>
+				<div class="col">坪數：<%=RoomData.roomSquare[roomNo] %></div>
 			</div>
 			<div class="row">
-				<div class="col">床數：<%=RoomData.roomBeds[roomType] %></div>
-				<div class="col">人數：<%=RoomData.roomPeople[roomType] %></div>
+				<div class="col">床數：<%=RoomData.roomBeds[roomNo] %></div>
+				<div class="col">人數：<%=RoomData.roomPeople[roomNo] %></div>
 			</div>
 			<div class="mt-3">
 				<button type="button" class="btn bg_main3 text-light" onclick="window.location.href='./page5.jsp'">前往訂房</button>
 			</div>
 		</div>
 		
-		<div class="col-4 text-start">
-			<h2 class="mt-3">相關設備</h2>
-			<ul class="icon_ul">
-				<li class="icon_li">
-					<div class="icon_div">
-						<div>
-							<i class="bi bi-2-square icon_true"></i>
-						</div>
-						<div class="">二樓</div>
-					</div>
-				</li>
-				<li class="icon_li">
-					<div class="icon_div">
-						<div>
-							<i class="bi bi-3-square icon"></i>
-						</div>
-						<div>三樓</div>
-					</div>
-				</li>
-				<li class="icon_li">
-					<div class="icon_div">
-						<div>
-							<i class="bi bi-4-square icon"></i>
-						</div>
-						<div>四樓</div>
-					</div>
-				</li>
-				<li class="icon_li">
-					<div class="icon_div">
-						<div>
-							<i class="bi bi-5-square icon"></i>
-						</div>
-						<div>五樓</div>
-					</div>
-				</li>
-			</ul>
-			<ul class="icon_ul">
-				<li class="icon_li">
-					<div class="icon_div">
-						<div>
-							<i class="bi bi-1-circle icon"></i>
-						</div>
-						<div>一大床</div>
-					</div>
-				</li>
-				<li class="icon_li">
-					<div class="icon_div">
-						<div>
-							<i class="bi bi-2-circle icon"></i>
-						</div>
-						<div>兩中床</div>
-					</div>
-				</li>
-				<li class="icon_li">
-					<div class="icon_div">
-						<div>
-							<i class="bi bi-4-circle icon"></i>
-						</div>
-						<div>四小床</div>
-					</div>
-				</li>
-			</ul>
-			<ul class="icon_ul">
-				<li class="icon_li">
-					<div class="icon_div">
-						<div>
-							<i class="bi bi-flower1 icon"></i>
-						</div>
-						<div>花園</div>
-					</div>
-				</li>
-				<li class="icon_li">
-					<div class="icon_div">
-						<div>
-							<i class="bi bi-tree icon"></i>
-						</div>
-						<div>叢林</div>
-					</div>
-				</li>
-				<li class="icon_li">
-					<div class="icon_div">
-						<div>
-							<i class="bi bi-flower2 icon"></i>
-						</div>
-						<div>更多的花</div>
-					</div>
-				</li>
-			</ul>
-		</div>
+		<%@ include file="/WEB-INF/views/room_icon.jspf" %>
 	</div>
 </div>

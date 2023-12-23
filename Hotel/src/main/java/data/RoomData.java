@@ -3,9 +3,9 @@ package data;
 public class RoomData
 {
 	public static String[] roomImgPaths = {"images/s-room-1.jpg", "images/s-room-2.jpg", "images/s-room-3.jpg", "images/s-room-4.jpg", "images/s-room-5.jpg", "images/s-room-6.jpg"};
-	public static String[] roomTitle = {"æ˜Ÿçˆ†æ°£æµæ–¬", "èºæ—‹é£›ç®­", "æ˜‡é¾æ‹³", "å¤©é¦¬æµæ˜Ÿæ‹³", "æ°´ä¹‹å‘¼å¸", "é–å–‰å‰ªåˆ€è…³"};
-	public static String[] roomType = {"é›™äººæˆ¿", "é›™äººæˆ¿", "é›™äººæˆ¿", "å››äººæˆ¿", "å››äººæˆ¿", "å››äººæˆ¿"};
-	public static String[] roomContext = {"å¤©åœ°ç„é»ƒï¼Œå®‡å®™æ´ªè’ã€‚æ—¥æœˆç›ˆæ˜ƒï¼Œè¾°å®¿åˆ—å¼µã€‚", "å¯’ä¾†æš‘å¾€ï¼Œç§‹æ”¶å†¬è—ã€‚é–é¤˜æˆæ­²ï¼Œå¾‹å‘‚èª¿é™½ã€‚", "é›²é¨°è‡´é›¨ï¼Œéœ²çµç‚ºéœœã€‚é‡‘ç”Ÿéº—æ°´ï¼Œç‰å‡ºå´‘å´—ã€‚", "åŠè™Ÿå·¨é—•ï¼Œç ç¨±å¤œå…‰ã€‚æœçææŸ°ï¼Œèœé‡èŠ¥è–‘ã€‚", "æµ·é¹¹æ²³æ·¡ï¼Œé±—æ½›ç¾½ç¿”ã€‚é¾å¸«ç«å¸ï¼Œé³¥å®˜äººçš‡ã€‚", "å§‹åˆ¶æ–‡å­—ï¼Œ ä¹ƒæœè¡£è£³ã€‚ æ¨ä½è®“åœ‹ï¼Œ æœ‰è™é™¶å”ã€‚"};
+	public static String[] roomTitle = {"¬PÃz®ğ¬y±Ù", "Á³±Û­¸½b", "ª@Às®±", "¤Ñ°¨¬y¬P®±", "¤ô¤§©I§l", "Âê³ï°Å¤M¸}"};
+	public static String[] roomType = {"Âù¤H©Ğ", "Âù¤H©Ğ", "Âù¤H©Ğ", "¥|¤H©Ğ", "¥|¤H©Ğ", "¥|¤H©Ğ"};
+	public static String[] roomContext = {"¤Ñ¦a¥È¶À¡A¦t©z¬x¯î¡C¤é¤ë¬ÕÌÊ¡A¨°±J¦C±i¡C", "´H¨Ó´»©¹¡A¬î¦¬¥VÂÃ¡C¶|¾l¦¨·³¡A«ß§f½Õ¶§¡C", "¶³ÄË­P«B¡AÅSµ²¬°Á÷¡Cª÷¥ÍÄR¤ô¡A¥É¥X±X±^¡C", "¼C¸¹¥¨Âö¡A¯]ºÙ©]¥ú¡CªG¬Ã§õÏU¡Aµæ­«ªãÁ¤¡C", "®üÄĞªe²H¡AÅì¼ç¦Ğµ¾¡CÀs®v¤õ«Ò¡A³¾©x¤H¬Ó¡C", "©l¨î¤å¦r¡A ¤DªA¦ç»n¡C ±À¦ìÅı°ê¡A ¦³¸·³³­ğ¡C"};
 	public static String[] roomPrice={"2023", "1999", "8888", "7777", "6666", "5239"};
 	public static String[] roomfloor={"2", "4", "2", "3", "5", "3"};
 	public static String[] roomSquare={"20", "20", "20", "30", "30", "30"};
