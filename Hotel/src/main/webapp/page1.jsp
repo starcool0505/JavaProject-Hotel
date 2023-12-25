@@ -11,11 +11,13 @@
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 	</head>
 	<style>
+  /*
   h2 {
        display: flex;
        justify-content: center;
        align-items: center;
-   }
+   } 
+   */
    .slogan {
        background-color: #afa07f; /* 背景顏色 */
        color:white;
@@ -33,20 +35,23 @@
 	 /* 圖片 */
        .text-overlay {
            position: relative;
-          width: 1000%; /* 圖片最大寬度為視窗寬度，如果視窗比圖片寬，則圖片保持原大小 */
-			 height: auto; /* 讓圖片按比例縮放 */
+           width: 100%; /* 圖片最大寬度為視窗寬度，如果視窗比圖片寬，則圖片保持原大小 */
+		   height: auto; /* 讓圖片按比例縮放 */
           
        }
        .text-overlay .overlay-text {
            position: absolute;
-           top: 50%;
-           left: 50%;
-           transform: translate(-50%, -50%);
-           background-color: rgba(0, 0, 0, 0.5); /* 背景顏色 */
-           color: white; /* 文字顏色 */
-           padding: 30px;
-           font-size: 16px; /* 調整字體大小 */
-           line-height: 2.5; /* 調整行距 */
+		   top: 50%;
+		   left: 50%;
+		   transform: translate(-50%, -50%);
+		   background-color: rgba(0, 0, 0, 0.5);/* 背景顏色 */
+		   color: white;
+		   padding: 50px; /* 增加 padding 來讓框框變大 */
+		   font-size: 20px;
+		   line-height: 2.5;
+		   width: 80%; /* 修改寬度 */
+		   height: auto; /* 讓高度自適應內容 */
+		   text-align: center; /* 讓文字水平置中 */
        }
        .about1{
        display:flex;
@@ -99,39 +104,85 @@
        color:white;
        }
       
+      .about1,
+	  .about2 {
+   	   display: flex;
+       background-color: #393939;
+       overflow: hidden; /* 確保圖片放大時不會溢出容器 */
+			  }
+
+	  .about1 img,
+	  .about2 img {
+       width: 50%;
+       transition: transform 0.3s ease; /* 加入變換的動畫效果 */
+					}
+
+	  .about1 img:hover,
+	  .about2 img:hover {
+       transform: scale(1.1); /* 滑鼠滑入時放大 1.1 倍 */
+					}
+
+	  .about1_1,
+	  .about2_1 {
+    	width: 50%;
+        background-color: transparent;
+        display: flex;
+        flex-grow: 1;
+	    flex-direction: column;
+	    align-items: center;
+	    justify-content: center;
+	    margin-right: 20px;
+	            }
+
+	   .about1_1 p,
+	   .about2_1 p {
+		 text-align: center;
+		 line-height: 2;
+		 color: white;
+		}
+      
        .about3{
-       display:flex;
-       background-color:#EBE3D5;
-       justify-content:space-between;
-       align-items:center;
-       padding:80px  80px;
+        display: flex;
+        background-color: #EBE3D5;
+        justify-content: space-between;
+        align-items: center;
+        padding: 80px 80px;
        }
-       .about3 div{
-       width:300px;
-       text-align:center;
+       .about3 div {
+   	    width: 300px;
+        text-align: center;
+        margin: 0 15px; /* 調整左右間距 */
+        box-sizing: border-box; /* 確保邊框和內距不會增加區塊寬度 */
+		}
+
+      .about3 img {
+   	    width: 100%;
+        border-radius: 10px; /*製造圓角效果 */
+        transition: transform 0.3s ease; /* 動畫效果，使變化更平滑 */
+		}
       
-       }
-       .about3 img{
-       width:100%;
-       border-radius:10px;
-       }
-      
-       .about3 h4{
-       margin-top: 20px;
-       margin:20px o;
-       font-weight: bold;
-       }
+      .about3 h4 {
+   	   margin-top: 20px;
+       margin-bottom: 10px; /* 修正標題的下方間距 */
+      font-weight: bold;
+		}
       
        .about3 p{
-       font-size:16px;
+        font-size: 16px;
+   	    margin-bottom: 0; /* 移除段落底部的預設間距 */
        }
+       
+       .about3 img:hover {
+    	transform: scale(1.1); /* 滑鼠滑入時放大 1.1 倍 */
+		}
+		
 	</style>
 	
 	<body class="bg_main0 vh-100">
 		
 		<section class="news" >
 			<div class="text-overlay" style="width: 100%; hight:auto" >
-		<img alt="" src="images/pic5.jpg" style="width: 100%; hight:auto">
+		<img alt="" src="images/pic22.jpg" style="width: 100%; hight:auto">
 				<div class="overlay-text">
 		<p>歡迎來到我們的飯店，這裡融合了奢華與舒適，為您提供精緻的住宿體驗。<br>我們致力於營造溫馨且獨特的旅程，讓每位客人都感受到無比的尊榮與舒適。
 		<br>我們熬過了疫情艱難的時刻,期待與您再次相會。<br>希望能在您愉快的旅程留下與我們的足跡。
@@ -186,6 +237,11 @@
 				<p>洗衣烘乾都俱全<br>不用擔心無衣服穿</p>
 			</div>
 			
+			<div>
+				<img alt="" src="images/pic23.jpg">
+				<h4>舒適咖啡廳</h4>
+				<p>早晨享用香濃咖啡<br>或者下午品嚐特色點心</p>
+			</div>
 		</section>
 	</body>
 </html>
