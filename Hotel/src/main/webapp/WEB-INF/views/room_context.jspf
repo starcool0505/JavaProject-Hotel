@@ -18,7 +18,9 @@
 					}
 			%>
 				<div class="col-2">
-					<button type="button" class="btn bg_main3 mb-4 text-light" style="min-width: 10vw;"><%=RoomData.roomTitle[i] %></button>
+					<button type="button" class="btn bg_main3 mb-4 text-light" style="min-width: 10vw;" onclick="window.location.href='./room_index.jsp?no=<%= i %>'">
+						<%=RoomData.roomTitle[i] %>
+					</button>
 				</div>
 				<div class="w-100"></div>
 			<%
@@ -29,7 +31,7 @@
 		
 		<div class="col-5 text-start ms-5">
 			<h1 class="mt-3"><%=RoomData.roomTitle[roomNo] %></h1>
-			<p></p>
+			<p><%=RoomData.roomDescribe[roomNo] %></p>
 			<div class="fs-3">價格：<%=RoomData.roomPrice[roomNo] %></div>
 			<div class="row mt-3">
 				<div class="col">樓層：<%=RoomData.roomfloor[roomNo] %></div>
