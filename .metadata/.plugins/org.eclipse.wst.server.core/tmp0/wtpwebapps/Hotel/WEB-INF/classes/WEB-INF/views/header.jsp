@@ -12,11 +12,11 @@
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 		<link rel="icon" type=image/png href="images/logopng.png">
 	<style type="text/css">
-	.logo-img
-	{
-		width: 50px;
-		height: auto;
-	}
+		.logo-img
+		{
+			width: 50px;
+			height: auto;
+		}
 	</style>
 	
 	</head>
@@ -43,7 +43,6 @@
 						</li>
 					</ul>
 				</div>
-<%-- 			<i class="bi bi-person-circle text-light h5 mb-0 d-none d-md-block">${sessionScope.username}</i> --%>
 				<i class="bi bi-person-circle h5 text-light ml-3 mb-0" role="button" onclick="window.location.href='./login.jsp'">登入</i>
 			</div>
 		</nav>
