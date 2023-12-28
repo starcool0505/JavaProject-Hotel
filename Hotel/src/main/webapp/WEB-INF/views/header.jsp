@@ -14,7 +14,7 @@
 	<style type="text/css">
 		.logo-img
 		{
-			width: 50px;
+			width: 8%;
 			height: auto;
 		}
 	</style>
@@ -24,26 +24,24 @@
 	<body>
 		<nav class="navbar navbar-expand-lg bg_main4 fixed-top">
 			<div class="container-fluid" style="margin: 0 20%">
-				<button class="navbar-brand text-light me-0" onclick="window.location.href='./index.jsp'" style="background: none; border: none; padding: 0; cursor: pointer;">
-					<img src="images/logo7.jpg" alt="XX飯店圖片" class="logo-img">
-				</button>
+					<img src="images/logo7.jpg" alt="XX飯店圖片" class="logo-img" onclick="window.location.href='./index.jsp'">
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link text-light ms-5" href="./page1.jsp">關於我們</a>
+							<a class="nav-link text-light ms-5 fs-4" href="./page1.jsp">關於我們</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-light" href="./page2.jsp">最新消息</a>
+							<a class="nav-link text-light fs-4" href="./page2.jsp">最新消息</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-light" href="./page3.jsp">客房介紹</a>
+							<a class="nav-link text-light fs-4" href="./page3.jsp">客房介紹</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-light" href="./page4.jsp">交通資訊</a>
+							<a class="nav-link text-light fs-4" href="./page4.jsp">交通資訊</a>
 						</li>
 					</ul>
 				</div>
-				<i class="bi bi-person-circle h5 text-light ml-3 mb-0" role="button" onclick="window.location.href='./login.jsp'">登入</i>
+				<i class="bi bi-person-circle fs-4 text-light ml-3 mb-0" role="button" onclick="window.location.href='./login.jsp'">登入</i>
 			</div>
 		</nav>
 	</body>

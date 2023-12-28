@@ -9,33 +9,12 @@
 	padding: 0;
 	margin: 0;
 }
-
-.icon_ul
+.round-button
 {
-	list-style: none;
-	padding: 0;
-	display: flex;
- }
-.icon_li
-{
-	margin: 0 6%;
-	list-style-type: none;
-}
-.icon_div
-{
-	text-align: center;
-}
-.icon
-{
-	font-size: 3em;
-	color: lightgray;
-}
-.icon_true
-{
-	font-size: 3em;
-	color: black;
-}
-.icon_text
-{
-	color: lightgray;
+	width: 90%; /* 调整按钮的宽度和高度，使其成为正圆形 */
+	height: 30%;
+	border-radius: 50%; /* 将边框半径设置为50%，使其成为正圆形 */
+	color: whitesmoke;
+	font-weight: bold;
+	font-size: 1.5em;
 }
