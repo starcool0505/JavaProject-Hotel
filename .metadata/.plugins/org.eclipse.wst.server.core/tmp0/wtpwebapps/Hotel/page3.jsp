@@ -67,7 +67,7 @@
 								<div style="height: 80%;">
 									<p><%= RoomData.roomContext[i] %></p>
 									<div class="mt-3 text-center">
-										<a href="./room_index.jsp?no=<%= i %>" class="btn bg_main4 text-light">了解更多</a>
+										<a href="./room_index.jsp?no=<%= i %>" class="btn color1 text-light">了解更多</a>
 									</div>
 								</div>
 							</div>
