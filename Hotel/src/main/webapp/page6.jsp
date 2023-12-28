@@ -9,20 +9,55 @@
 	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 	    <link rel="stylesheet" href="./css/main_color.css">
+	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" >
 	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 	    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 	  <title>訂單完成</title>
+	  <style type="text/css">
+	  	.bi-1-circle-fill {
+		    color: darkgrey; 
+		}
+	  </style>
 	</head>
 	<body>
 	
 	  <h2>訂單完成</h2>
-	
-	  <div id="order-details">
-	    <p>姓名: <span id="name"></span></p>
-	    <p>電話: <span id="phone"></span></p>
-	    <p>Email: <span id="email"></span></p>
-	    <p>特殊要求: <span id="special-requests"></span></p>
-	  </div>
+	  <div class="container mt-5">
+	  	<div>
+	  		<i class="bi bi-1-circle-fill"></i>
+	  	</div>
+	  	<div>
+			<table class="pure-table pure-table-bordered pure-table-striped" style="min-width: 60%">
+				  <tbody>
+				    <tr>
+				      <th width="30%">住宿期間</th>
+				      <td>
+						<p>入住日期 </p>
+						<p>退房日期 </p>
+					  </td>
+				    </tr>
+				    <tr>
+				      <th width="30%">夜數</th>
+				      <td>
+						<p> 晚</p>
+					  </td>
+				    </tr>
+				    <tr>
+				      <th width="30%">房型</th>
+				      <td>
+						<p> 雙人房</p>
+					  </td>
+				    </tr>
+				    <tr>
+				      <th width="30%">小計</th>
+				      <td>
+						<p>$ 元</p>
+					  </td>
+				    </tr>
+				  </tbody>
+			</table>
+		</div>
+	</div>
 	
 	  <script>
 	    function getParameterByName(name, url) {

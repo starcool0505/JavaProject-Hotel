@@ -11,10 +11,9 @@
 	    <link rel="stylesheet" href="./css/main_color.css">
 	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 	    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-	  <title>訂單完成</title>
+	  <title>訂房</title>
 	  <style>
 	  	body {
-		  margin: 0;
 		  font-family: Arial, sans-serif;
 		  overflow-x: auto;
 		}
@@ -56,16 +55,9 @@
 		  margin-top: 10px;
 		}
 		
-		.popup {
-		  display: none;
-		  position: fixed;
-		  top: 50%;
-		  left: 50%;
-		  transform: translate(-50%, -50%);
-		  padding: 20px;
-		  background-color: #fff;
-		  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		  z-index: 2;
+		.book label,.book button {
+		  display: inline-block;
+		  margin-left: 10px;
 		}
 		
 		.arrow {
@@ -93,21 +85,24 @@
 	
 		<div class="container">
 		    <div class="booking-form">
-		      <label for="checkin">入住時間:</label>
-		      <input type="date" id="checkin" name="checkin" onchange="updateCheckoutDate()" required>
-		      
-		      <label for="checkout">退房時間:</label>
-		      <input type="date" id="checkout" name="checkout" >
-		      
-		      <label for="guests">人數:</label>
-		      <select id="guests" name="guests">
-		        <option value="1">1人</option>
-		        <option value="2">2人</option>
-		        <option value="3">3人</option>
-		        <option value="4">4人</option>
-		      </select>
-		
-		      <button onclick="checkBooking()">查詢</button>
+			    <div class="book mt-4">
+			      <label for="checkin">入住時間:</label>
+			      <input type="date" id="checkin" name="checkin" onchange="updateCheckoutDate()" required>
+			      <label for="checkout">退房時間:</label>
+			      <input type="date" id="checkout" name="checkout" >
+			       
+			      <label for="guests">人數:</label>
+			      <select id="guests" name="guests">
+			        <option value="1">1人</option>
+			        <option value="2">2人</option>
+			        <option value="3">3人</option>
+			        <option value="4">4人</option>
+			      </select>
+			
+			      <button  onclick="checkBooking()">查詢
+			      <i class="bi bi-search"></i>
+			      </button>
+		     </div>
 		
 		      <div class="room-preview">
 				  <button class="arrow" id="prevArrow">&lt;</button>
@@ -127,61 +122,40 @@
   		</div>
 	
 		<script>
-		 var checkinDate = document.getElementById("checkin");
-		// 設置最小日期为今天
-		  checkinDate.setAttribute('min', today);
-		//格式化
-		  var today = new Date().toISOString().split('T')[0];
-		
-		  function updateCheckoutDate() {
-		     
-		      var checkoutDate = document.getElementById("checkout");
+			var checkinDateInput = document.getElementById("checkin");
+			//格式化
+			var today = new Date().toISOString().split('T')[0];
+			// 設置最小日期為今天
+			checkinDateInput.setAttribute('min', today);
+			
+			function updateCheckoutDate() {
+			    var checkoutDate = document.getElementById("checkout");
+			    var checkinDate = new Date(checkinDateInput.value);
 
-		      // 獲取選擇的訂房日期
-		      var checkinDate = new Date(checkinDate.value);
-		      
-		      
-		      // 計算隔天日期
-		      var nextDay = new Date(checkinDate);
-		      nextDay.setDate(checkinDate.getDate() + 1);
-
-		      // 將退房日期設為隔天日期
-		      checkoutDateInput.valueAsDate = nextDay;
-		      
-				
-				
-				
-				  
-				  var tomorrow = new Date();
-				  tomorrow.setDate(tomorrow.getDate()+1);
-				  var tomorrowFormat = tomorrow.toISOString().split('T')[0];
-				  var dateOutput = document.getElementById('checkout');
-				  dateOutput.setAttribute('min', tomorrow);
-		    }
-
-
-
-    
-    function checkBooking() {
-        const checkinTime = new Date(document.getElementById('checkin').value);
-        const checkoutTime = new Date(document.getElementById('checkout').value);
-
-        if (!checkinTime || !checkoutTime) {
-            alert('請選擇入住和退房時間');
-            return;
-        }
-
-        if (checkoutTime <= checkinTime) {
-            alert('退房時間需在入住時間之後');
-            return;
-        }
-
-        const guests = document.getElementById('guests').value;
-    }
-</script>
+			    // 計算隔天日期
+			    var nextDay = new Date(checkinDate);
+			    nextDay.setDate(nextDay.getDate() + 1);
+	
+			    // 將退房日期設為隔天日期
+			    checkoutDate.valueAsDate = nextDay;
+			 	//格式化  
+				var tomorrow = nextDay.toISOString().split('T')[0];
+				checkoutDate.setAttribute('min', tomorrow);
+			 }
+	
+			 function checkBooking() {
+			     const checkinTime = new Date(document.getElementById('checkin').value);
+			     const checkoutTime = new Date(document.getElementById('checkout').value);
+			
+			     if (!checkinTime || !checkoutTime) {
+			         alert('請選擇入住和退房時間');
+			         return;
+			     }
+			     const guests = document.getElementById('guests').value;
+			 }
+		</script>
 	</body>
 </html>
-
 
 
 <%@ include file="/WEB-INF/views/footer.jsp" %>

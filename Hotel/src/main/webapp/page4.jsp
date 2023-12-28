@@ -20,15 +20,18 @@
         .content-container {
             margin: 0 10%;
             display: flex;
-           margin-bottom: 10%;
-            margin-top: 5%;
+            margin-bottom: 10%;
+            margin-top: 0;
+            padding: 5%;
+            background-color: #fffaf0;
         }
 
         .right-sidebar {
             flex: 1;
             min-width: 40%;
             padding: 20px;
-            
+            margin-left: 10%;
+             border-left: 2px solid #ccc; /* 添加右邊框 */
         }
 
         .map-container {
@@ -66,10 +69,12 @@
 </head>
 	<body class="bg_main0 mt-5">
 	    <div class="mt-5 mb-0 d-flex justify-content-center pt-2">
-	        <h3 class="mb-0">交通資訊</h3>
+	    	<div class="mt-2 mb-0 d-flex flex-column align-items-center">
+	        <h3 class="mb-0">Traffic Information </h3>
+	        <p class="mt-1 text-align-center">交通資訊</p></div>
 	    </div>
 	    
-	    <div class="content-container mt-5">
+	    <div class="content-container">
 	        <div class="map-container">
 	            <gmp-map center="25.05818748474121,121.54263305664062" zoom="16" map-id="DEMO_MAP_ID">
 	                <gmp-advanced-marker position="25.05818748474121,121.54263305664062" title="Hotel">
@@ -89,7 +94,7 @@
 		       			<div class="contactInfoIcon">
 		       				<img src="images/email.png">
 		       				<p class="mt-2 mb-1">Email:</p>
-		                    <p>abcde@gmail.com</p>
+		                    <p>abcde123@gmail.com</p>
 		       			</div>
 		       		</li>
 		       	</ul>
