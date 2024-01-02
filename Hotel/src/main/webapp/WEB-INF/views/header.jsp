@@ -34,7 +34,7 @@
 							<a class="nav-link text-light fs-4" href="./page2.jsp">最新消息</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-light fs-4" href="./page3.jsp">客房介紹</a>
+							<a class="nav-link text-light fs-4" href="/Hotel/mvc/page3">客房介紹</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link text-light fs-4" href="./page4.jsp">交通資訊</a>
