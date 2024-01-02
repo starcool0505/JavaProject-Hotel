@@ -15,23 +15,13 @@
 	  <style>
 	  	body {
 		  font-family: Arial, sans-serif;
-		  overflow-x: auto;
 		}
 		
 		.container {
-		  display: flex;
+ 		  display: flex;
 		  justify-content: center;
 		  flex-direction: column;
 		  align-items: center; 
-		  margin-left: 10%;
-		  margin-right: 10%;
-		  margin-top: 5%;
-		  position: relative;
-		 
-		}
-		
-		.booking-form {
-		   margin: 0 10%;
 		}
 		
 		.room-preview {
@@ -83,8 +73,7 @@
 	</head>
 	<body>
 	
-		<div class="container">
-		    <div class="booking-form">
+		<div class="container" style="margin: 0 20%; margin-top: 10vh;">
 			    <div class="book mt-4">
 			      <label for="checkin">入住時間:</label>
 			      <input type="date" id="checkin" name="checkin" onchange="updateCheckoutDate()" required>
@@ -118,7 +107,6 @@
 			          <p>娛樂設施：50吋4K電視、有線頻道、USB充電座、Wi-Fi</p>
 			      </div>
 		      </div>
-		    </div>
   		</div>
 	
 		<script>
