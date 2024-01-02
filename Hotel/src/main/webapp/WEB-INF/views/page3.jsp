@@ -5,6 +5,15 @@
 
 <%@ include file="/WEB-INF/views/header.jsp" %>
 
+<%
+
+	String[] roomImgPaths = (String[])request.getAttribute("roomImgPaths"); 
+	String[] roomTitle = (String[])request.getAttribute("roomTitle"); 
+	String[] roomType = (String[])request.getAttribute("roomType"); 
+	String[] roomContext = (String[])request.getAttribute("roomContext"); 
+
+%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -47,7 +56,7 @@
 		<div class="container m-0 position-absolute top-50 start-50 translate-middle" style="margin: 0 20%">
 			<h3 class="position-absolute" style="top: -10%;">客房列表</h3>
 			<% 
-				for(int i=0; i<RoomData.roomImgPaths.length; i++)
+				for(int i=0; i< roomImgPaths.length; i++)
 				{
 					if(i%3==0)
 					{
@@ -58,14 +67,14 @@
 			%>
 					<div class="col-md-4">
 						<div class="image-container">
-							<img src="<%= RoomData.roomImgPaths[i] %>" alt="Image <%= i%>" class="img-fluid">
+							<img src="<%= roomImgPaths[i] %>" alt="Image <%= i%>" class="img-fluid">
 							<div class="image-description">
 								<div class="d-flex h-20 justify-content-between align-items-center" style="font-weight: bold; color: #180A0A">
-									<p style="font-size: 24px;"><%= RoomData.roomTitle[i] %></p>
-									<p style="font-size: 18px;"><%= RoomData.roomType[i] %></p>
+									<p style="font-size: 24px;"><%= roomTitle[i] %></p>
+									<p style="font-size: 18px;"><%= roomType[i] %></p>
 								</div>
 								<div style="height: 80%;">
-									<p><%= RoomData.roomContext[i] %></p>
+									<p><%= roomContext[i] %></p>
 									<div class="mt-3 text-center">
 										<a href="./room_index.jsp?no=<%= i %>" class="btn color1 text-light">了解更多</a>
 									</div>
@@ -74,7 +83,7 @@
 						</div>
 					</div>
 			<% 
-					if( (i+1)%3==0 || (i+1)==RoomData.roomImgPaths.length)
+					if( (i+1)%3==0 || (i+1)==roomImgPaths.length)
 					{
 			%>
 						</div>
