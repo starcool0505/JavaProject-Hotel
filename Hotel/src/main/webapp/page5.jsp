@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <%@ include file="/WEB-INF/views/header.jsp" %>
 
 <!DOCTYPE html>
@@ -183,6 +182,9 @@
 			      <input type="button" value="送出" onclick="showConfirmation()">
 			    </div>
 		  	</div>
+		  	
+		  	
+		  	
 			
 			<script>
 			  function showConfirmation() {

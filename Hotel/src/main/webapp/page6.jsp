@@ -17,10 +17,19 @@
 	  	.bi-1-circle-fill {
 		    color: darkgrey; 
 		}
+		.book-info th, .user-info th {
+		    border-bottom: 1px solid #ddd; /* 添加底部邊框線，可以根據需要調整顏色和樣式 */
+		}
 	  </style>
 	</head>
 	<body>
-	
+	  <%
+		  // 獲取從前一個頁面傳遞的參數
+		  String name = request.getParameter("name");
+		  String phone = request.getParameter("phone");
+		  String email = request.getParameter("email");
+		  String specialRequests = request.getParameter("special-requests");
+	  %>
 	  <h2>訂單完成</h2>
 	  <div class="container mt-5">
 	  	<div>
@@ -29,29 +38,58 @@
 	  	<div>
 			<table class="pure-table pure-table-bordered pure-table-striped" style="min-width: 60%">
 				  <tbody>
-				    <tr>
+				    <tr class="book-info">
 				      <th width="30%">住宿期間</th>
 				      <td>
 						<p>入住日期 </p>
 						<p>退房日期 </p>
 					  </td>
 				    </tr>
-				    <tr>
+				    <tr class="book-info">
 				      <th width="30%">夜數</th>
 				      <td>
 						<p> 晚</p>
 					  </td>
 				    </tr>
-				    <tr>
+				    <tr class="book-info">
 				      <th width="30%">房型</th>
 				      <td>
 						<p> 雙人房</p>
 					  </td>
 				    </tr>
-				    <tr>
+				    <tr class="book-info">
 				      <th width="30%">小計</th>
 				      <td>
 						<p>$ 元</p>
+					  </td>
+				    </tr>
+				  </tbody>
+			</table>
+			<table class="pure-table pure-table-bordered pure-table-striped" style="min-width: 60%">
+				  <tbody>
+				    <thead>訂房明細</thead>
+				    <tr class="user-info">
+				      <th width="30%">姓名</th>
+				      <td>
+						<p><%= name %></p>
+					  </td>
+				    </tr>
+				    <tr class="user-info">
+				      <th width="30%">電話</th>
+				      <td>
+						<p><%= phone %></p>
+					  </td>
+				    </tr>
+				    <tr class="user-info">
+				      <th width="30%">Email</th>
+				      <td>
+						<p>  <%= email %></p>
+					  </td>
+				    </tr>
+				    <tr class="user-info">
+				      <th width="30%">特殊要求</th>
+				      <td>
+						<p><%= specialRequests %></p>
 					  </td>
 				    </tr>
 				  </tbody>
