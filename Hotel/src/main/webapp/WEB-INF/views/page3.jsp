@@ -1,17 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="data.RoomData" %>
+<%@ page import="java.util.List" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page isELIgnored="false" %>
 
 <%@ include file="/WEB-INF/views/header.jsp" %>
 
 <%
-
-	String[] roomImgPaths = (String[])request.getAttribute("roomImgPaths"); 
-	String[] roomTitle = (String[])request.getAttribute("roomTitle"); 
-	String[] roomType = (String[])request.getAttribute("roomType"); 
-	String[] roomContext = (String[])request.getAttribute("roomContext"); 
-
+	List<String> roomImgPaths = (List<String>)request.getAttribute("roomImgPaths"); 
+	List<String> roomTitle = (List<String>)request.getAttribute("roomTitle"); 
+	List<String> roomType = (List<String>)request.getAttribute("roomType"); 
+	List<String> roomContext = (List<String>)request.getAttribute("roomContext"); 
 %>
 
 <!DOCTYPE html>
@@ -20,7 +18,7 @@
 		<meta charset="UTF-8">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-		<link rel="stylesheet" href="./css/main_color.css">
+		<link rel="stylesheet" href="../css/main_color.css">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 		<style>
@@ -56,7 +54,7 @@
 		<div class="container m-0 position-absolute top-50 start-50 translate-middle" style="margin: 0 20%">
 			<h3 class="position-absolute" style="top: -10%;">客房列表</h3>
 			<% 
-				for(int i=0; i< roomImgPaths.length; i++)
+				for(int i=0; i< roomImgPaths.size(); i++)
 				{
 					if(i%3==0)
 					{
@@ -67,23 +65,23 @@
 			%>
 					<div class="col-md-4">
 						<div class="image-container">
-							<img src="<%= roomImgPaths[i] %>" alt="Image <%= i%>" class="img-fluid">
+							<img src="<%= roomImgPaths.get(i) %>" alt="Image<%= i%>" class="img-fluid">
 							<div class="image-description">
 								<div class="d-flex h-20 justify-content-between align-items-center" style="font-weight: bold; color: #180A0A">
-									<p style="font-size: 24px;"><%= roomTitle[i] %></p>
-									<p style="font-size: 18px;"><%= roomType[i] %></p>
+									<p style="font-size: 24px;"><%= roomTitle.get(i) %></p>
+									<p style="font-size: 18px;"><%= roomType.get(i) %></p>
 								</div>
 								<div style="height: 80%;">
-									<p><%= roomContext[i] %></p>
+									<p><%= roomContext.get(i) %></p>
 									<div class="mt-3 text-center">
-										<a href="./room_index.jsp?no=<%= i %>" class="btn color1 text-light">了解更多</a>
+										<a href="./page3/room_index/<%= i %>" class="btn color1 text-light">了解更多</a>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 			<% 
-					if( (i+1)%3==0 || (i+1)==roomImgPaths.length)
+					if( (i+1)%3==0 || (i+1)==roomImgPaths.size())
 					{
 			%>
 						</div>

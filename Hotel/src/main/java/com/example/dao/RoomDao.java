@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.example.entity.Room;
 
-public interface RoomDao {
+public interface RoomDao
+{
 	List<Room> findAllRooms();
+	
+	Room findRoomById(int roomId);
 }

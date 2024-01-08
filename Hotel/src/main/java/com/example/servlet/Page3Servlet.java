@@ -1,4 +1,4 @@
-package com.example.servlet;
+/*package com.example.servlet;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,7 +15,7 @@ import com.example.entity.Room;
 /**
  * http://localhost:8080/Hotel/page3
  */
-@WebServlet(value = "/page3")
+/*@WebServlet(value = "/page3")
 public class Page3Servlet extends HttpServlet {
 
 	public static RoomDaoImpl roomDaoImpl = new RoomDaoImpl();
@@ -40,4 +40,4 @@ public class Page3Servlet extends HttpServlet {
 		
 	}
 
-}
+}*/

@@ -20,8 +20,4 @@ public class RoomData
 										  "光線明亮的太陽四人房，是寬敞的住宿選擇，適合多人入住。現代化的裝潢與舒適的床鋪，為您創造出愉快而輕鬆的住宿環境。"};
 	
 	public static String[] roomPrice={"NT$2,800 / 晚", "NT$3,200 / 晚", "NT$3,000 / 晚", "NT$4,500 / 晚", "NT$4,200 / 晚", "NT$4,800 / 晚"};
-	public static String[] roomfloor={"2樓", "3樓", "4樓", "2樓", "3樓", "4樓"};
-	public static String[] roomSquare={"約 20 坪", "約 25 坪", "約 22 坪", "約 30 坪", "約 28 坪", "約 32 坪"};
-	public static String[] roomBeds={"一張雙人床", "一張雙人床", "兩張單人床", "兩張雙人床", "兩張雙人床", "兩張單人床+一張雙人床"};
-	public static String[] roomPeople={"最多容納2人", "最多容納2人", "最多容納2人", "最多容納4人", "最多容納4人", "最多容納4人"};
 }

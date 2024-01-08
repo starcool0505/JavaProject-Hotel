@@ -1,11 +1,13 @@
 package com.example.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.dao.RoomDaoImpl;
@@ -16,8 +18,8 @@ import com.example.entity.Room;
  */
 @Controller
 @RequestMapping("/page3")
-public class Page3Controller {
-
+public class Page3Controller
+{
 	@Autowired
 	RoomDaoImpl roomDaoImpl;
 	
@@ -25,18 +27,38 @@ public class Page3Controller {
 	public String page3(Model model) {
 		
 		List<Room> rooms = roomDaoImpl.findAllRooms();
-		
-		String[] roomImgPaths = rooms.stream().map(Room::getRoomPic).toArray(String[]::new);
-		String[] roomTitle = rooms.stream().map(Room::getRoomType).toArray(String[]::new);
-		String[] roomType = rooms.stream().map(Room::getRoomType).toArray(String[]::new);
-		String[] roomContext = rooms.stream().map(Room::getRoomDescription).toArray(String[]::new);
+
+		List<String> roomImgPaths = rooms.stream().map(Room::getRoomImgPaths).collect(Collectors.toList());
+		List<String> roomTitle = rooms.stream().map(Room::getRoomTitle).collect(Collectors.toList());
+		List<String> roomType = rooms.stream().map(Room::getRoomType).collect(Collectors.toList());
+		List<String> roomContext = rooms.stream().map(Room::getRoomContext).collect(Collectors.toList());
+		List<String> roomDescribe = rooms.stream().map(Room::getRoomDescribe).collect(Collectors.toList());
 		
 		model.addAttribute("roomImgPaths", roomImgPaths);
 		model.addAttribute("roomTitle", roomTitle);
 		model.addAttribute("roomType", roomType);
 		model.addAttribute("roomContext", roomContext);
+		model.addAttribute("roomDescribe", roomDescribe);
 		
 		return "page3";
 	}
 	
+	@GetMapping("/room_index/{id}")
+	public String showRoomIndex(@PathVariable int id, Model model)
+	{
+		// 获取相应id的房间信息
+		Room room = roomDaoImpl.findRoomById(id);
+		
+		// 获取其他房型信息
+		List<Room> otherRooms = roomDaoImpl.findAllRooms().stream()
+				.filter(r -> r.getRoomId() != id)
+				.collect(Collectors.toList());
+		
+		// 将房间和其他房型信息传递给room_index.jsp
+		model.addAttribute("room", room);
+		model.addAttribute("otherRooms", otherRooms);
+		
+		return "room_index";
+	}
+
 }
