@@ -113,7 +113,7 @@
 		  position: relative;
 		}
 
-		.NewsPreview .center div::before {
+		.NewsPreview .center .slick-slide div::before {
 		  content: 'View';
 		  position: absolute;
 		  top: 0;
@@ -132,7 +132,7 @@
 		  font-size: 20px;
 		}
 		
-		.NewsPreview .center div:hover::before {
+		.NewsPreview .center .slick-slide div:hover::before {
 		  opacity: 1;
 		}
 				
