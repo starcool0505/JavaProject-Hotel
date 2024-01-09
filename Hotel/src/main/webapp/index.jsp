@@ -113,7 +113,7 @@
 		  position: relative;
 		}
 
-		.NewsPreview .center .slick-slide div::before {
+		.NewsPreview .center .slick-slide div:has(>img)::before {
 		  content: 'View';
 		  position: absolute;
 		  top: 0;
@@ -132,7 +132,7 @@
 		  font-size: 20px;
 		}
 		
-		.NewsPreview .center .slick-slide div:hover::before {
+		.NewsPreview .center .slick-slide  div:has(>img):hover::before {
 		  opacity: 1;
 		}
 				
@@ -187,27 +187,29 @@
 	<section class="NewsPreview">
 	<div class="center"> <!-- Change .slider to .center -->
         <div>
-          <img src="images/s-room-1.jpg" alt="">
+          <div>
+          	<img src="images/s-room-1.jpg" alt="">
+          </div>
           <h3>1</h3>
         </div>
         <div>
-          <img src="images/s-room-2.jpg" alt=""> 
+          <div><img src="images/s-room-2.jpg" alt=""> </div>
           <h3>2</h3>
         </div>
-         <div>
-          <img src="images/s-room-3.jpg" alt=""> 
+        <div>
+          <div> <img src="images/s-room-3.jpg" alt=""> </div>
           <h3>3</h3>
         </div>
-         <div>
-          <img src="images/s-room-4.jpg" alt=""> 
+        <div>
+          <div><img src="images/s-room-4.jpg" alt=""> </div>
           <h3>4</h3>
         </div>
-          <div>
-          <img src="images/s-room-5.jpg" alt="">
+        <div>
+          <div><img src="images/s-room-5.jpg" alt=""></div>
           <h3>5</h3> 
         </div>
-          <div>
-          <img src="images/s-room-6.jpg" alt=""> 
+         <div>
+          <div><img src="images/s-room-6.jpg" alt=""> </div>
           <h3>6</h3>
         </div>
       </div>
