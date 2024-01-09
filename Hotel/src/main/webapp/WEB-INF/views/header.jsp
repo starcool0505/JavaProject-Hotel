@@ -12,24 +12,21 @@
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 		<link rel="icon" type=image/png href="images/logopng.png">
 	<style type="text/css">
-	.logo-img{
-	 width: 50px; 
-	 height: auto;
-	
-	}
-	
+		.logo-img
+		{
+			width: 50px;
+			height: auto;
+		}
 	</style>
 	
 	</head>
 
 	<body>
-		<nav class="navbar navbar-expand-lg bg_main4 ">
+		<nav class="navbar navbar-expand-lg bg_main4 fixed-top">
 			<div class="container-fluid" style="margin: 0 20%">
-			<button class="navbar-brand text-light me-0" onclick="window.location.href='./index.jsp'" style="background: none; border: none; padding: 0; cursor: pointer;">
-        <img src="images/logo7.jpg" alt="XX飯店圖片" class="logo-img">
-    </button>
-   
-				
+				<button class="navbar-brand text-light me-0" onclick="window.location.href='./index.jsp'" style="background: none; border: none; padding: 0; cursor: pointer;">
+					<img src="images/logo7.jpg" alt="XX飯店圖片" class="logo-img">
+				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
@@ -46,8 +43,6 @@
 						</li>
 					</ul>
 				</div>
-				
-<%-- 			<i class="bi bi-person-circle text-light h5 mb-0 d-none d-md-block">${sessionScope.username}</i> --%>
 				<i class="bi bi-person-circle h5 text-light ml-3 mb-0" role="button" onclick="window.location.href='./login.jsp'">登入</i>
 			</div>
 		</nav>

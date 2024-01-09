@@ -54,6 +54,9 @@
 				right: 10px; /* 靠右對齊 */
 				transform: translateY(-50%); /* 將圖片往上偏移50%自身高度的距離 */
 			}
+			 .spacer {
+	            height: 100px; /* 調整你想要的間距高度 */
+	        }
 		</style>
 		<script>
 			window.onload = function()
@@ -69,20 +72,20 @@
 			};
 		</script>
 	</head>
-	
+	<div class="spacer"></div> 
 	<body class="bg_main0 vh-100">
 		<h2 style="margin: 0 20%">最新消息</h2>
 		<section class="news-list" style="margin-top: 20px;">
-			<div class="row justify-content-center align-items-center custom-button" onclick="window.location.href='https://gnn.gamer.com.tw/detail.php?sn=260917'">
+			<div class="row justify-content-center align-items-center custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=0'">
 				<div class="col-9 fs-5">
-					<p>日期：2023年12月31日</p>
+					<p>日期：2023年1月18日</p>
 					<p>「富貴圓龍，好運龍來」圓山三大亞太金獎主廚聯手龍年鉅獻,親製無化學添加限量年菜</p>
 					<p>即日起早鳥9折 加贈圓山限定「好運龍」時尚保冷袋和圓山調味珍鮮。</p>
 				</div>
 				<img class="col-3" src="images/pic22.jpg" alt="年菜圖片" class="custom-img">
 			</div>
 	
-			<div class="row justify-content-center align-items-center custom-button" onclick="window.location.href='https://gnn.gamer.com.tw/detail.php?sn=260917'">
+			<div class="row justify-content-center align-items-center custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=1'">
 				<div class="col-9 fs-5">
 					<p>日期：2023年12月31日</p>
 					<p>「跨年表演•音樂派對」DJ現場音樂表演，為您帶來熱情洋溢的跨年夜，盡情舞動身心。</p>
@@ -91,7 +94,7 @@
 				<img class="col-3" src="images/pic22.jpg" alt="年菜圖片" class="custom-img">
 			</div>
 	
-			<div class="row justify-content-center align-items-center custom-button" onclick="window.location.href='https://gnn.gamer.com.tw/detail.php?sn=260987'">
+			<div class="row justify-content-center align-items-center custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=2'">
 				<div class="col-9 fs-5">
 					<p>日期：2023年12月25日</p>
 					<p>「星光璀璨•聖誕豪華之旅」,聖誕主題自助晚宴等待您與家人來參與</p>
@@ -100,16 +103,16 @@
 				<img class="col-3" src="images/pic22.jpg" alt="年菜圖片" class="custom-img">
 			</div>
 	
-			<div class="row justify-content-center align-items-center custom-button" onclick="window.location.href='https://gnn.gamer.com.tw/detail.php?sn=260917'">
+			<div class="row justify-content-center align-items-center custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=3'">
 				<div class="col-9 fs-5">
-					<p>日期：2023年12月22日</p>
+					<p>日期：2023年12月15日</p>
 					<p>「冬至搓湯圓•手作湯圓體驗」,與親子一起體驗搓湯圓的樂趣！製作屬於自己的湯圓。</p>
 					<p>每位小朋友完成湯圓製作後，將獲得一份小禮物，感謝他們的參與和創意。</p>
 				</div>
 				<img class="col-3" src="images/pic22.jpg" alt="年菜圖片">
 			</div>
 			
-			<div class="row justify-content-center align-items-center custom-button" onclick="window.location.href='https://gnn.gamer.com.tw/detail.php?sn=260917'">
+			<div class="row justify-content-center align-items-center custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=4'">
 				<div class="col-9 fs-5">
 					<p>日期：2023年11月20日</p>
 					<p>「鍛鍊金工•手作體驗」使用鍛打、雕刻等技法，親手製作個性化的金屬飾品，打造獨特風格。</p>
@@ -118,7 +121,7 @@
 				<img class="col-3" src="images/pic22.jpg" alt="年菜圖片" class="custom-img">
 			</div>
 	
-			<div class="row justify-content-center align-items-center custom-button" onclick="window.location.href='https://gnn.gamer.com.tw/detail.php?sn=260917'">
+			<div class="row justify-content-center align-items-center custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=5'">
 				<div class="col-9 fs-5">
 					<p>日期：2023年11月07日</p>
 					<p>「螃蟹產季•饗您味蕾」提供多種獨特口味的螃蟹料理，從清蒸、紅燒到香辣，滿足不同口味的需求。</p>
@@ -127,6 +130,7 @@
 				<img class="col-3" src="images/pic22.jpg" alt="年菜圖片" class="custom-img">
 			</div>
 		</section>
+		
 	</body>
 </html>
 
