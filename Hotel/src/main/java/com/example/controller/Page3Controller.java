@@ -12,6 +12,7 @@ import com.example.dao.RoomDaoImpl;
 import com.example.entity.Room;
 
 /**
+ * 你好
  * http://localhost:8080/Hotel/mvc/page3
  */
 @Controller

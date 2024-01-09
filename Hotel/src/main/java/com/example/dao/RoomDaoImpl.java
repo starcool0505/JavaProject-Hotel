@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import com.example.entity.Room;
 
+/*你好*/
+
 @Repository
 public class RoomDaoImpl implements RoomDao {
 
