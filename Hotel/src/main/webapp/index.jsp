@@ -39,7 +39,7 @@
 		    color: #FFFFFF; /* 修改文字顏色 */
 		}
 		
-		
+		/* ------------------------------------------------------ */
 		 .RoomPreviewTitle {
 	        background-color: #afa07f; /* 背景顏色 */
 	        color:white;
@@ -50,6 +50,7 @@
 	        padding: 20px; /* 可以添加內邊距來增加文字區域的大小 */
 	       
 	    }
+	    /* ------------------------------------------------------ */
 		.NewsPreviewTitle{
 	        background-color: #afa07f; /* 背景顏色 */
 	        color:white;
@@ -60,9 +61,11 @@
 	        padding: 20px; /* 可以添加內邊距來增加文字區域的大小 */
 	       
 	    }
+	    /* ------------------------------------------------------ */
     	.RoomPreview {
-		  width: 80%; /* 設定房間預覽區塊的寬度 */
+		  width: 90%; /* 設定房間預覽區塊的寬度 */
 		  margin: 0 auto; /* 將其置中 */
+		  
 		  
 		}
 		
@@ -95,17 +98,44 @@
 		.slick-next:before {
 		 color: #B0A695;
 		}
-
+		.Roombg{
+		background-color: #EBE3D5;;
+		}
+		/* ------------------------------------------------------ */
 		.NewsPreview {
 		  width: 80%; /* 設定房間預覽區塊的寬度 */
 		  margin: 0 auto; /* 將其置中 */
 		  
+		  
 		}
 		
 		.NewsPreview .center div {
-		  text-align: center; /* 文字置中 */
+		  position: relative;
+		}
+
+		.NewsPreview .center div::before {
+		  content: 'View';
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 100%; /* 與圖片寬度相符 */
+		  height: 100%; /* 與圖片高度相符 */
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  background-color: rgba(0, 0, 0, 0.5);
+		  opacity: 0;
+		  transition: opacity 0.3s ease;
+		  box-sizing: border-box;
+		  padding: 20px; /* 調整方塊內邊距 */
+		  color: white;
+		  font-size: 20px;
 		}
 		
+		.NewsPreview .center div:hover::before {
+		  opacity: 1;
+		}
+				
 		.NewsPreview .center img {
 		  max-width: 100%; /* 讓圖片最大寬度為其容器的寬度 */
 		  height: auto; /* 保持圖片比例 */
@@ -131,6 +161,10 @@
 		.slick-next:before {
 		 color: #B0A695;
 		}
+		.Newsbg{
+		background-color: #EBE3D5;;
+		}
+	
 	</style>
 	
 	</head>
@@ -149,6 +183,7 @@
 	<h3>消息預覽</h3>
 	
 	</section>
+	<div class=Newsbg>
 	<section class="NewsPreview">
 	<div class="center"> <!-- Change .slider to .center -->
         <div>
@@ -177,7 +212,7 @@
         </div>
       </div>
 		</section>
-	</section>
+	</div>
 	<section class="RoomPreviewTitle"  >
 	<div>
 	<h3>房型預覽</h3>
@@ -188,29 +223,36 @@
 	</div>
 	-->
 	</section>
-	
+	<div class=Roombg>
 <section class="RoomPreview">
 	<div class="center"> <!-- Change .slider to .center -->
         <div>
+          <h3>1</h3>
           <img src="images/s-room-1.jpg" alt="">
         </div>
         <div>
+          <h3>2</h3>
           <img src="images/s-room-2.jpg" alt=""> 
         </div>
          <div>
+          <h3>3</h3>
           <img src="images/s-room-3.jpg" alt=""> 
         </div>
          <div>
+          <h3>4</h3>
           <img src="images/s-room-4.jpg" alt=""> 
         </div>
           <div>
+          <h3>5</h3>
           <img src="images/s-room-5.jpg" alt=""> 
         </div>
           <div>
+          <h3>6</h3>
           <img src="images/s-room-6.jpg" alt=""> 
         </div>
       </div>
 		</section>
+		</div>
 		 <!-- slick畫面輪播 使用Center Mode -->
 	<script>
       $('.center').slick({

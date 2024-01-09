@@ -54,7 +54,7 @@
 			height: auto; /* 讓高度自適應內容 */
 			text-align: center; /* 讓文字水平置中 */
 		}
-		
+		/* ------------------------------------------------------ */
 		.about1 {
 			display: flex;
 			background-color: #393939;
@@ -79,7 +79,7 @@
 			line-height: 2;
 			color: white;
 		}
-		
+		/* ------------------------------------------------------ */
 		.about2 {
 			display: flex;
 			background-color: #393939;
@@ -136,7 +136,7 @@
 			line-height: 2;
 			color: white;
 		}
-		
+		/* ------------------------------------------------------ */
 		.about3 {
 			display: flex;
 			background-color: #EBE3D5;
