@@ -118,7 +118,7 @@
 					<p>「鍛鍊金工•手作體驗」使用鍛打、雕刻等技法，親手製作個性化的金屬飾品，打造獨特風格。</p>
 					<p>即日起兩人同行一人半價,歡迎情侶同遊。</p>
 				</div>
-				<img class="col-3" src="images/pic22.jpg" alt="年菜圖片" class="custom-img">
+				<img class="col-3" src="images/pic28.jpg" alt="年菜圖片" class="custom-img">
 			</div>
 	
 			<div class="row justify-content-center align-items-center custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=5'">
@@ -127,7 +127,7 @@
 					<p>「螃蟹產季•饗您味蕾」提供多種獨特口味的螃蟹料理，從清蒸、紅燒到香辣，滿足不同口味的需求。</p>
 					<p>即日起早鳥9折,消費滿兩千折兩百。</p>
 				</div>
-				<img class="col-3" src="images/pic22.jpg" alt="年菜圖片" class="custom-img">
+				<img class="col-3" src="images/pic29.jpg" alt="年菜圖片" class="custom-img">
 			</div>
 		</section>
 		

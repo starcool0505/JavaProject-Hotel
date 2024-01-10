@@ -101,7 +101,9 @@
 		.Roombg{
 		background-color: #EBE3D5;;
 		}
+		
 		/* ------------------------------------------------------ */
+		
 		.NewsPreview {
 		  width: 80%; /* 設定房間預覽區塊的寬度 */
 		  margin: 0 auto; /* 將其置中 */
@@ -165,6 +167,12 @@
 		background-color: #EBE3D5;;
 		}
 	
+		.NewsPreview .center div h5 {
+		 text-align: center;
+		}
+		.NewsPreview .custom-button{
+		cursor: pointer; /* 讓滑鼠指針顯示為手形 */
+		}
 	</style>
 	
 	</head>
@@ -180,44 +188,60 @@
 	    </section>
 	
 	<section class="NewsPreviewTitle"  >
-	<h3>消息預覽</h3>
+	<h2>消息預覽</h2>
 	
 	</section>
 	<div class=Newsbg>
 	<section class="NewsPreview">
 	<div class="center"> <!-- Change .slider to .center -->
         <div>
-          <div>
-          	<img src="images/s-room-1.jpg" alt="">
+          <div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=0'">
+          	<img src="images/pic24.jpg" alt="" >
           </div>
-          <h3>1</h3>
+          	<h5>富貴圓龍，好運龍來</h5>
         </div>
+        
         <div>
-          <div><img src="images/s-room-2.jpg" alt=""> </div>
-          <h3>2</h3>
+          <div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=1'">
+          	<img src="images/pic25.jpg" alt=""> 
+          </div>
+          	<h5>跨年表演•音樂派對</h5>
         </div>
+        
         <div>
-          <div> <img src="images/s-room-3.jpg" alt=""> </div>
-          <h3>3</h3>
+          <div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=2'">
+          	<img src="images/pic26.jpg" alt=""> 
+          </div>
+          	<h5>聖誕豪華之旅</h5>
         </div>
+        
         <div>
-          <div><img src="images/s-room-4.jpg" alt=""> </div>
-          <h3>4</h3>
+          <div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=3'">
+          	<img src="images/pic27.jpg" alt=""> 
+          </div>
+          	<h5>冬至搓湯圓•手作湯圓</h5>
         </div>
+        
         <div>
-          <div><img src="images/s-room-5.jpg" alt=""></div>
-          <h3>5</h3> 
+          <div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=4'">
+          	<img src="images/pic28.jpg" alt="">
+          </div>
+          	<h5>鍛鍊金工•手作體驗</h5> 
         </div>
+        
          <div>
-          <div><img src="images/s-room-6.jpg" alt=""> </div>
-          <h3>6</h3>
+          <div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=5'">
+          	<img src="images/pic29.jpg" alt="">
+          </div>
+          	<h5>螃蟹產季•饗您味蕾</h5>
         </div>
-      </div>
+        
+     </div>
 		</section>
 	</div>
 	<section class="RoomPreviewTitle"  >
 	<div>
-	<h3>房型預覽</h3>
+	<h2>房型預覽</h2>
 	</div>
 	<!--
 	<div>
