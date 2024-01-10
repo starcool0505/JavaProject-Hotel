@@ -18,12 +18,12 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"></script>
 	<style>
-	
+	/* ------------------首頁圖片------------------------------------ */
 		.HomePicture {
 	    position: relative;
 	    text-align: center;
 		}
-	
+	/* ------------------welcome to the hotel-------------------------- */
 		.centered-text {
 		    position: absolute;
 		    top: 50%;
@@ -39,18 +39,7 @@
 		    color: #FFFFFF; /* 修改文字顏色 */
 		}
 		
-		/* ------------------------------------------------------ */
-		 .RoomPreviewTitle {
-	        background-color: #afa07f; /* 背景顏色 */
-	        color:white;
-	        height:70px;
-	        display: flex;
-	        justify-content: center;
-	        align-items: center;
-	        padding: 20px; /* 可以添加內邊距來增加文字區域的大小 */
-	       
-	    }
-	    /* ------------------------------------------------------ */
+	    /* ------------------消息預覽標題------------------------------------ */
 		.NewsPreviewTitle{
 	        background-color: #afa07f; /* 背景顏色 */
 	        color:white;
@@ -61,54 +50,12 @@
 	        padding: 20px; /* 可以添加內邊距來增加文字區域的大小 */
 	       
 	    }
-	    /* ------------------------------------------------------ */
-    	.RoomPreview {
-		  width: 90%; /* 設定房間預覽區塊的寬度 */
-		  margin: 0 auto; /* 將其置中 */
-		  
-		  
-		}
-		
-		.RoomPreview .center div {
-		  text-align: center; /* 文字置中 */
-		}
-		
-		.RoomPreview .center img {
-		  max-width: 100%; /* 讓圖片最大寬度為其容器的寬度 */
-		  height: auto; /* 保持圖片比例 */
-		  display: block; /* 清除預設的間距 */
-		  margin: 0 auto 20px; /* 設定底部間距 */
-		}
-		
-		/* 可依需求調整圖片間距 */
-		.RoomPreview .center {
-		  padding: 20px;
-		}
-		
-		/* 使得當螢幕變小時，圖片不會黏在一起 */
-		.RoomPreview .center .slick-slide {
-		  margin: 0 10px;
-		}
-		/* 左箭頭 */
-		.slick-prev:before {
-		  color: #B0A695;
-		}
-		
-		/* 右箭頭 */
-		.slick-next:before {
-		 color: #B0A695;
-		}
-		.Roombg{
-		background-color: #EBE3D5;;
-		}
-		
-		/* ------------------------------------------------------ */
+	 
+		/* ---------------消息預覽--------------------------------------- */
 		
 		.NewsPreview {
 		  width: 80%; /* 設定房間預覽區塊的寬度 */
 		  margin: 0 auto; /* 將其置中 */
-		  
-		  
 		}
 		
 		.NewsPreview .center div {
@@ -173,6 +120,24 @@
 		.NewsPreview .custom-button{
 		cursor: pointer; /* 讓滑鼠指針顯示為手形 */
 		}
+		
+	    /* -------------------房型預覽標題----------------------------------- */
+		 .RoomPreviewTitle {
+	        background-color: #afa07f; /* 背景顏色 */
+	        color:white;
+	        height:70px;
+	        display: flex;
+	        justify-content: center;
+	        align-items: center;
+	        padding: 20px; /* 可以添加內邊距來增加文字區域的大小 */
+	       
+	    }
+	    
+		/* -------------------房型預覽--------------------------------- */
+		.Roombg{
+		background-color: #EBE3D5;;
+		}
+		
 	</style>
 	
 	</head>
@@ -240,43 +205,16 @@
 		</section>
 	</div>
 	<section class="RoomPreviewTitle"  >
-	<div>
-	<h2>房型預覽</h2>
-	</div>
-	<!--
-	<div>
-	<p>兩種房型，不論是情侶，或者是家庭，都能安心休息</p>
-	</div>
-	-->
+	 <div>
+		<h2>房型預覽</h2>
+	 </div>
 	</section>
 	<div class=Roombg>
-<section class="RoomPreview">
-	<div class="center"> <!-- Change .slider to .center -->
-        <div>
-          <h3>1</h3>
-          <img src="images/s-room-1.jpg" alt="">
-        </div>
-        <div>
-          <h3>2</h3>
-          <img src="images/s-room-2.jpg" alt=""> 
-        </div>
-         <div>
-          <h3>3</h3>
-          <img src="images/s-room-3.jpg" alt=""> 
-        </div>
-         <div>
-          <h3>4</h3>
-          <img src="images/s-room-4.jpg" alt=""> 
-        </div>
-          <div>
-          <h3>5</h3>
-          <img src="images/s-room-5.jpg" alt=""> 
-        </div>
-          <div>
-          <h3>6</h3>
-          <img src="images/s-room-6.jpg" alt=""> 
-        </div>
-      </div>
+	  <section class="RoomPreview">
+		
+		
+		
+		
 		</section>
 		</div>
 		 <!-- slick畫面輪播 使用Center Mode -->
