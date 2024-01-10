@@ -211,9 +211,31 @@
 	</section>
 	<div class=Roombg>
 	  <section class="RoomPreview">
+		<div>
+			<h2>雙人房</h2>
+			<p>適合情侶或好友，提供舒適的住宿體驗，讓入住者享有私密和放鬆的空間。</p>
+			<div>
+				<p>綠意雙人房</p>
+				<p>海景雙人房</p>
+				<p>藍天雙人房</p>
+			</div>
+				<div>
+					<img src="images/s-room-1.jpg" alt="房間圖片">
+				</div>
+		</div>
 		
-		
-		
+		<div>
+			<h2>四人房</h2>
+			<p>適合家庭或一小群好友入住，有更寬敞的客廳空間和附加的娛樂設施。</p>
+			<div>
+				<p>家庭四人房</p>
+				<p>溫馨四人房</p>
+				<p>太陽四人房</p>
+			</div>
+				<div>
+					<img src="images/s-room-5.jpg" alt="房間圖片">
+				</div>
+		</div>
 		
 		</section>
 		</div>

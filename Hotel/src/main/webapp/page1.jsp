@@ -11,29 +11,9 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 		<style>
-		/*
-		h2
-		{
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-		*/
-		.slogan {
-			background-color: #afa07f; /* 背景顏色 */
-			color: white;
-			height: 150px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			padding: 20px; /* 可以添加内边距来增加文字区域的大小 */
-		}
-		
-		.slogan p {
-			text-align: center;
-			line-height: 2;
-		}
-		/* 圖片 */
+	
+		/* -------------第一頁----------------------------------------- */
+		/* 圖片+黑色框框*/
 		.text-overlay {
 			position: relative;
 			width: 100%; /* 圖片最大寬度為視窗寬度，如果視窗比圖片寬，則圖片保持原大小 */
@@ -54,7 +34,24 @@
 			height: auto; /* 讓高度自適應內容 */
 			text-align: center; /* 讓文字水平置中 */
 		}
+		
 		/* ------------------------------------------------------ */
+		.slogan {
+			background-color: #afa07f; /* 背景顏色 */
+			color: white;
+			height: 150px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 20px; /* 可以添加内边距来增加文字区域的大小 */
+		}
+	
+		.slogan p {
+			text-align: center;
+			line-height: 2;
+		}
+		
+		/* -----------------第一段介紹:床鋪設計---------------------------------- */
 		.about1 {
 			display: flex;
 			background-color: #393939;
@@ -79,7 +76,7 @@
 			line-height: 2;
 			color: white;
 		}
-		/* ------------------------------------------------------ */
+		/* -----------------第二段介紹:夜景------------------------------------- */
 		.about2 {
 			display: flex;
 			background-color: #393939;
@@ -104,7 +101,7 @@
 			line-height: 2;
 			color: white;
 		}
-		
+		/* --------------------第一段和第二段共同部分:圖片滑鼠進入放大---------------- */
 		.about1, .about2 {
 			display: flex;
 			background-color: #393939;
@@ -136,7 +133,7 @@
 			line-height: 2;
 			color: white;
 		}
-		/* ------------------------------------------------------ */
+		/* ----------------第三段介紹:設備-------------------------------------- */
 		.about3 {
 			display: flex;
 			background-color: #EBE3D5;
@@ -190,7 +187,7 @@
 	
 		<section class="slogan">
 			<p>
-				我們自豪地提供32間寬敞舒適的客房，每一間融合了現代設計與溫馨氛圍。 <br>在我們飯店，您會發現舒適度和品質不僅僅是承諾，更是我們的驕傲。
+				我們提供6間寬敞舒適的客房，每一間融合了現代設計與溫馨氛圍。 <br>在我們飯店，您會發現舒適度和品質不僅僅是承諾，更是我們的驕傲。
 				<br>不論您是來度假還是商務出差，我們精心打造的住所將帶給您舒適與便利，讓您留下難忘美好的回憶。
 			</p>
 		</section>
