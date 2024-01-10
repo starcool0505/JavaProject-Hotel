@@ -28,12 +28,14 @@ public class Page3Controller
 		
 		List<Room> rooms = roomDaoImpl.findAllRooms();
 
+		List<Integer> roomId = rooms.stream().map(Room::getRoomId).collect(Collectors.toList());
 		List<String> roomImgPaths = rooms.stream().map(Room::getRoomImgPaths).collect(Collectors.toList());
 		List<String> roomTitle = rooms.stream().map(Room::getRoomTitle).collect(Collectors.toList());
 		List<String> roomType = rooms.stream().map(Room::getRoomType).collect(Collectors.toList());
 		List<String> roomContext = rooms.stream().map(Room::getRoomContext).collect(Collectors.toList());
 		List<String> roomDescribe = rooms.stream().map(Room::getRoomDescribe).collect(Collectors.toList());
 		
+		model.addAttribute("roomId", roomId);
 		model.addAttribute("roomImgPaths", roomImgPaths);
 		model.addAttribute("roomTitle", roomTitle);
 		model.addAttribute("roomType", roomType);

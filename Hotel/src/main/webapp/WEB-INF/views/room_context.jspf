@@ -3,7 +3,7 @@
 <%@ page import="java.util.Map" %>
 
 <%
-	int roomNo = Integer.parseInt(request.getAttribute("id").toString());
+	List<Integer> roomId = (List<Integer>)request.getAttribute("roomId");
 	List<String> roomImgPaths = (List<String>) request.getAttribute("roomImgPaths");
 	List<String> roomTitle = (List<String>) request.getAttribute("roomTitle");
 	List<String> roomType = (List<String>) request.getAttribute("roomType");
@@ -14,7 +14,7 @@
 <div class="position-relative text-center" style="margin: 0 20%; margin-top: 10vh">
 	<div class="fs-1">房型介紹</div>
 	<div>
-		<img src="<%= roomImgPaths.get(roomNo) %>" alt="Image <%= roomNo %>" class="img-fluid mt-3">
+		<img src="<%= roomImgPaths %>" alt="Image <%= roomId %>" class="img-fluid mt-3">
 	</div>
 	<div class="row mb-5">
 		<div class="col-3 d-flex flex-column justify-content-center align-items-center">
@@ -38,8 +38,8 @@
 		</div>
 		
 		<div class="col-7 d-flex flex-column justify-content-start">
-			<h1 class="mt-3" style="font-weight: bold;"><%= roomTitle.get(roomNo) %></h1>
-			<p class="mt-5 fs-4 text-start"><%= roomDescribe.get(roomNo) %></p>
+			<h1 class="mt-3" style="font-weight: bold;"><%= roomTitle.get(roomId) %></h1>
+			<p class="mt-5 fs-4 text-start"><%= roomDescribe.get(roomId) %></p>
 			<div class="mt-5 fs-3 text-start">價格：0</div>
 		</div>
 		<div class="col-2 d-flex flex-column justify-content-end">

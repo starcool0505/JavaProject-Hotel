@@ -6,6 +6,7 @@
 <%@ include file="/WEB-INF/views/header.jsp" %>
 
 <%
+	List<Integer> roomId = (List<Integer>)request.getAttribute("roomId");
 	List<String> roomImgPaths = (List<String>)request.getAttribute("roomImgPaths"); 
 	List<String> roomTitle = (List<String>)request.getAttribute("roomTitle"); 
 	List<String> roomType = (List<String>)request.getAttribute("roomType"); 
@@ -74,7 +75,7 @@
 								<div style="height: 80%;">
 									<p><%= roomContext.get(i) %></p>
 									<div class="mt-3 text-center">
-										<a href="./page3/room_index/<%= i %>" class="btn color1 text-light">了解更多</a>
+										<a href="./page3/room_index/<%= roomId.get(i) %>" class="btn color1 text-light">了解更多</a>
 									</div>
 								</div>
 							</div>
