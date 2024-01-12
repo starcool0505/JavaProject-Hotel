@@ -351,7 +351,7 @@
 		                <p>藍天雙人房</p>
 		            </div>
 	        </div >
-           		<img src="images/s-room-1.jpg" alt="房間圖片">
+           	<img src="images/s-room-1.jpg" alt="房間圖片">
     	</div>
 		
 		<div class="room-container2">
