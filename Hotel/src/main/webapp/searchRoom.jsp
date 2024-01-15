@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="/WEB-INF/views/header.jsp" %>
 
 <%
@@ -17,8 +17,6 @@
 	    <meta charset="UTF-8">
 	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-	    <link rel="stylesheet" href="./css/main_color.css">
-	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 	    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 	  <title>訂房</title>
 	  <style>
@@ -72,37 +70,65 @@
 	<body>
 	
 		<div class="container">
-			    <div class="book mb-3">
-			      <label for="checkin" style="font-size: 16px;">入住時間:</label>
-			      <input type="date" id="checkin" name="checkin" onchange="updateCheckoutDate()" required>
-			      <label for="checkout">退房時間:</label>
-			      <input type="date" id="checkout" name="checkout" >
-			       
-			      <label for="guests">人數:</label>
-			      <select id="guests" name="guests">
-			        <option value="1">1人</option>
-			        <option value="2">2人</option>
-			        <option value="3">3人</option>
-			        <option value="4">4人</option>
-			      </select>
-			
-			      <button  onclick="checkBooking()">查詢
-			      <i class="bi bi-search"></i>
-			      </button>
+			<div class="book mb-3">
+				<label for="checkin" style="font-size: 16px;"> 入住時間: </label>
+				<input type="date" id="checkin" name="checkin" onchange="updateCheckoutDate()" required>
+				<label for="checkout"> 退房時間: </label>
+				<input type="date" id="checkout" name="checkout" >
+				 
+				<label for="guests">人數:</label>
+				<select id="guests" name="guests">
+					<option value="1"> 1人 </option>
+					<option value="2"> 2人 </option>
+					<option value="3"> 3人 </option>
+					<option value="4"> 4人 </option>
+				</select>
+				
+				<button  onclick="checkBooking()"> 查詢
+					<i class="bi bi-search"></i>
+				</button>
 		     </div>
 		
-		      <div class="room-preview">
+			 <!--<div class="row">
+		       <div class="room-preview">
 				  <img src="images/aroom1.jpg" alt="雙人房型" id="roomImage">
 				  <div class="room-details">
-			          <p>雙人房型</p>
-			          <p>雙床 150*200 X 2</p>
-			          <p>坪數：8.5坪/ 28平方公尺</p>
-			          <p>衛浴設備：分離式淋浴間、免治馬桶、吹風機</p>
-			          <p>衛浴備品：沐浴洗髮乳、潤髮乳、洗手乳</p>
-			          <p>舒適設備：英國斯林百蘭床墊、戶外陽台、大金空調、遮光窗簾、室內拖鞋</p>
-			          <p>娛樂設施：50吋4K電視、有線頻道、USB充電座、Wi-Fi</p>
+			          
 			      </div>
-		      </div>
+		      </div>-->
+		      
+		     <div class="container m-0 position-absolute top-50 start-50 translate-middle" style="margin: 0 20%">
+			 <h3 class="position-absolute" style="top: -10%;">客房列表</h3>
+			 <% 
+			 	for(int i=0; i< roomImgPaths.length; i++){
+			 %>
+			
+					<div class="col-md-4">
+						<div class="image-container">
+							<img src="<%= roomImgPaths[i] %>" alt="Image <%= i%>" class="img-fluid">
+							<div class="image-description">
+								<div class="d-flex h-20 justify-content-between align-items-center" style="font-weight: bold; color: #180A0A">
+									<p style="font-size: 24px;"><%= roomTitle[i] %></p>
+									<p style="font-size: 18px;"><%= roomType[i] %></p>
+								</div>
+								<div style="height: 80%;">
+									<p><%= roomContext[i] %></p>
+									<div class="mt-3 text-center">
+										<a href="./room_index.jsp?no=<%= i %>" class="btn color1 text-light">了解更多</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			<% 
+					if( i < roomImgPaths.length){
+			%>
+						</div>
+			<% 
+					}
+				}
+			%>
+			</div>
   		</div>
 	
 		<script>

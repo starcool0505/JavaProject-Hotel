@@ -47,5 +47,6 @@ public class BookDaoImpl implements BookDao {
 		jdbcTemplate.update(sql,  book.getSepicalReq(), book.getBookPrice());
 	
 	}
+	
 
 }

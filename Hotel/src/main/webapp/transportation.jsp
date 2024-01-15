@@ -23,7 +23,7 @@
             margin-bottom: 10%;
             margin-top: 0;
             padding: 5%;
-            background-color: #fffaf0;
+            background-color: #EEEEDF;
         }
 
         .right-sidebar {
@@ -31,7 +31,7 @@
             min-width: 40%;
             padding: 20px;
             margin-left: 10%;
-             border-left: 2px solid #ccc; /* 添加右邊框 */
+            border-left: 2px solid #ccc; /* 添加右邊框 */
         }
 
         .map-container {
