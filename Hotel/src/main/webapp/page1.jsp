@@ -175,7 +175,7 @@
 	<body class="bg_main0 vh-100">
 		<section class="news">
 			<div class="text-overlay" style="width: 100%; hight: auto">
-				<img alt="" src="images/pic22.jpg" style="width: 100%; hight: auto">
+				<img alt="" src="/Hotel/images/pic22.jpg" style="width: 100%; hight: auto">
 				<div class="overlay-text">
 					<p>
 						歡迎來到我們的飯店，這裡融合了奢華與舒適，為您提供精緻的住宿體驗。<br>我們致力於營造溫馨且獨特的旅程，讓每位客人都感受到無比的尊榮與舒適。
@@ -193,7 +193,7 @@
 		</section>
 	
 		<section class=about1>
-			<img alt="" src="images/pic4.jpg">
+			<img alt="" src="/Hotel/images/pic4.jpg">
 			<div class="about1_1">
 				<p>
 					我們引以為傲的床舖設計， <br>經過精心挑選的高品質床墊讓您一躺上去就能感受到家的溫暖。 <br>我們的枕頭更是為了您的睡眠品質而精心打造，無論您喜歡柔軟還是支撐性的枕頭，
@@ -209,30 +209,30 @@
 					<br>這種時刻讓人陶醉，也是與摯愛、家人或朋友共度美好時光的絕佳場所。
 				</p>
 			</div>
-			<img alt="" src="images/pic7.jpg">
+			<img alt="" src="/Hotel/images/pic7.jpg">
 		</section>
 	
 		<section class=about3>
 			<div>
-				<img alt="" src="images/pic8.jpg">
+				<img alt="" src="/Hotel/images/pic8.jpg">
 				<h4>全新浴室</h4>
 				<p>擁有淋浴區以及浴缸<br>讓你洗去一身的疲勞</p>
 			</div>
 	
 			<div>
-				<img alt="" src="images/pic9.jpg">
+				<img alt="" src="/Hotel/images/pic9.jpg">
 				<h4>早餐自助吧</h4>
 				<p>西式中式樣樣都有<br>吃飽迎接美好一天</p>
 			</div>
 	
 			<div>
-				<img alt="" src="images/pic11.jpg">
+				<img alt="" src="/Hotel/images/pic11.jpg">
 				<h4>自助洗衣間</h4>
 				<p>洗衣烘乾都俱全<br>不用擔心無衣服穿</p>
 			</div>
 	
 			<div>
-				<img alt="" src="images/pic23.jpg">
+				<img alt="" src="/Hotel/images/pic23.jpg">
 				<h4>舒適咖啡廳</h4>
 				<p>早晨享用香濃咖啡<br>或者下午品嚐特色點心</p>
 			</div>

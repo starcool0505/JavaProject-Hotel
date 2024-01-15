@@ -267,8 +267,8 @@
 	
 	<body class="bg_main0 vh-100">
 	 <section class="HomePicture">
-	        <div>
-	            <img src="images/pic1.jpg" class="img-fluid" alt="...">
+	        <div>  
+	            <img src="/Hotel/images/pic1.jpg" class="img-fluid" alt="...">  <!-- 絕對路徑/Hotel/ -->
 	            <div class="centered-text">
 	                <span>Welcome to the hotel</span>
 	            </div>
@@ -284,42 +284,42 @@
 		<div class="center"> <!-- 引入slick畫面輪播 class取為center 要跟官網的套件同名 不然抓不到-->
 	        <div>
 	          <div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=0'">
-	          	<img src="images/pic24.jpg" alt="" >
+	          	<img src="/Hotel/images/pic24.jpg" alt="" >
 	          </div>
 	          	<h5>富貴圓龍，好運龍來</h5>
 	        </div>
 	        
 	        <div>
 	          <div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=1'">
-	          	<img src="images/pic25.jpg" alt=""> 
+	          	<img src="/Hotel/images/pic25.jpg" alt=""> 
 	          </div>
 	          	<h5>跨年表演•音樂派對</h5>
 	        </div>
 	        
 	        <div>
 	          <div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=2'">
-	          	<img src="images/pic26.jpg" alt=""> 
+	          	<img src="/Hotel/images/pic26.jpg" alt=""> 
 	          </div>
 	          	<h5>聖誕豪華之旅</h5>
 	        </div>
 	        
 	        <div>
 	          <div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=3'">
-	          	<img src="images/pic27.jpg" alt=""> 
+	          	<img src="/Hotel/images/pic27.jpg" alt=""> 
 	          </div>
 	          	<h5>冬至搓湯圓•手作湯圓</h5>
 	        </div>
 	        
 	        <div>
 	          <div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=4'">
-	          	<img src="images/pic28.jpg" alt="">
+	          	<img src="/Hotel/images/pic28.jpg" alt="">
 	          </div>
 	          	<h5>鍛鍊金工•手作體驗</h5> 
 	        </div>
 	        
 	         <div>
 	          <div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=5'">
-	          	<img src="images/pic29.jpg" alt="">
+	          	<img src="/Hotel/images/pic29.jpg" alt="">
 	          </div>
 	          	<h5>螃蟹產季•饗您味蕾</h5>
 	        </div>
@@ -351,7 +351,7 @@
 		                <p>藍天雙人房</p>
 		            </div>
 	        </div >
-           	<img src="images/s-room-1.jpg" alt="房間圖片">
+           	<img src="/Hotel/images/s-room-1.jpg" alt="房間圖片">
     	</div>
 		
 		<div class="room-container2">
@@ -366,7 +366,7 @@
 					<p>太陽四人房</p>
 				</div>
 		  </div>
-					<img src="images/s-room-5.jpg" alt="房間圖片">
+					<img src="/Hotel/images/s-room-5.jpg" alt="房間圖片">
 				
 		</div>
 		
