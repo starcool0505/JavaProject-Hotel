@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.dao.RoomDaoImpl;
 import com.example.entity.Room;
@@ -24,9 +25,14 @@ public class Page3Controller
 	RoomDaoImpl roomDaoImpl;
 	
 	@GetMapping()
-	public String page3(Model model) {
+	public String page3(Model model)
+	{
 		
 		List<Room> rooms = roomDaoImpl.findAllRooms();
+		
+		model.addAttribute("rooms", rooms);
+		
+		//List<Room> rooms = roomDaoImpl.findAllRooms();
 
 		List<Integer> roomId = rooms.stream().map(Room::getRoomId).collect(Collectors.toList());
 		List<String> roomImgPaths = rooms.stream().map(Room::getRoomImgPaths).collect(Collectors.toList());
@@ -45,21 +51,13 @@ public class Page3Controller
 		return "page3";
 	}
 	
-	@GetMapping("/room_index/{id}")
-	public String showRoomIndex(@PathVariable int id, Model model)
+	@GetMapping("/room_index/{roomId}")
+	public String showRoomIndex(@PathVariable int roomId, Model model)
 	{
-		// 获取相应id的房间信息
-		Room room = roomDaoImpl.findRoomById(id);
+		Room room = roomDaoImpl.findRoomById(roomId);
 		
-		// 获取其他房型信息
-		List<Room> otherRooms = roomDaoImpl.findAllRooms().stream()
-				.filter(r -> r.getRoomId() != id)
-				.collect(Collectors.toList());
-		
-		// 将房间和其他房型信息传递给room_index.jsp
+		model.addAttribute("roomId", roomId);
 		model.addAttribute("room", room);
-		model.addAttribute("otherRooms", otherRooms);
-		model.addAttribute("roomId", id);
 		
 		return "room_index";
 	}
