@@ -3,80 +3,137 @@
 
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-		<link rel="stylesheet" href="./css/main_color.css">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-		<style>
-	 		.RoomPreviewTitle
-	 		{
-				background-color: #afa07f; /* 背景顏色 */
-				color:white;
-				height:50px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				padding: 20px; /* 可以添加內邊距來增加文字區域的大小 */
-			}
-			.NewsPreviewTitle
-			{
-				background-color: #afa07f; /* 背景顏色 */
-				color:white;
-				height:50px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				padding: 20px; /* 可以添加內邊距來增加文字區域的大小 */
-			}
-		</style>
-	</head>
-	
 	<body class="bg_main0 vh-100">
 		<section class="HomePicture">
-			<div style="margin: 0 20%">
+			<div>
 				<img src="images/pic1.jpg" class="img-fluid" alt="...">
-			</div>
-		</section>
-		
-		<section class="NewsPreviewTitle"  style="margin: 0 20%;">
-			<h3>消息預覽</h3>
-		</section>
-		
-		<section class="NewsPreview">
-			<div style="margin: 0 20%">
-				<a href="page2.jsp">
-					<img src="images/pic12.png" class="img-fluid" alt="...">
-				</a>
-			</div>
-		</section>
-		
-		<section class="RoomPreviewTitle"  style="margin: 0 20%;">
-			<h3>房型預覽</h3>
-		</section>
-		
-		<section class="RoomPreview">
-			<div style="margin: 0 20%;">
-				<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<img src="images/pic2.jpg" class="d-block w-100" alt="...">
-						</div>
-						<div class="carousel-item">
-							<img src="images/pic3.jpg" class="d-block w-100" alt="...">
-						</div>
-						<div class="carousel-item">
-							<img src="images/pic4.jpg" class="d-block w-100" alt="...">
-						</div>
-						<div class="carousel-item">
-							<img src="images/pic6.jpg" class="d-block w-100" alt="...">
-						</div>
-					</div>
+				<div class="centered-text">
+					<span>Welcome to the hotel</span>
 				</div>
 			</div>
 		</section>
+	
+		<section class="NewsPreviewTitle">
+			<h2>消息預覽</h2>
+		</section>
+		
+		<div class=Newsbg>
+			<section class="NewsPreview">
+			<div class="center"> <!-- 引入slick畫面輪播 class取為center 要跟官網的套件同名 不然抓不到-->
+				<div>
+					<div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=0'">
+						<img src="images/pic24.jpg" alt="" >
+					</div>
+					<h5>富貴圓龍，好運龍來</h5>
+				</div>
+				
+				<div>
+					<div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=1'">
+						<img src="images/pic25.jpg" alt=""> 
+					</div>
+					<h5>跨年表演•音樂派對</h5>
+				</div>
+				
+				<div>
+					<div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=2'">
+						<img src="images/pic26.jpg" alt=""> 
+					</div>
+						<h5>聖誕豪華之旅</h5>
+				</div>
+				
+				<div>
+					<div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=3'">
+						<img src="images/pic27.jpg" alt=""> 
+					</div>
+					<h5>冬至搓湯圓•手作湯圓</h5>
+				</div>
+				
+				<div>
+					<div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=4'">
+						<img src="images/pic28.jpg" alt="">
+					</div>
+					<h5>鍛鍊金工•手作體驗</h5> 
+				</div>
+				
+				<div>
+					<div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=5'">
+						<img src="images/pic29.jpg" alt="">
+					</div>
+					<h5>螃蟹產季•饗您味蕾</h5>
+				</div>
+			</div>
+			</section>
+		</div>
+		<div class="spacer"></div>
+		<section class="RoomPreviewTitle"  >
+			<div>
+				<h2>房型預覽</h2>
+			</div>
+		</section>
+		
+		<div class=Roombg>
+			<div class="spacer"></div>
+			<section class="RoomPreview">
+				<div class="room-container1">
+					<div class="writePreview1">
+						<div class="write1" >
+							<h2>雙人房</h2>
+							<p>適合情侶或好友，提供舒適的住宿體驗，讓入住者享有私密和放鬆的空間。</p>
+						</div>
+						<div class="write2">
+							<p>綠意雙人房</p>
+							<p>海景雙人房</p>
+							<p>藍天雙人房</p>
+						</div>
+					</div >
+					<img src="images/s-room-1.jpg" alt="房間圖片">
+				</div>
+				
+				<div class="room-container2">
+				<div class="writePreview2">
+					<div class="write3">
+						<h2>四人房</h2>
+						<p>適合家庭或一小群好友入住，有更寬敞的客廳空間和附加的娛樂設施。</p>
+					</div>
+					<div class="write4">
+						<p>家庭四人房</p>
+						<p>溫馨四人房</p>
+						<p>太陽四人房</p>
+					</div>
+				</div>
+				<img src="images/s-room-5.jpg" alt="房間圖片">
+			</div>
+			</section>
+		</div>
+	
+		<!-- slick畫面輪播 使用Center Mode -->
+		<script>
+			$('.center').slick({
+				centerMode: true,
+				centerPadding: '60px',
+				slidesToShow: 3,
+				responsive: [
+				{
+					breakpoint: 768,
+					settings: {
+						arrows: true,
+						centerMode: true,
+						centerPadding: '40px',
+						slidesToShow: 3
+					}
+				},
+				{
+					breakpoint: 480,
+					settings: {
+						arrows: true,
+						centerMode: true,
+						centerPadding: '40px',
+						slidesToShow: 1
+					}
+				}
+				]
+			});
+		</script>
 	</body>
 </html>
 
