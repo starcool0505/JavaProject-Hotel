@@ -9,6 +9,6 @@ public class Page1Controller {
 	@RequestMapping(value = "/page1")
     public String page1() {
        
-        return "page1.jsp"; 
+        return  "page1.jsp"; 
     }
 }
