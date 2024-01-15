@@ -59,6 +59,7 @@ public class Page3Controller
 		// 将房间和其他房型信息传递给room_index.jsp
 		model.addAttribute("room", room);
 		model.addAttribute("otherRooms", otherRooms);
+		model.addAttribute("roomId", id);
 		
 		return "room_index";
 	}
