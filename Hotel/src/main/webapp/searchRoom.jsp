@@ -2,6 +2,15 @@
 
 <%@ include file="/WEB-INF/views/header.jsp" %>
 
+<%
+
+	String[] roomImgPaths = (String[])request.getAttribute("roomImgPaths"); 
+	String[] roomTitle = (String[])request.getAttribute("roomTitle"); 
+	String[] roomType = (String[])request.getAttribute("roomType"); 
+	String[] roomContext = (String[])request.getAttribute("roomContext"); 
+
+%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,20 +24,28 @@
 	  <style>
 	  	body {
 		  font-family: Arial, sans-serif;
+		  overflow-x: hidden; 
 		}
 		
 		.container {
- 		  display: flex;
-		  justify-content: center;
-		  flex-direction: column;
-		  align-items: center; 
+		  display: flex; 
+ 		  justify-content: center; 
+		  flex-direction: column; 
+ 		  align-items: center;  
+		  margin: 0 auto; 
+		  margin-top: 10vh;
+		  width: 100vw;
+		}
+		
+		.book {
+		    transform: scale(1.5);
 		}
 		
 		.room-preview {
-		  width: 100%;
 		  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		  margin-top: 20px;
-		  position: relative;
+		  position: relative; 
+		  width: 60vw;
 		}
 
 		.room-preview img {
@@ -50,32 +67,13 @@
 		  margin-left: 10px;
 		}
 		
-		.arrow {
-		  position: absolute;
-		  top: 50%;
-		  transform: translateY(-50%);
-		  font-size: 24px;
-		  cursor: pointer;
-		  background: none;
-		  border: none;
-		  color: #fff;
-		  outline: none;
-		}
-		
-		#prevArrow {
-		  left: 10px;
-		}
-		
-		#nextArrow {
-		  right: 10px;
-		}
 	  </style>
 	</head>
 	<body>
 	
-		<div class="container" style="margin: 0 20%; margin-top: 10vh;">
-			    <div class="book mt-4">
-			      <label for="checkin">入住時間:</label>
+		<div class="container">
+			    <div class="book mb-3">
+			      <label for="checkin" style="font-size: 16px;">入住時間:</label>
 			      <input type="date" id="checkin" name="checkin" onchange="updateCheckoutDate()" required>
 			      <label for="checkout">退房時間:</label>
 			      <input type="date" id="checkout" name="checkout" >
@@ -94,9 +92,7 @@
 		     </div>
 		
 		      <div class="room-preview">
-				  <button class="arrow" id="prevArrow">&lt;</button>
 				  <img src="images/aroom1.jpg" alt="雙人房型" id="roomImage">
-				  <button class="arrow" id="nextArrow">&gt;</button>
 				  <div class="room-details">
 			          <p>雙人房型</p>
 			          <p>雙床 150*200 X 2</p>
