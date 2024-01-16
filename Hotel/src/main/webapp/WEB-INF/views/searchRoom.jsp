@@ -2,14 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="/WEB-INF/views/header.jsp" %>
 
-<%
-
-	String[] roomImgPaths = (String[])request.getAttribute("roomImgPaths"); 
-	String[] roomTitle = (String[])request.getAttribute("roomTitle"); 
-	String[] roomType = (String[])request.getAttribute("roomType"); 
-	String[] roomContext = (String[])request.getAttribute("roomContext"); 
-
-%>
 
 <!DOCTYPE html>
 <html>
@@ -65,10 +57,41 @@
 		  margin-left: 10px;
 		}
 		
+		.image-container{
+			position: relative;
+			overflow: hidden;
+			width: 100%;
+			cursor: pointer;
+		}
+		.image-description{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(235, 227, 213, 0.5);
+			color: #000;
+			padding: 10px;
+		}
+		.modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 80%;
+            max-height: 80%;
+        }
 	  </style>
 	</head>
 	<body>
-	
 		<div class="container">
 			<div class="book mb-3">
 				<label for="checkin" style="font-size: 16px;"> 入住時間: </label>
@@ -87,48 +110,38 @@
 				<button  onclick="checkBooking()"> 查詢
 					<i class="bi bi-search"></i>
 				</button>
-		     </div>
+		     </div> 
 		
-			 <!--<div class="row">
-		       <div class="room-preview">
-				  <img src="images/aroom1.jpg" alt="雙人房型" id="roomImage">
-				  <div class="room-details">
-			          
-			      </div>
-		      </div>-->
-		      
-		     <div class="container m-0 position-absolute top-50 start-50 translate-middle" style="margin: 0 20%">
-			 <h3 class="position-absolute" style="top: -10%;">客房列表</h3>
-			 <% 
-			 	for(int i=0; i< roomImgPaths.length; i++){
-			 %>
-			
-					<div class="col-md-4">
-						<div class="image-container">
-							<img src="<%= roomImgPaths[i] %>" alt="Image <%= i%>" class="img-fluid">
+			 <h3 class="mt-2 mb-2" style="top: -10%;">客房列表</h3>
+			 <div class="room-preview m-0 " style="margin: 0 20%">
+				
+				<c:forEach var="imgPath" items="${roomImgPaths}" varStatus="loopStatus">
+					
+					<div class="row mt-3">
+						<div class="image-container d-flex align-items-center justify-content-center">
+							<img src="${roomImgPaths[loopStatus.index]}" alt="Image${roomId}" class="img-fluid">
+							
+							<!-- Modal for large image -->
+							<div id="myModal" class="modal" onclick="closeModal()">
+							    <img src="${roomImgPaths[loopStatus.index]}" id="modalImg" alt="Large Image">
+							</div>
+							
 							<div class="image-description">
 								<div class="d-flex h-20 justify-content-between align-items-center" style="font-weight: bold; color: #180A0A">
-									<p style="font-size: 24px;"><%= roomTitle[i] %></p>
-									<p style="font-size: 18px;"><%= roomType[i] %></p>
+									<p style="font-size: 24px;">房型${roomTitle[loopStatus.index]}</p>
+									<p style="font-size: 18px;">${roomType[loopStatus.index]}</p>
 								</div>
 								<div style="height: 80%;">
-									<p><%= roomContext[i] %></p>
+									<p>${roomContext[loopStatus.index]}</p>
 									<div class="mt-3 text-center">
-										<a href="./room_index.jsp?no=<%= i %>" class="btn color1 text-light">了解更多</a>
+										<a href="./page3/room_index/${roomId[loopStatus.index]}" class="btn color1 text-light">了解更多</a>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-			<% 
-					if( i < roomImgPaths.length){
-			%>
-						</div>
-			<% 
-					}
-				}
-			%>
-			</div>
+				 </c:forEach>
+  			 </div>
   		</div>
 	
 		<script>
@@ -162,6 +175,19 @@
 			         return;
 			     }
 			     const guests = document.getElementById('guests').value;
+			 }
+			 
+			 function openModal(imageSrc) {
+			        var modal = document.getElementById("myModal");
+			        var modalImg = document.getElementById("modalImg");
+
+			        modal.style.display = "flex"; // 顯示 modal
+			        modalImg.src = imageSrc; // 設置大圖的來源
+			 }
+
+			 function closeModal() {
+			        var modal = document.getElementById("myModal");
+			        modal.style.display = "none"; // 隱藏 modal
 			 }
 		</script>
 	</body>

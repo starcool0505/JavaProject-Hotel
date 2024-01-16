@@ -15,24 +15,23 @@ import com.example.dao.RoomDaoImpl;
 import com.example.entity.Room;
 
 /**
- * http://localhost:8080/Hotel/mvc/page3
+ * http://localhost:8080/Hotel/mvc/searchRoom
  */
 @Controller
-@RequestMapping("/page3")
-public class Page3Controller
+@RequestMapping("/searchRoom")
+public class SearchController
 {
 	@Autowired
 	RoomDaoImpl roomDaoImpl;
 	
 	@GetMapping()
-	public String page3(Model model)
+	public String searchRoom(Model model)
 	{
 		
 		List<Room> rooms = roomDaoImpl.findAllRooms();
 		
 		model.addAttribute("rooms", rooms);
 		
-		//List<Room> rooms = roomDaoImpl.findAllRooms();
 
 		List<Integer> roomId = rooms.stream().map(Room::getRoomId).collect(Collectors.toList());
 		List<String> roomImgPaths = rooms.stream().map(Room::getRoomImgPaths).collect(Collectors.toList());
@@ -40,15 +39,15 @@ public class Page3Controller
 		List<String> roomType = rooms.stream().map(Room::getRoomType).collect(Collectors.toList());
 		List<String> roomContext = rooms.stream().map(Room::getRoomContext).collect(Collectors.toList());
 		List<String> roomDescribe = rooms.stream().map(Room::getRoomDescribe).collect(Collectors.toList());
-		
-		model.addAttribute("roomId", roomId);
+
 		model.addAttribute("roomImgPaths", roomImgPaths);
 		model.addAttribute("roomTitle", roomTitle);
 		model.addAttribute("roomType", roomType);
 		model.addAttribute("roomContext", roomContext);
 		model.addAttribute("roomDescribe", roomDescribe);
+
 		
-		return "page3";
+		return "searchRoom";
 	}
 	
 	@GetMapping("/room_index/{roomId}")

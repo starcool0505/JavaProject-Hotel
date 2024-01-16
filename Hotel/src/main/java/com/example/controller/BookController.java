@@ -13,7 +13,7 @@ import com.example.dao.RoomDaoImpl;
  * http://localhost:8080/Hotel/mvc/page3
  */
 @Controller
-@RequestMapping("/searchRoom")
+@RequestMapping("/search")
 public class BookController {
 
 	@Autowired
@@ -36,7 +36,7 @@ public class BookController {
 //		model.addAttribute("roomType", roomType);
 //		model.addAttribute("roomContext", roomContext);
 		
-		return "searchRoom";
+		return "search";
 	}
 	
 }

@@ -20,7 +20,7 @@ public class Page3Servlet extends HttpServlet {
 
 	public static RoomDaoImpl roomDaoImpl = new RoomDaoImpl();
 
-	@Override
+	/*@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		List<Room> rooms = roomDaoImpl.findAllRooms();
@@ -38,6 +38,6 @@ public class Page3Servlet extends HttpServlet {
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/views/page3.jsp");
 		rd.forward(req, resp);
 		
-	}
+	}*/
 
 }
