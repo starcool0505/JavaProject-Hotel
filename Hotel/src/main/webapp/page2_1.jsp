@@ -51,11 +51,15 @@
 		.info-label {
 		    background-color: #EBE3D5;
 		    padding: 5px;
+		    white-space: nowrap; /* 防止標題換行 */
 		}
 		
 		.info-content {
 		    margin-left: 10px;
 		    margin-bottom: 0;
+		    flex-grow: 1; /* 讓後面的內容自動擴展填充空間 */
+    		word-wrap: break-word; /* 允許長單詞或 URL 換行 */
+    	
 		}
 		    </style>
 		</head>
