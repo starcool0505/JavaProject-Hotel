@@ -227,7 +227,8 @@
 		    text-align: center;
 		}
 	/* ---------------------房間圖片增加灰層效果------------------------------ */
-	 	.RoomPreview  div {
+	 	/*
+	 	oomPreview  div {
 		  position: relative;
 		}
 
@@ -260,7 +261,7 @@
 		  display: block; /* 清除預設的間距 */
 		  margin: 0 auto 0px; /* 設定底部間距 */
 		}
-	 	
+	 	*/
 	</style>
 	
 	</head>

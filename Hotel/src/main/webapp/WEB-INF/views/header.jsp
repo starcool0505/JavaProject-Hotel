@@ -25,7 +25,7 @@
 		<nav class="navbar navbar-expand-lg bg_main4 fixed-top">
 			<div class="container-fluid" style="margin: 0 20%">
 				<button class="navbar-brand text-light me-0" onclick="window.location.href='./index.jsp'" style="background: none; border: none; padding: 0; cursor: pointer;">
-					<img src="images/logo7.jpg" alt="XX飯店圖片" class="logo-img">
+					<img src="/Hotel/images/logo7.jpg" alt="XX飯店圖片" class="logo-img">
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
