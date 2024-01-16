@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Equipment
+public class roomEquipment
 {
+	Integer roomId;
 	Integer equId;
-	String equName;
-	String equPath;
 }

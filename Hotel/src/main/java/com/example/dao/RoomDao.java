@@ -8,5 +8,7 @@ public interface RoomDao
 {
 	List<Room> findAllRooms();
 	
-	Room findRoomById(int roomId);
+	Room findAllRoomById(int roomId);
+	
+	List<Room> findAllTitles();
 }

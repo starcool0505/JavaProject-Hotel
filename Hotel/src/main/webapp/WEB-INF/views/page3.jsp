@@ -55,7 +55,7 @@
 							<div style="height: 80%;">
 								<p>${roomContext[loopStatus.index]}</p>
 								<div class="mt-3 text-center">
-									<a href="./page3/room_index/${roomId[loopStatus.index]}" class="btn color1 text-light">了解更多</a>
+									<a href="page3/room_index/${roomId[loopStatus.index]}" class="btn color1 text-light">了解更多</a>
 								</div>
 							</div>
 						</div>

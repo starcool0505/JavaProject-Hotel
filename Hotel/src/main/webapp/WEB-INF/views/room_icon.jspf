@@ -10,9 +10,9 @@
 		%>
 				<div class="col-2 text-center">
 					<div>
-						<img style="max-height: 5em;" alt="" src="./images/s_equipment<%=i %>.png">
+						<img style="max-height: 5em;" alt="" src="${equipment.equPath}">
 					</div>
-					<div class="mb-2">名字</div>
+					<div class="mb-2">${equipment.equName}</div>
 				</div>
 		<%
 			}

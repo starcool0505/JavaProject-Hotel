@@ -93,49 +93,64 @@ values(2024001, 101, 201, "2023-12-27", "2023-12-31", 2, 0, "多一條毛巾", 2
 
 -- equipment預設值
 insert into equipment(equId, equName, equPath)
-values(1001, "雙人床", "images/s_equipment1.png");
+values(1001, "雙人床", "/Hotel/images/s_equipment1.png");
 insert into equipment(equId, equName, equPath)
-values(1002, "單人床", "images/s_equipment2.png");
+values(1002, "單人床", "/Hotel/images/s_equipment2.png");
 
 insert into equipment(equId, equName, equPath)
-values(1003, "獨立浴缸", "images/s_equipment3.png");
+values(1003, "獨立浴缸", "/Hotel/images/s_equipment3.png");
 insert into equipment(equId, equName, equPath)
-values(1004, "分離式浴室", "images/s_equipment4.png");
+values(1004, "分離式浴室", "/Hotel/images/s_equipment4.png");
 
 insert into equipment(equId, equName, equPath)
-values(1005, "免治馬桶", "images/s_equipment5.png");
+values(1005, "免治馬桶", "/Hotel/images/s_equipment5.png");
 insert into equipment(equId, equName, equPath)
-values(1006, "浴巾毛巾", "images/s_equipment6.png");
+values(1006, "浴巾毛巾", "/Hotel/images/s_equipment6.png");
 insert into equipment(equId, equName, equPath)
-values(1007, "冷氣", "images/s_equipment7.png");
+values(1007, "冷氣", "/Hotel/images/s_equipment7.png");
 insert into equipment(equId, equName, equPath)
-values(1008, "衣櫃", "images/s_equipment8.png");
+values(1008, "衣櫃", "/Hotel/images/s_equipment8.png");
 insert into equipment(equId, equName, equPath)
-values(1009, "電子保險櫃", "images/s_equipment9.png");
+values(1009, "電子保險櫃", "/Hotel/images/s_equipment9.png");
 insert into equipment(equId, equName, equPath)
-values(1010, "吹風機", "images/s_equipment10.png");
+values(1010, "吹風機", "/Hotel/images/s_equipment10.png");
 insert into equipment(equId, equName, equPath)
-values(1011, "WI-FI", "images/s_equipment11.png");
+values(1011, "WI-FI", "/Hotel/images/s_equipment11.png");
 insert into equipment(equId, equName, equPath)
-values(1012, "液晶電視", "images/s_equipment12.png");
+values(1012, "液晶電視", "/Hotel/images/s_equipment12.png");
 insert into equipment(equId, equName, equPath)
-values(1013, "小冰箱", "images/s_equipment13.png");
+values(1013, "小冰箱", "/Hotel/images/s_equipment13.png");
 insert into equipment(equId, equName, equPath)
-values(1014, "電熱水壺", "images/s_equipment14.png");
+values(1014, "電熱水壺", "/Hotel/images/s_equipment14.png");
 insert into equipment(equId, equName, equPath)
-values(1015, "咖啡、茶包", "images/s_equipment15.png");
+values(1015, "咖啡、茶包", "/Hotel/images/s_equipment15.png");
 insert into equipment(equId, equName, equPath)
-values(1016, "礦泉水", "images/s_equipment16.png");
+values(1016, "礦泉水", "/Hotel/images/s_equipment16.png");
 insert into equipment(equId, equName, equPath)
-values(1017, "室內拖鞋", "images/s_equipment17.png");
+values(1017, "室內拖鞋", "/Hotel/images/s_equipment17.png");
 insert into equipment(equId, equName, equPath)
-values(1018, "電話", "images/s_equipment18.png");
+values(1018, "電話", "/Hotel/images/s_equipment18.png");
 insert into equipment(equId, equName, equPath)
-values(1019, "牙膏牙刷", "images/s_equipment19.png");
+values(1019, "牙膏牙刷", "/Hotel/images/s_equipment19.png");
 insert into equipment(equId, equName, equPath)
-values(1020, "沐浴用品", "images/s_equipment20.png");
+values(1020, "沐浴用品", "/Hotel/images/s_equipment20.png");
 
 -- roomequipment預設值
 INSERT INTO roomEquipment(roomId, equId)
-VALUES(201, 1001), (201, 1003),
-	  (201, 1005), (201, 1006), (201, 1007), (201, 1008), (201, 1009), (201, 1010);
+VALUES(201, 1002), (201, 1003),
+	  (201, 1005), (201, 1006), (201, 1007), (201, 1008), (201, 1009), (201, 1010), (201, 1011), (201, 1012), (201, 1013), (201, 1014), (201, 1015), (201, 1016), (201, 1017), (201, 1018), (201, 1019), (201, 1020);
+INSERT INTO roomEquipment(roomId, equId)
+VALUES(202, 1001), (202, 1003),
+	  (202, 1005), (202, 1006), (202, 1007), (202, 1008), (202, 1009), (202, 1010), (202, 1011), (202, 1012), (202, 1013), (202, 1014), (202, 1015), (202, 1016), (202, 1017), (202, 1018), (202, 1019), (202, 1020);
+INSERT INTO roomEquipment(roomId, equId)
+VALUES(301, 1002), (301, 1004),
+	  (301, 1005), (301, 1006), (301, 1007), (301, 1008), (301, 1009), (301, 1010), (301, 1011), (301, 1012), (301, 1013), (301, 1014), (301, 1015), (301, 1016), (301, 1017), (301, 1018), (301, 1019), (301, 1020);
+INSERT INTO roomEquipment(roomId, equId)
+VALUES(302, 1001), (302, 1004),
+	  (302, 1005), (302, 1006), (302, 1007), (302, 1008), (302, 1009), (302, 1010), (302, 1011), (302, 1012), (302, 1013), (302, 1014), (302, 1015), (302, 1016), (302, 1017), (302, 1018), (302, 1019), (302, 1020);
+INSERT INTO roomEquipment(roomId, equId)
+VALUES(401, 1002), (401, 1003),
+	  (401, 1005), (401, 1006), (401, 1007), (401, 1008), (401, 1009), (401, 1010), (401, 1011), (401, 1012), (401, 1013), (401, 1014), (401, 1015), (401, 1016), (401, 1017), (401, 1018), (401, 1019), (401, 1020);
+INSERT INTO roomEquipment(roomId, equId)
+VALUES(402, 1001), (402, 1003),
+	  (402, 1005), (402, 1006), (402, 1007), (402, 1008), (402, 1009), (402, 1010), (402, 1011), (402, 1012), (402, 1013), (402, 1014), (402, 1015), (402, 1016), (402, 1017), (402, 1018), (402, 1019), (402, 1020);
