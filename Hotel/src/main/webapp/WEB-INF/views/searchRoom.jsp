@@ -116,9 +116,8 @@
 			 <div class="room-preview m-0 " style="margin: 0 20%">
 				
 				<c:forEach var="imgPath" items="${roomImgPaths}" varStatus="loopStatus">
-					
 					<div class="row mt-3">
-						<div class="image-container d-flex align-items-center justify-content-center">
+						<div class="room-container d-flex align-items-center justify-content-center">
 							<img src="${roomImgPaths[loopStatus.index]}" alt="Image${roomId}" class="img-fluid">
 							
 							<!-- Modal for large image -->
@@ -126,10 +125,10 @@
 							    <img src="${roomImgPaths[loopStatus.index]}" id="modalImg" alt="Large Image">
 							</div>
 							
-							<div class="image-description">
+							<div class="text-container">
 								<div class="d-flex h-20 justify-content-between align-items-center" style="font-weight: bold; color: #180A0A">
-									<p style="font-size: 24px;">房型${roomTitle[loopStatus.index]}</p>
-									<p style="font-size: 18px;">${roomType[loopStatus.index]}</p>
+									<p style="font-size: 24px;">房型: ${roomTitle[loopStatus.index]}</p>
+									<p style="font-size: 18px;">${equName[loopStatus.index]}</p>
 								</div>
 								<div style="height: 80%;">
 									<p>${roomContext[loopStatus.index]}</p>
