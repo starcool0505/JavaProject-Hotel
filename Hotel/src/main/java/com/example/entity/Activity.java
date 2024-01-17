@@ -16,8 +16,3 @@ public class Activity {
 	Date activityDate;
 	String activityDescription;
 }
-<<<<<<< HEAD
-
-//實體表格,寫進來java
-=======
->>>>>>> branch 'w0616' of https://github.com/starcool0505/JavaProject-Hotel.git
