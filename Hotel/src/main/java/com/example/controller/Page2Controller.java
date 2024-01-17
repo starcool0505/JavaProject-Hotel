@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Page2Controller {
 	
     public String page2() {
-       
         return  "page2"; 
     }
 	

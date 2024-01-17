@@ -6,10 +6,17 @@ drop table if exists Activity;
 create table if not exists Activity(
 	ActivityID INT AUTO_INCREMENT PRIMARY KEY,
     ActivityImgPath varchar(1000),
+<<<<<<< HEAD
     Name varchar(50),
     Date date,
     Description TEXT
    );
+=======
+    ActivityName varchar(50),
+    ActivityDate date,
+    ActivityDescription TEXT
+);
+>>>>>>> branch 'w0616' of https://github.com/starcool0505/JavaProject-Hotel.git
 
 
 -- 預設資料
