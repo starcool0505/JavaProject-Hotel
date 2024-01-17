@@ -18,7 +18,7 @@ public class ActivityTest {
 		List<Activity> activities = activityDaoImpl.findAllActivities();
 
 		System.out.println(activities);
-
+		// 搜尋id，如果找5就跑出5
 		Optional<Activity> actOptional = activityDaoImpl.findActivityById(5);
 		System.out.println(actOptional.get());
 	}

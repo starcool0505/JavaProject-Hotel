@@ -4,16 +4,16 @@ drop table if exists Activity;
 
 -- 建立 newsdata
 create table if not exists Activity(
-	ActivityId int auto_increment primary key,
-    ActivityImgPath varchar(1000),
-    ActivityName varchar(50),
-    ActivityDate date,
-    ActivityDescription TEXT
+	activityId int auto_increment primary key,
+    activityImgPath varchar(1000),
+    activityName varchar(50),
+    activityDate date,
+    activityDescription TEXT
 );
 
 -- 最新消息資料
 
-INSERT INTO Activity (ActivityId , ActivityImgPath , ActivityName ,  ActivityDate, ActivityDescription) VALUES
+INSERT INTO Activity (activityId , activityImgPath , activityName ,  activityDate, activityDescription) VALUES
 (1, 'images/pic24.jpg', '「富貴圓龍，好運龍來」', '2023-01-18', '即日起早鳥9折 加贈圓山限定「好運龍」時尚保冷袋和圓山調味珍鮮。'),
 (2, 'images/pic25.jpg', '「跨年表演•音樂派對」', '2023-12-31', '在夜空中盡情綻放的煙火秀，為新年的來臨增添絢麗色彩，打造夢幻般的跨年時刻。'),
 (3, 'images/pic26.jpg', '「星光璀璨•聖誕豪華之旅」', '2023-12-25', '品嚐來自世界各地的美食佳餚，精選的聖誕甜點，為您帶來美味的節日盛宴。'),
