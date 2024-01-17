@@ -76,7 +76,7 @@
 	<body class="bg_main0 vh-100">
 		<h2 style="margin: 0 20%">最新消息</h2>
 		<section class="news-list" style="margin-top: 20px;">
-			<div class="row justify-content-center align-items-center custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=0'">
+			<div class="row justify-content-center align-items-center custom-button" onclick="window.location.href='/Hotel/mvc/page2_1.jsp?post=0'">
 				<div class="col-9 fs-5">
 					<p>日期：2023年1月18日</p>
 					<p>「富貴圓龍，好運龍來」圓山三大亞太金獎主廚聯手龍年鉅獻,親製無化學添加限量年菜</p>

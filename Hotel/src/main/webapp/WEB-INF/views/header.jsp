@@ -24,16 +24,16 @@
 	<body>
 		<nav class="navbar navbar-expand-lg bg_main4 fixed-top">
 			<div class="container-fluid" style="margin: 0 20%">
-				<button class="navbar-brand text-light me-0" onclick="window.location.href='./index.jsp'" style="background: none; border: none; padding: 0; cursor: pointer;">
+				<button class="navbar-brand text-light me-0" onclick="window.location.href='/Hotel'" style="background: none; border: none; padding: 0; cursor: pointer;">
 					<img src="/Hotel/images/logo7.jpg" alt="XX飯店圖片" class="logo-img">
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link text-light ms-5" href="./page1.jsp">關於我們</a>
+							<a class="nav-link text-light ms-5" href="/Hotel/mvc/page1">關於我們</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-light" href="./page2.jsp">最新消息</a>
+							<a class="nav-link text-light" href="/Hotel/mvc/page2">最新消息</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link text-light" href="./page3.jsp">客房介紹</a>
