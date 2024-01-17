@@ -19,6 +19,7 @@ public class ActivityTest {
 		
 		System.out.println(activities);
 		
+		
 		Optional<Activity> actOptional = activityDaoImpl.findActivityById(5);
 		System.out.println(actOptional.get());
 	}
