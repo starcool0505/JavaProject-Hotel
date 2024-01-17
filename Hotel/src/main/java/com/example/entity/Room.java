@@ -19,4 +19,5 @@ public class Room
 	String roomDescribe;
 	Double defaultRoomPrice;
 	Double roomPrice;
+	Integer roomOpacity;
 }

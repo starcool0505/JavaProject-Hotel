@@ -1,9 +1,11 @@
 package com.example.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.dao.BookDaoImpl;
 import com.example.dao.RoomDaoImpl;
+import com.example.entity.Book;
 import com.example.entity.Room;
 
 /**
@@ -23,6 +27,9 @@ public class SearchController
 {
 	@Autowired
 	RoomDaoImpl roomDaoImpl;
+	
+	@Autowired
+	BookDaoImpl bookDaoImpl;
 	
 	@GetMapping()
 	public String searchRoom(Model model)
@@ -40,6 +47,7 @@ public class SearchController
 		List<String> roomContext = rooms.stream().map(Room::getRoomContext).collect(Collectors.toList());
 		List<String> roomDescribe = rooms.stream().map(Room::getRoomDescribe).collect(Collectors.toList());
 
+		model.addAttribute("roomId", roomId);
 		model.addAttribute("roomImgPaths", roomImgPaths);
 		model.addAttribute("roomTitle", roomTitle);
 		model.addAttribute("roomType", roomType);
@@ -60,5 +68,11 @@ public class SearchController
 		
 		return "room_index";
 	}
+	
+	@GetMapping()
+    public ResponseEntity<List<Book>> searchRooms(@RequestParam Date checkinDate, @RequestParam int guests) {
+        List<Book> availableRooms = bookDaoImpl.findAvailableRoom(checkinDate, guests);
+        return ResponseEntity.ok(availableRooms);
+    }
 
 }

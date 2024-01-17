@@ -102,6 +102,13 @@
 					<option value="3"> 3人 </option>
 					<option value="4"> 4人 </option>
 				</select>
+				<label for="guests">人數:</label>
+				<select id="guests" name="guests">
+					<option value="1"> 1人 </option>
+					<option value="2"> 2人 </option>
+					<option value="3"> 3人 </option>
+					<option value="4"> 4人 </option>
+				</select>
 				
 				<button  onclick="checkBooking()"> 查詢
 					<i class="bi bi-search"></i>
@@ -110,29 +117,27 @@
 		
 			 <h3 class="mt-2 mb-2" style="top: -10%;">客房列表</h3>
 			 <div class="room-preview m-0 " style="margin: 0 20%">
-				<c:forEach var="imgPath" items="${roomImgPaths}" varStatus="imgStatus">
+				<c:forEach var="imgPath" items="${roomImgPaths}" varStatus="loopStatus">
 				
 					<div class="row mb-2">
 						<div class="image-container d-flex align-items-center justify-content-space-between">
-							<img src="${roomImgPaths[imgStatus.index]}" alt="Image${roomId}" class="img-fluid" onclick="openModal('${roomImgPaths[imgStatus.index]}')">
+							<img src="${roomImgPaths[loopStatus.index]}" alt="Image${roomId}" class="img-fluid" onclick="openModal('${roomImgPaths[loopStatus.index]}')">
 							
 							<!-- 圖片放大 -->
 							<div id="myModal" class="modal" onclick="closeModal()">
-							    <img src="${roomImgPaths[imgStatus.index]}" id="modalImg" alt="Large Image">
+							    <img src="${roomImgPaths[loopStatus.index]}" id="modalImg" alt="Large Image">
 							</div>
 							
 							<div class="text-container" style="width: 60%; padding: 0 20px">
 								<div class="d-flex h-20 justify-content-between align-items-center" style="font-weight: bold; color: #180A0A">
-									<p style="font-size: 24px;">${roomTitle[imgStatus.index]}</p>
-									<c:forEach var="roomId" items="${roomIds}" varStatus="loopStatus">
-									<p style="font-size: 18px;">房號: ${roomId[imgStatus.index]}</p>
-									</c:forEach>
-									<p style="font-size: 18px;">${equName[imgStatus.index]}</p>
+									<p style="font-size: 24px;">${roomTitle[loopStatus.index]}</p>
+										<p style="font-size: 18px;">房號: ${roomId[loopStatus.index]}</p>
+									<!-- <p style="font-size: 18px;">${equName[loopStatus.index]}</p> -->
 								</div>
 								<div style="height: 80%;">
-									<p>${roomContext[imgStatus.index]}</p>
+									<p>${roomContext[loopStatus.index]}</p>
 									<div class="mt-3 text-center">
-										<a href="./page3/room_index/${roomId[imgStatus.index]}" class="btn color1 text-light">前往訂房</a>
+										<a href="./page3/room_index/${roomId[loopStatus.index]}" class="btn color1 text-light">前往訂房</a>
 									</div>
 								</div>
 							</div>
@@ -142,6 +147,11 @@
   			 </div>
   		</div>
 	
+		<div class="room-preview m-0" style="margin: 0 20%">
+		    <div id="room-list">
+		        <!-- 這裡將顯示可用房間的列表 -->
+		    </div>
+		</div>
 		<script>
 			var checkinDateInput = document.getElementById("checkin");
 			//格式化
@@ -173,19 +183,49 @@
 			         return;
 			     }
 			     const guests = document.getElementById('guests').value;
+			     // 格式化日期（yyyy-MM-dd）
+			     const formattedCheckinDate = formatDate(checkinTime);
+
+			     // 使用 AJAX 向後端發送請求
+			     $.ajax({
+			         type: 'GET',
+			         url: '/searchRoom',
+			         data: {
+			             checkinDate: formattedCheckinDate,
+			             guests: guests
+			         },
+			         success: function (data) {
+			             // data 是從後端返回的 List<Book>
+			             displayAvailableRooms(data);
+			         },
+			         error: function (jqXHR, textStatus, errorThrown) {
+			             // 在控制台輸出詳細錯誤信息
+			             console.error('AJAX Error:', textStatus, errorThrown);
+			             
+			             alert('查詢出現錯誤');
+			         }
+			     });
 			 }
+			     
+			// 格式化日期（yyyy-MM-dd）
+			function formatDate(date) {
+			    const year = date.getFullYear();
+			    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+			    const day = date.getDate().toString().padStart(2, '0');
+			    return `${year}-${month}-${day}`;
+			}
 			 
 			 function openModal(imageSrc) {
-			        var modal = document.getElementById("myModal");
-			        var modalImg = document.getElementById("modalImg");
+			    var modal = document.getElementById("myModal");
+			    var modalImg = document.getElementById("modalImg");
 
-			        modal.style.display = "flex"; // 顯示 modal
-			        modalImg.src = imageSrc; // 設置大圖的來源
+			    modal.style.display = "flex"; // 顯示 modal
+			    modalImg.src = imageSrc; // 設置大圖的來源
 			 }
 
 			 function closeModal() {
-			        var modal = document.getElementById("myModal");
-			        modal.style.display = "none"; // 隱藏 modal
+			    var modal = document.getElementById("myModal");
+			    modal.style.display = "none"; // 隱藏 modal
 			 }
 		</script>
 	</body>
