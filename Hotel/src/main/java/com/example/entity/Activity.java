@@ -14,7 +14,6 @@ public class Activity {
 	String activityImgPath;
 	String activityName;
 	Date activityDate;
-	
 	String activityDescription;
 }
 
