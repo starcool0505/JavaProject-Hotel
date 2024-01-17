@@ -262,6 +262,7 @@
 		  margin: 0 auto 0px; /* 設定底部間距 */
 		}
 	 	*/
+	 	/* -----------http://localhost:8080/Hotel/--------------- */
 	</style>
 	
 	</head>

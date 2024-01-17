@@ -8,8 +8,7 @@ create table if not exists Activity(
     ActivityImgPath varchar(1000),
     ActivityName varchar(50),
     ActivityDate date,
-    ActivityDescription TEXT,
-   
+    ActivityDescription TEXT
 );
 
 -- 最新消息資料
