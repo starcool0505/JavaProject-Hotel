@@ -7,8 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class roomEquipment
+public class RoomEquipment
 {
 	Integer roomId;
 	Integer equId;
+	String equName;
+	String equPath;
 }

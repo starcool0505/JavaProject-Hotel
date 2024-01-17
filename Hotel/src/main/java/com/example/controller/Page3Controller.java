@@ -9,12 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.dao.EquipmentDaoImpl;
 import com.example.dao.RoomDaoImpl;
-import com.example.entity.Equipment;
+import com.example.dao.RoomEquipmentDaoImpl;
 import com.example.entity.Room;
+import com.example.entity.RoomEquipment;
 
 /**
  * http://localhost:8080/Hotel/mvc/page3
@@ -27,7 +26,7 @@ public class Page3Controller
 	RoomDaoImpl roomDaoImpl;
 	
 	@Autowired
-	EquipmentDaoImpl equipmentDaoImpl;
+	RoomEquipmentDaoImpl roomEquipmentDaoImpl;
 	
 	@GetMapping()
 	public String page3(Model model)
@@ -60,8 +59,8 @@ public class Page3Controller
 		List<Room> titles = roomDaoImpl.findAllTitles();
 		model.addAttribute("titles", titles);
 		
-		List<Equipment> equipments = equipmentDaoImpl.findAllEquipments();
-		model.addAttribute("equipments", equipments);
+		List<RoomEquipment> roomEquipments = roomEquipmentDaoImpl.findEquipmentDataByRoomId(roomId);
+		model.addAttribute("roomEquipments", roomEquipments);
 		
 		return "room_index";
 	}
