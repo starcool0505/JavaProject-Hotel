@@ -20,9 +20,16 @@ public class ActivityTest {
 		System.out.println(activities);
 		
 		Optional<Activity> actOptional = activityDaoImpl.findActivityById(5);
+<<<<<<< HEAD
 		System.out.println(actOptional.get()); 
 	}
 
 }
 
 
+=======
+		System.out.println(actOptional.get());
+	}
+
+}
+>>>>>>> branch 'w0616' of https://github.com/starcool0505/JavaProject-Hotel.git

@@ -11,4 +11,8 @@ public interface ActivityDao {
 	
 	Optional<Activity> findActivityById(Integer activityId);
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> branch 'w0616' of https://github.com/starcool0505/JavaProject-Hotel.git

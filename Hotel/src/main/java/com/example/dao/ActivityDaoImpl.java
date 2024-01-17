@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.entity.Activity;
 
+<<<<<<< HEAD
 @Repository // Component的衍生,跟資料庫互動
 public class ActivityDaoImpl implements ActivityDao {
 
@@ -35,3 +36,24 @@ public class ActivityDaoImpl implements ActivityDao {
 	}
 
 }
+=======
+@Repository
+public class ActivityDaoImpl implements ActivityDao {
+
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+	
+	@Override
+	public List<Activity> findAllActivities() {
+		String sql = "SELECT activityId, activityImgPath, activityName, activityDate, activityDescription FROM web.activity";
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Activity.class));
+	}
+
+	@Override
+	public Optional<Activity> findActivityById(Integer activityId) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+	
+}
+>>>>>>> branch 'w0616' of https://github.com/starcool0505/JavaProject-Hotel.git

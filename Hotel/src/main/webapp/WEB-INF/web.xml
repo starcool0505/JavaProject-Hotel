@@ -6,8 +6,11 @@
 	<display-name>Hotel</display-name>
 	<welcome-file-list>
 		<welcome-file>/WEB-INF/views/index.jsp</welcome-file>
+<<<<<<< HEAD
 		
 		
+=======
+>>>>>>> branch 'w0616' of https://github.com/starcool0505/JavaProject-Hotel.git
 	</welcome-file-list>
 	
 	<!-- 中文支援 -->
