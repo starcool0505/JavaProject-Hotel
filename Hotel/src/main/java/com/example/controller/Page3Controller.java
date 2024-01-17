@@ -19,7 +19,7 @@ import com.example.entity.RoomEquipment;
  * http://localhost:8080/Hotel/mvc/page3
  */
 @Controller
-@RequestMapping("/page3")
+@RequestMapping("/room_list")
 public class Page3Controller
 {
 	@Autowired

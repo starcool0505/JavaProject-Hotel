@@ -46,14 +46,14 @@
 							<a class="nav-link text-light fs-4" href="./page2.jsp">最新消息</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-light fs-4" href="/Hotel/mvc/page3">客房介紹</a>
+							<a class="nav-link text-light fs-4" href="/Hotel/mvc/room_list">客房介紹</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link text-light fs-4" href="./transportation.jsp">交通資訊</a>
 						</li>
 					</ul>
 				</div>
-				<i class="bi bi-person-circle fs-4 text-light ml-3 mb-0" role="button" onclick="window.location.href='./login.jsp'">登入</i>
+				<i class="bi bi-person-circle fs-4 text-light ml-3 mb-0" role="button" onclick="window.location.href='/Hotel/mvc/login'">登入</i>
 			</div>
 		</nav>
 	</body>

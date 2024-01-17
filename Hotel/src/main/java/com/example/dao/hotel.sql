@@ -13,7 +13,7 @@ create table if not exists user
     userName varchar(50),
     userPhone varchar(10),
     userPassword varchar(50),
-    userType int,
+    userType int default 1,
     userEmail varchar(50),
     userBirth date
 );
@@ -71,6 +71,8 @@ create table if not exists roomEquipment
 -- user預設值
 insert into user(userId, userName, userPhone, userPassword, userType, userEmail, userBirth)
 values(101, "Jett", "0912345678", "valorantJett", 1, "jett@example.com", "1999-01-02");
+insert into user(userId, userName, userPhone, userPassword, userType, userEmail, userBirth)
+values(102, "Sage", "0987654321", "valorantJSage", 2, "jett@example.com", "1998-11-22");
 
 -- room預設值
 insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice)
@@ -140,10 +142,10 @@ INSERT INTO roomEquipment(roomId, equId)
 VALUES(201, 1002), (201, 1003),
 	  (201, 1005), (201, 1006), (201, 1007), (201, 1008), (201, 1009), (201, 1010), (201, 1011), (201, 1012), (201, 1013), (201, 1014), (201, 1015), (201, 1016), (201, 1017), (201, 1018), (201, 1019), (201, 1020);
 INSERT INTO roomEquipment(roomId, equId)
-VALUES(202, 1001), (202, 1003),
+VALUES(202, 1002), (202, 1003),
 	  (202, 1005), (202, 1006), (202, 1007), (202, 1008), (202, 1009), (202, 1010), (202, 1011), (202, 1012), (202, 1013), (202, 1014), (202, 1015), (202, 1016), (202, 1017), (202, 1018), (202, 1019), (202, 1020);
 INSERT INTO roomEquipment(roomId, equId)
-VALUES(301, 1002), (301, 1004),
+VALUES(301, 1001), (301, 1004),
 	  (301, 1005), (301, 1006), (301, 1007), (301, 1008), (301, 1009), (301, 1010), (301, 1011), (301, 1012), (301, 1013), (301, 1014), (301, 1015), (301, 1016), (301, 1017), (301, 1018), (301, 1019), (301, 1020);
 INSERT INTO roomEquipment(roomId, equId)
 VALUES(302, 1001), (302, 1004),
