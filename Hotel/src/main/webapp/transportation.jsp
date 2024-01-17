@@ -20,6 +20,7 @@
         .content-container {
             margin: 0 10%;
             display: flex;
+            height: 600px;
             margin-bottom: 10%;
             margin-top: 0;
             padding: 5%;
@@ -32,27 +33,33 @@
             padding: 20px;
             margin-left: 10%;
             border-left: 2px solid #ccc; /* 添加右邊框 */
+            align-items: center; /* 讓子元素在垂直方向上居中對齊 */
         }
 
         .map-container {
             flex: 4;
             margin-top: 0;
             max-width: 80%; 
-            max-height: 70%; 
+            max-height: 100%; 
             display: flex;
         }
+        
+        .contactInfo {
+		    text-align: center; /* 新增：讓內容置中 */
+		}
+        
 		.contactInfoList {
-		  display: flex;
-		  flex-direction: row; 
-		  padding-left: 15%;
-		  list-style-type: none; 
-		  justify-content: space-around;
+			display: flex;
+			flex-direction: row; 
+			padding-left: 15%;
+			list-style-type: none; 
+			justify-content: center;
+			margin: 0;
 		}
 		
 		.contactInfoItem {
-		  margin-right: 10%;
-		  text-align: center;
-		  
+			margin-right: 10%;
+			text-align: center;
 		}
 	    
         .contactInfoIcon img {
@@ -62,7 +69,6 @@
         
         .text{
         	padding: 0 10%;
-        
         }
 
     </style>
@@ -70,8 +76,8 @@
 	<body class="bg_main0 mt-5">
 	    <div class="mt-5 mb-0 d-flex justify-content-center pt-2">
 	    	<div class="mt-2 mb-0 d-flex flex-column align-items-center">
-	        <h3 class="mb-0">Traffic Information </h3>
-	        <p class="mt-1 text-align-center">交通資訊</p></div>
+	        <h3 class="mt-3 mb-0">Traffic Information </h3>
+	        <p class="mt-1 text-align-center" style="font-size: 20px">交通資訊</p></div>
 	    </div>
 	    
 	    <div class="content-container">
@@ -81,7 +87,8 @@
 	                </gmp-advanced-marker>
 	            </gmp-map>
 	        </div>
-	       <div class="right-sidebar">
+	       <div class="right-sidebar"> 
+	       <div class="contactInfo">
 		       <ul class="contactInfoList">
 		       		<li class="contactInfoItem">
 		       			<div class="contactInfoIcon text-nowrap">
@@ -107,6 +114,7 @@
 		       			</div>
 		       		</li>
 	            </ul>
+	            </div>
 	        </div>
 	    </div>
 	    <div class="text">
@@ -116,6 +124,7 @@
 	    	<br>
 	    	鐵路<br>
 			搭乘台鐵於外澳火車站下車，步行約20分鐘即可抵達。
+	    	<br>
 	    	<br>
 	    	客運<br>
 			於南港轉運站／圓山轉運站搭乘國光客運1877至烏石港站，步行約５分鐘即可抵達。

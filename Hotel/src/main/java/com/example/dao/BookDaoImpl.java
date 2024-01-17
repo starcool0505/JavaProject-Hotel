@@ -1,5 +1,6 @@
 package com.example.dao;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,7 +27,7 @@ public class BookDaoImpl implements BookDao {
 
 	@Override
 	public Optional<Book> findBookById(Integer bookId) {
-		String sql = "select bookId, bookId, roomId, checkinDate, checkoutDate, adultNum, childNum, sepicalReq, bookPrice from book where bookId = ?";
+		String sql = "select bookId, roomId, checkinDate, checkoutDate, adultNum, childNum, sepicalReq, bookPrice from book where bookId = ?";
 		try {
 			Book book = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Book.class), bookId);
 			return Optional.ofNullable(book);
@@ -35,6 +36,13 @@ public class BookDaoImpl implements BookDao {
 		}
 	}
 
+	@Override
+	public List<Book> findAvailableRoom(Date checkinDate, int guests) {
+		 String sql = "SELECT roomId, checkinDate, checkoutDate, (adultNum + childNum) AS guests, bookPrice FROM book WHERE checkinDate = ? AND people >= ?";
+	        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Book.class), checkinDate, guests);
+	}
+	
+	
 	@Override
 	public void addBook(Book book) {
 		String sql = "insert into book(roomId, checkinDate, checkoutDate, adultNum, childNum, sepicalReq, bookPrice) values(?,?,?,?,?,?,?)";
@@ -47,6 +55,7 @@ public class BookDaoImpl implements BookDao {
 		jdbcTemplate.update(sql,  book.getSepicalReq(), book.getBookPrice());
 	
 	}
+
 	
 
 }

@@ -61,18 +61,14 @@
 			position: relative;
 			overflow: hidden;
 			width: 100%;
-			cursor: pointer;
 		}
-		.image-description{
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(235, 227, 213, 0.5);
-			color: #000;
-			padding: 10px;
-		}
+		
+		.image-container img {
+            width: 40%;
+            height: auto;
+            cursor: zoom-in;
+        }
+		
 		.modal {
             display: none;
             position: fixed;
@@ -114,26 +110,29 @@
 		
 			 <h3 class="mt-2 mb-2" style="top: -10%;">客房列表</h3>
 			 <div class="room-preview m-0 " style="margin: 0 20%">
+				<c:forEach var="imgPath" items="${roomImgPaths}" varStatus="imgStatus">
 				
-				<c:forEach var="imgPath" items="${roomImgPaths}" varStatus="loopStatus">
-					<div class="row mt-3">
-						<div class="room-container d-flex align-items-center justify-content-center">
-							<img src="${roomImgPaths[loopStatus.index]}" alt="Image${roomId}" class="img-fluid">
+					<div class="row mb-2">
+						<div class="image-container d-flex align-items-center justify-content-space-between">
+							<img src="${roomImgPaths[imgStatus.index]}" alt="Image${roomId}" class="img-fluid" onclick="openModal('${roomImgPaths[imgStatus.index]}')">
 							
-							<!-- Modal for large image -->
+							<!-- 圖片放大 -->
 							<div id="myModal" class="modal" onclick="closeModal()">
-							    <img src="${roomImgPaths[loopStatus.index]}" id="modalImg" alt="Large Image">
+							    <img src="${roomImgPaths[imgStatus.index]}" id="modalImg" alt="Large Image">
 							</div>
 							
-							<div class="text-container">
+							<div class="text-container" style="width: 60%; padding: 0 20px">
 								<div class="d-flex h-20 justify-content-between align-items-center" style="font-weight: bold; color: #180A0A">
-									<p style="font-size: 24px;">房型: ${roomTitle[loopStatus.index]}</p>
-									<p style="font-size: 18px;">${equName[loopStatus.index]}</p>
+									<p style="font-size: 24px;">${roomTitle[imgStatus.index]}</p>
+									<c:forEach var="roomId" items="${roomIds}" varStatus="loopStatus">
+									<p style="font-size: 18px;">房號: ${roomId[imgStatus.index]}</p>
+									</c:forEach>
+									<p style="font-size: 18px;">${equName[imgStatus.index]}</p>
 								</div>
 								<div style="height: 80%;">
-									<p>${roomContext[loopStatus.index]}</p>
+									<p>${roomContext[imgStatus.index]}</p>
 									<div class="mt-3 text-center">
-										<a href="./page3/room_index/${roomId[loopStatus.index]}" class="btn color1 text-light">了解更多</a>
+										<a href="./page3/room_index/${roomId[imgStatus.index]}" class="btn color1 text-light">前往訂房</a>
 									</div>
 								</div>
 							</div>

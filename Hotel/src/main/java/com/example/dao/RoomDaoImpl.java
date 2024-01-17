@@ -28,4 +28,7 @@ public class RoomDaoImpl implements RoomDao
 		String sql = "SELECT roomId FROM hotel.room WHERE roomId = ?";
 		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Room.class), roomId);
 	}
+
+
+	
 }
