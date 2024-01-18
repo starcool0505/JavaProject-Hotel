@@ -34,12 +34,10 @@ public class SearchController
 	@GetMapping()
 	public String searchRoom(Model model)
 	{
-		
 		List<Room> rooms = roomDaoImpl.findAllRooms();
 		
 		model.addAttribute("rooms", rooms);
 		
-
 		List<Integer> roomId = rooms.stream().map(Room::getRoomId).collect(Collectors.toList());
 		List<String> roomImgPaths = rooms.stream().map(Room::getRoomImgPaths).collect(Collectors.toList());
 		List<String> roomTitle = rooms.stream().map(Room::getRoomTitle).collect(Collectors.toList());
@@ -53,7 +51,6 @@ public class SearchController
 		model.addAttribute("roomType", roomType);
 		model.addAttribute("roomContext", roomContext);
 		model.addAttribute("roomDescribe", roomDescribe);
-
 		
 		return "searchRoom";
 	}

@@ -45,7 +45,7 @@
 							<a class="nav-link text-light fs-4" href="/Hotel/mvc/page3">客房介紹</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-light fs-4" href="./page4.jsp">交通資訊</a>
+							<a class="nav-link text-light fs-4" href="/Hotel/mvc/transportation">交通資訊</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link text-light fs-4" href="/Hotel/mvc/searchRoom">訂房</a>
