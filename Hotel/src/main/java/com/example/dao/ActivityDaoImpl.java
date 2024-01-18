@@ -21,7 +21,7 @@ public class ActivityDaoImpl implements ActivityDao {
 	public Optional<Activity> findActivityById(Integer activityId) {
 		String sql = "SELECT activityId, activityImgPath, activityName, activityDate, activityDescription FROM activity where activityId=?";
 		Activity activity = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Activity.class), activityId);
-		// Bean(類別)Property(屬性)Row(行列)Mapper(對應器,對應表格內容)
+		// Bean(類別)Property(屬性)Row(行列)Mapper(對應器,對應activity表格內容)
 		return Optional.ofNullable(activity);
 	}
 }
