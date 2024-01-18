@@ -32,8 +32,7 @@ public class SearchController
 	BookDaoImpl bookDaoImpl;
 	
 	@GetMapping()
-	public String searchRoom(Model model)
-	{
+	public String searchRoom(Model model){
 		List<Room> rooms = roomDaoImpl.findAllRooms();
 		
 		model.addAttribute("rooms", rooms);
@@ -56,8 +55,7 @@ public class SearchController
 	}
 	
 	@GetMapping("/room_index/{roomId}")
-	public String showRoomIndex(@PathVariable int roomId, Model model)
-	{
+	public String showRoomIndex(@PathVariable int roomId, Model model){
 		Room room = roomDaoImpl.findRoomById(roomId);
 		
 		model.addAttribute("roomId", roomId);
@@ -67,8 +65,9 @@ public class SearchController
 	}
 	
 	@GetMapping("/showRooms")
-    public ResponseEntity<List<Book>> searchRooms(@RequestParam Date checkinDate, @RequestParam int guests) {
-        List<Book> availableRooms = bookDaoImpl.findAvailableRoom(checkinDate, guests);
+    public ResponseEntity<List<Room>> searchRooms(@RequestParam Date checkinDate, @RequestParam int guests) {
+        List<Room> availableRooms = bookDaoImpl.findAvailableRoom(checkinDate, guests);
+        System.out.println("Received request with checkinDate: " + checkinDate + " and guests: " + guests);
         return ResponseEntity.ok(availableRooms);
     }
 

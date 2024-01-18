@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.example.entity.Book;
+import com.example.entity.Room;
 
 @Repository
 public class BookDaoImpl implements BookDao {
@@ -37,11 +38,17 @@ public class BookDaoImpl implements BookDao {
 	}
 
 	@Override
-	public List<Book> findAvailableRoom(Date checkinDate, int guests) {
-		 String sql = "SELECT roomId, checkinDate, checkoutDate, (adultNum + childNum) AS guests, bookPrice FROM book WHERE checkinDate = ? AND people >= ?";
-	        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Book.class), checkinDate, guests);
+	public List<Room> findAvailableRoom(Date checkinDate, int guests) {
+	    String sql = "SELECT r.roomId, r.roomTitle, r.roomType, r.roomImgPaths, r.roomContext, r.roomDescribe, r.defaultRoomPrice, r.roomPrice, r.roomOpacity " +
+	            "FROM room r " +
+	            "LEFT JOIN book b ON r.roomId = b.roomId " +
+	            "WHERE b.bookId IS NULL " +
+	            "   OR (b.checkinDate > ? OR b.checkoutDate < ?) " +
+	            "   AND (b.adultNum + b.childNum) <= ?";
+
+	    return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Room.class), checkinDate, checkinDate, guests);
 	}
-	
+
 	
 	@Override
 	public void addBook(Book book) {
@@ -53,9 +60,6 @@ public class BookDaoImpl implements BookDao {
 	public void deleteBook(Book book) {
 		String sql = "delete from book where bookId = ?";
 		jdbcTemplate.update(sql,  book.getSepicalReq(), book.getBookPrice());
-	
 	}
-
-	
 
 }

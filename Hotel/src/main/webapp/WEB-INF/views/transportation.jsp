@@ -92,14 +92,14 @@
 		       <ul class="contactInfoList">
 		       		<li class="contactInfoItem">
 		       			<div class="contactInfoIcon text-nowrap">
-		       				<img src="Hotel/images/telephone.png">
+		       				<img src="/Hotel/images/telephone.png">
 		       				<p class="mt-2 mb-1">TEL:</p>
 		                    <p>+886-3-2251234</p>
 		       			</div>
 		       		</li>
 		       		<li class="contactInfoItem">
 		       			<div class="contactInfoIcon">
-		       				<img src="Hotel/images/email.png">
+		       				<img src="/Hotel/images/email.png">
 		       				<p class="mt-2 mb-1">Email:</p>
 		                    <p>abcde123@gmail.com</p>
 		       			</div>
@@ -108,7 +108,7 @@
 	            <ul class="contactInfoList">  
 	            	<li class="contactInfoItem">
 		       			<div class="contactInfoIcon text-nowrap">
-		       				<img src="Hotel/images/location.png">
+		       				<img src="/Hotel/images/location.png">
 		       				<p class="mt-2 mb-1">ADDRESS:</p>
 		                    <p>台北市中山區民生東路三段67號</p>
 		       			</div>

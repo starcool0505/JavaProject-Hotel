@@ -132,7 +132,7 @@
 								<div class="d-flex h-20 justify-content-between align-items-center" style="font-weight: bold; color: #180A0A">
 									<p style="font-size: 24px;">${roomTitle[loopStatus.index]}</p>
 										<p style="font-size: 18px;">房號: ${roomId[loopStatus.index]}</p>
-									<!-- <p style="font-size: 18px;">${equName[loopStatus.index]}</p> -->
+										<p style="font-size: 18px;">${equName[loopStatus.index]}</p>
 								</div>
 								<div style="height: 80%;">
 									<p>${roomContext[loopStatus.index]}</p>
@@ -153,11 +153,30 @@
 		    </div>
 		</div>
 		<script>
-			var checkinDateInput = document.getElementById("checkin");
+			window.onload = function () {
+			    var checkinDateInput = document.getElementById("checkin");
+			    var checkoutDateInput = document.getElementById("checkout");
+	
+			    // 格式化
+			    var today = new Date().toISOString().split('T')[0];
+			    checkinDateInput.setAttribute('min', today);
+			    checkinDateInput.value = today;
+	
+			    // 計算隔天日期
+			    var nextDay = new Date();
+			    nextDay.setDate(nextDay.getDate() + 1);
+	
+			    // 設定 checkout 的預設值為隔天
+			    checkoutDateInput.valueAsDate = nextDay;
+	
+			    // 格式化
+			    var tomorrow = nextDay.toISOString().split('T')[0];
+			    checkoutDateInput.setAttribute('min', tomorrow);
+			};
 			//格式化
 			var today = new Date().toISOString().split('T')[0];
-			// 設置最小日期為今天
-			checkinDateInput.setAttribute('min', today);
+			var checkinDateInput = document.getElementById("checkin");
+			var checkoutDateInput = document.getElementById("checkout");
 			
 			function updateCheckoutDate() {
 			    var checkoutDate = document.getElementById("checkout");
@@ -171,7 +190,8 @@
 			    checkoutDate.valueAsDate = nextDay;
 			 	//格式化  
 				var tomorrow = nextDay.toISOString().split('T')[0];
-				checkoutDate.setAttribute('min', tomorrow);
+				// 設置最小日期為隔天
+			 	checkoutDate.setAttribute('min', tomorrow);
 			 }
 	
 			 function checkBooking() {
@@ -189,7 +209,7 @@
 			     // 使用 AJAX 向後端發送請求
 			     $.ajax({
 			         type: 'GET',
-			         url: '/showRoom',
+			         url: 'searchRoom/showRooms',
 			         data: {
 			             checkinDate: formattedCheckinDate,
 			             guests: guests
