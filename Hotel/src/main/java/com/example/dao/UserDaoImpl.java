@@ -3,6 +3,7 @@ package com.example.dao;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -16,13 +17,25 @@ public class UserDaoImpl implements UserDao {
 	JdbcTemplate jdbcTemplate;
 	
 	@Override
-	public Optional<User> findUserById(Integer id) {
-		
+	public Optional<User> findUserById(Integer id)
+	{
 		String sql = "SELECT userId, userName, userPhone, userPassword, userType, userEmail, userBirth FROM hotel.user where userId=?";
-		
-		User user = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class),id);
-		
+		User user = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), id);
 		return Optional.ofNullable(user);
 	}
 
+	@Override
+	public Optional<User> findUserByUserName(String username)
+	{
+		String sql="SELECT userName, userPassword FROM hotel.user where userName=?";
+		try
+		{
+			User user = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), username);
+			return Optional.ofNullable(user);
+		}
+		catch(EmptyResultDataAccessException e)
+		{
+			return Optional.empty();
+		}
+	}
 }

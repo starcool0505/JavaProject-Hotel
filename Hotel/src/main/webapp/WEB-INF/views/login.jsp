@@ -6,25 +6,32 @@
 <html>
 	<body class="bg_main0 vh-100 position-relative">
 		<div class="position-absolute top-50 start-50 translate-middle">
+<!-- 			<form class="needs-validation" method="post" action="./login/doLogin"> -->
 			<form class="needs-validation" method="post" action="./login">
+			
 				<h4 class="text-center">登入</h4>
 				
-<!-- 				顯示錯誤提示，如果有錯誤信息存在 -->
+				<!-- 顯示錯誤提示，如果有錯誤信息存在 -->
 				<%
-				String error=(String)request.getAttribute("error");
-				if(error!=null)
-				{
+					String error=(String)request.getAttribute("error");
+					String passwordError=(String)request.getAttribute("passwordError");
+					if(error!=null)
+					{
 				%>
-				<div class="alert alert-danger" role="alert">
-					<%= error %>
-				</div>
-				<%	} %>
-
-<%-- 				<c:if test="${not empty requestScope.error}"> --%>
-<!-- 					<div class="alert alert-danger" role="alert"> -->
-<%-- 						${requestScope.error} --%>
-<!-- 					</div> -->
-<%-- 				</c:if> --%>
+						<div class="alert alert-danger" role="alert">
+							<%= error %>
+						</div>
+				<%
+					}
+					else if (passwordError != null)
+					{
+				%>
+						<div class="alert alert-danger" role="alert">
+							<%= passwordError %>
+						</div>
+				<%
+					}
+				%>
 				
 				<div>
 					<label for="username" class="form-label">帳號</label>

@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
-
+public class User
+{
 	Integer userId;
 	String userName;
 	String userPhone;

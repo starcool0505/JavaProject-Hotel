@@ -4,6 +4,9 @@ import java.util.Optional;
 
 import com.example.entity.User;
 
-public interface UserDao {
+public interface UserDao
+{
 	Optional<User> findUserById(Integer id);
+	
+	Optional<User> findUserByUserName(String username);
 }
