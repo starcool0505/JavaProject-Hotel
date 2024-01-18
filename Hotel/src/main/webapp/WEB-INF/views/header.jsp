@@ -47,6 +47,9 @@
 						<li class="nav-item">
 							<a class="nav-link text-light fs-4" href="./page4.jsp">交通資訊</a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link text-light fs-4" href="/Hotel/mvc/searchRoom">訂房</a>
+						</li>
 					</ul>
 				</div>
 				<i class="bi bi-person-circle fs-4 text-light ml-3 mb-0" role="button" onclick="window.location.href='./login.jsp'">登入</i>

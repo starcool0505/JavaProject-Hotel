@@ -69,7 +69,7 @@ public class SearchController
 		return "room_index";
 	}
 	
-	@GetMapping()
+	@GetMapping("/showRooms")
     public ResponseEntity<List<Book>> searchRooms(@RequestParam Date checkinDate, @RequestParam int guests) {
         List<Book> availableRooms = bookDaoImpl.findAvailableRoom(checkinDate, guests);
         return ResponseEntity.ok(availableRooms);

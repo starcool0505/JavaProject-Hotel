@@ -95,15 +95,16 @@
 				<label for="checkout"> 退房時間: </label>
 				<input type="date" id="checkout" name="checkout" >
 				 
-				<label for="guests">人數:</label>
+				<label for="guests">大人:</label>
 				<select id="guests" name="guests">
 					<option value="1"> 1人 </option>
 					<option value="2"> 2人 </option>
 					<option value="3"> 3人 </option>
 					<option value="4"> 4人 </option>
 				</select>
-				<label for="guests">人數:</label>
+				<label for="guests">兒童:</label>
 				<select id="guests" name="guests">
+					<option value="0"> 0人 </option>
 					<option value="1"> 1人 </option>
 					<option value="2"> 2人 </option>
 					<option value="3"> 3人 </option>
@@ -189,7 +190,7 @@
 			     // 使用 AJAX 向後端發送請求
 			     $.ajax({
 			         type: 'GET',
-			         url: '/searchRoom',
+			         url: '/showRoom',
 			         data: {
 			             checkinDate: formattedCheckinDate,
 			             guests: guests
