@@ -15,6 +15,7 @@ public class ActivityDaoImpl implements ActivityDao {
 		String sql = "SELECT activityId, activityImgPath, activityName, activityDate, activityDescription FROM web.activity";
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Activity.class));
 	}
+	
 	// 搜尋id，如果找5就跑出5
 	@Override
 	public Optional<Activity> findActivityById(Integer activityId) {
