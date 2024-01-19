@@ -53,7 +53,15 @@
 						</li>
 					</ul>
 				</div>
-				<i class="bi bi-person-circle fs-4 text-light ml-3 mb-0" role="button" onclick="window.location.href='/Hotel/mvc/login'">登入</i>
+<%-- 				user:${ user == null } --%>
+				<c:if test="${user == null}">
+					<i class="bi bi-person-circle fs-4 text-light ml-3 mb-0" role="button" onclick="window.location.href='/Hotel/mvc/login'">登入</i>
+				</c:if>
+<!-- 				有問題 -->
+				<c:if test="${user != null}">
+					<p>${user.userName}</p>
+					<i class="bi bi-person-circle fs-4 text-light ml-3 mb-0" role="button" onclick="window.location.href='/Hotel/mvc/logout'">登出</i>
+				</c:if>
 			</div>
 		</nav>
 	</body>

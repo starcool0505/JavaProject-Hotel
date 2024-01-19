@@ -21,13 +21,13 @@ import com.example.entity.User;
  */
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping()
 public class LoginController
 {
 	@Autowired
 	private UserDao userDao;
 	
-	@GetMapping()
+	@GetMapping("/login")
 	public String loginPage()
 	{
 		return "login";
@@ -40,8 +40,11 @@ public class LoginController
 						HttpSession session, Model model)
 	{
 		System.out.println("Handling login request...");
+		
 		// 根據 username 查找 user 物件
 		Optional<User> userOptional = userDao.findUserByUserName(username);
+		model.addAttribute("username", username);
+		
 		if(userOptional.isPresent())
 		{
 			User user = userOptional.get();
@@ -49,7 +52,7 @@ public class LoginController
 			if(user.getUserPassword().equals(password))
 			{
 				session.setAttribute("user", user); // 將 user 物件放入到 session 變數中
-				return "redirect:/room_list"; // OK, 導向前台首頁
+				return "redirect:/mvc/room_list"; // OK, 導向前台首頁
 			}
 			else
 			{
@@ -62,7 +65,7 @@ public class LoginController
 		{
 			session.invalidate(); // session 過期失效
 			model.addAttribute("error", "無此使用者");
-			return "/login";
+			return "login";
 		}
 	}
 	

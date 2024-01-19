@@ -71,9 +71,9 @@ create table if not exists roomEquipment
 
 -- user預設值
 insert into user(userId, userName, userPhone, userPassword, userType, userEmail, userBirth)
-values(101, "Jett", "0912345678", "valorantJett", 1, "jett@example.com", "1999-01-02");
+values(101, "Jett", "0912345678", "12345678", 1, "jett@example.com", "1999-01-02");
 insert into user(userId, userName, userPhone, userPassword, userType, userEmail, userBirth)
-values(102, "Sage", "0987654321", "valorantJSage", 2, "jett@example.com", "1998-11-22");
+values(102, "Sage", "0987654321", "123456789", 2, "jett@example.com", "1998-11-22");
 
 -- room預設值
 insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice, roomOpacity)

@@ -6,8 +6,8 @@
 <html>
 	<body class="bg_main0 vh-100 position-relative">
 		<div class="position-absolute top-50 start-50 translate-middle">
-<!-- 			<form class="needs-validation" method="post" action="./login/doLogin"> -->
-			<form class="needs-validation" method="post" action="./login">
+			<form class="needs-validation" method="post" action="${pageContext.request.contextPath}/mvc/login">
+<!-- 			<form class="needs-validation" method="post" action="./login"> -->
 			
 				<h4 class="text-center">登入</h4>
 				

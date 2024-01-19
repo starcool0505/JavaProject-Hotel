@@ -20,7 +20,7 @@ import com.example.entity.RoomEquipment;
  */
 @Controller
 @RequestMapping("/room_list")
-public class Page3Controller
+public class Room_listController
 {
 	@Autowired
 	RoomDaoImpl roomDaoImpl;
@@ -29,7 +29,7 @@ public class Page3Controller
 	RoomEquipmentDaoImpl roomEquipmentDaoImpl;
 	
 	@GetMapping()
-	public String page3(Model model)
+	public String room_list(Model model)
 	{
 		
 		List<Room> rooms = roomDaoImpl.findAllRooms();
@@ -46,7 +46,7 @@ public class Page3Controller
 		model.addAttribute("roomType", roomType);
 		model.addAttribute("roomContext", roomContext);
 		
-		return "page3";
+		return "room_list";
 	}
 	
 	@GetMapping("/room_index/{roomId}")
