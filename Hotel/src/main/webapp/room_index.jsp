@@ -8,7 +8,7 @@
 <%
 	String roomNoStr=request.getParameter("no");
 	int roomNo=Integer.parseInt(roomNoStr);
-%>
+%>l
 
 <!DOCTYPE html>
 <html>
