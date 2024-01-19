@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,21 +55,12 @@ public class SearchController
 		return "searchRoom";
 	}
 	
-	@GetMapping("/room_index/{roomId}")
-	public String showRoomIndex(@PathVariable int roomId, Model model){
-		Room room = roomDaoImpl.findRoomById(roomId);
 		
-		model.addAttribute("roomId", roomId);
-		model.addAttribute("room", room);
-		
-		return "room_index";
-	}
-	
 	@GetMapping("/showRooms")
-    public ResponseEntity<List<Room>> searchRooms(@RequestParam Date checkinDate, @RequestParam int guests) {
-        List<Room> availableRooms = bookDaoImpl.findAvailableRoom(checkinDate, guests);
-        System.out.println("Received request with checkinDate: " + checkinDate + " and guests: " + guests);
-        return ResponseEntity.ok(availableRooms);
-    }
+	public ResponseEntity<List<Room>> searchRooms(@RequestParam("checkinDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkinDate,
+            @RequestParam("guests") int guests) {
+		List<Room> availableRooms = bookDaoImpl.findAvailableRoom(checkinDate, guests);
+		return ResponseEntity.ok(availableRooms);
+	}
 
 }

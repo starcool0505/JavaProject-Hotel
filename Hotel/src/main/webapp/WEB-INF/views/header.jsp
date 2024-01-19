@@ -42,7 +42,7 @@
 							<a class="nav-link text-light fs-4" href="/Hotel/mvc/page2">最新消息</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-light fs-4" href="/Hotel/mvc/page3">客房介紹</a>
+							<a class="nav-link text-light fs-4" href="/Hotel/mvc/room_list">客房介紹</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link text-light fs-4" href="/Hotel/mvc/transportation">交通資訊</a>

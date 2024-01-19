@@ -21,7 +21,7 @@
             margin: 0 10%;
             display: flex;
             height: 600px;
-            margin-bottom: 10%;
+            margin-bottom: 2%;
             margin-top: 0;
             padding: 5%;
             background-color: #EEEEDF;
@@ -117,7 +117,7 @@
 	            </div>
 	        </div>
 	    </div>
-	    <div class="text">
+	    <div class="text mb-3">
 	    	自行開車 <br>
 			行駛國道五號→下頭城交流道後右轉→直行青雲路→經過蘭陽博物館→港口路右轉→烏石港路左轉→進入連大烏石港度假村→左手邊黑色建築物就是OA Hotel。
 	    	<br>

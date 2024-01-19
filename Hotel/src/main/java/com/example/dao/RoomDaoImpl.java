@@ -23,12 +23,18 @@ public class RoomDaoImpl implements RoomDao
 	}
 	
 	@Override
-	public Room findRoomById(int roomId)
+	public Room findAllRoomById(int roomId)
 	{
-		String sql = "SELECT roomId FROM hotel.room WHERE roomId = ?";
+		String sql = "SELECT roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice FROM hotel.room WHERE roomId = ?";
 		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Room.class), roomId);
 	}
 
+	@Override
+	public List<Room> findAllTitles()
+	{
+		String sql = "SELECT roomId, roomTitle FROM hotel.room";
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Room.class));
+	}
 
 	
 }

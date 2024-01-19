@@ -195,7 +195,7 @@
 			      var email = document.getElementById("email").value;
 			      var specialRequests = document.getElementById("special-requests").value;
 			
-			      var redirectURL = 'page6.jsp' +
+			      var redirectURL = 'bookDetail.jsp' +
 			        '?name=' + encodeURIComponent(name) +
 			        '&phone=' + encodeURIComponent(phone) +
 			        '&email=' + encodeURIComponent(email) +
