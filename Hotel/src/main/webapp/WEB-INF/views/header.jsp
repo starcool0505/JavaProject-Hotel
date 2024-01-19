@@ -33,7 +33,7 @@
 							<a class="nav-link text-light ms-5" href="/Hotel/mvc/page1">關於我們</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-light" href="/Hotel/mvc/page2">最新消息</a>
+							<a class="nav-link text-light" href="/Hotel/mvc/activity">最新消息</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link text-light" href="./page3.jsp">客房介紹</a>
