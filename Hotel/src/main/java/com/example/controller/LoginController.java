@@ -39,8 +39,6 @@ public class LoginController
 						@RequestParam("password") String password,
 						HttpSession session, Model model)
 	{
-		System.out.println("Handling login request...");
-		
 		// 根據 username 查找 user 物件
 		Optional<User> userOptional = userDao.findUserByUserName(username);
 		model.addAttribute("username", username);
@@ -74,6 +72,6 @@ public class LoginController
 	public String logout(HttpSession session)
 	{
 		session.invalidate();
-		return "redirect:/login";
+		return "redirect:/mvc/login";
 	}
 }

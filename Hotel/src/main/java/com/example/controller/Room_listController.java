@@ -1,7 +1,6 @@
 package com.example.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,18 +32,7 @@ public class Room_listController
 	{
 		
 		List<Room> rooms = roomDaoImpl.findAllRooms();
-		
-		List<Integer> roomId = rooms.stream().map(Room::getRoomId).collect(Collectors.toList());
-		List<String> roomImgPaths = rooms.stream().map(Room::getRoomImgPaths).collect(Collectors.toList());
-		List<String> roomTitle = rooms.stream().map(Room::getRoomTitle).collect(Collectors.toList());
-		List<String> roomType = rooms.stream().map(Room::getRoomType).collect(Collectors.toList());
-		List<String> roomContext = rooms.stream().map(Room::getRoomContext).collect(Collectors.toList());
-		
-		model.addAttribute("roomId", roomId);
-		model.addAttribute("roomImgPaths", roomImgPaths);
-		model.addAttribute("roomTitle", roomTitle);
-		model.addAttribute("roomType", roomType);
-		model.addAttribute("roomContext", roomContext);
+		model.addAttribute("rooms", rooms);
 		
 		return "room_list";
 	}

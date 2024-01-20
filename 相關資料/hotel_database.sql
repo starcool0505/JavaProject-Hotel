@@ -4,6 +4,7 @@ drop table if exists book;
 drop table if exists user;
 drop table if exists room;
 drop table if exists equipment;
+drop table if exists Activity;
 
 
 -- 建立 user table
@@ -60,13 +61,23 @@ create table if not exists equipment
     equPath varchar(500) default null
 );
 
--- 建立 book table
+-- 建立 roomEquipment table
 create table if not exists roomEquipment
 (
 	roomId int,
     equId int,
     foreign key (roomId) references room(roomId),
     foreign key (equId) references equipment(equId)
+);
+
+-- 建立 newsdata
+create table if not exists Activity
+(
+	activityId int auto_increment primary key,
+	activityImgPath varchar(1000),
+	activityName varchar(50),
+	activityDate date,
+	activityDescription TEXT
 );
 
 -- user預設值
@@ -92,6 +103,14 @@ values(402, "太陽四人房", "四人房", "/Hotel/images/s-room-6.jpg", "太�
 -- book預設值
 insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, sepicalReq, bookPrice)
 values(2024001, 101, 201, "2023-12-27", "2023-12-31", 2, 0, "多一條毛巾", 2800*0.9*2);
+insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, sepicalReq, bookPrice)
+values(2024002, 101, 401, "2023-12-30", "2024-01-10", 1, 1, "多2條毛巾",
+       (SELECT (DATEDIFF("2023-12-31", "2023-12-27") + 1) * roomPrice
+        FROM room
+        WHERE roomId = 201)
+);
+
+
 
 
 -- equipment預設值
@@ -157,3 +176,12 @@ VALUES(401, 1002), (401, 1003),
 INSERT INTO roomEquipment(roomId, equId)
 VALUES(402, 1001), (402, 1003),
 	  (402, 1005), (402, 1006), (402, 1007), (402, 1008), (402, 1009), (402, 1010), (402, 1011), (402, 1012), (402, 1013), (402, 1014), (402, 1015), (402, 1016), (402, 1017), (402, 1018), (402, 1019), (402, 1020);
+      
+-- 最新消息資料
+INSERT INTO Activity (activityId , activityImgPath , activityName ,  activityDate, activityDescription) VALUES
+(1, '/Hotel/images/pic24.jpg', '「富貴圓龍，好運龍來」', '2023-01-18', '即日起早鳥9折 加贈圓山限定「好運龍」時尚保冷袋和圓山調味珍鮮。'),
+(2, '/Hotel/images/pic25.jpg', '「跨年表演•音樂派對」', '2023-12-31', '在夜空中盡情綻放的煙火秀，為新年的來臨增添絢麗色彩，打造夢幻般的跨年時刻。'),
+(3, '/Hotel/images/pic26.jpg', '「星光璀璨•聖誕豪華之旅」', '2023-12-25', '品嚐來自世界各地的美食佳餚，精選的聖誕甜點，為您帶來美味的節日盛宴。'),
+(4, '/Hotel/images/pic27.jpg', '「冬至搓湯圓•手作湯圓體驗」', '2023-12-15', '每位小朋友完成湯圓製作後，將獲得一份小禮物，感謝他們的參與和創意。'),
+(5, '/Hotel/images/pic28.jpg', '「鍛鍊金工•手作體驗」', '2023-11-20', '即日起兩人同行一人半價,歡迎情侶同遊。'),
+(6, '/Hotel/images/pic29.jpg', '「螃蟹產季•饗您味蕾」', '2023-11-07', '即日起早鳥9折,消費滿兩千折兩百。');
