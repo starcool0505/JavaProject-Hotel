@@ -12,7 +12,7 @@ public class ActivityDaoImpl implements ActivityDao {
 	JdbcTemplate jdbcTemplate; // 自動打開和關閉數據連接,簡化程式碼
 	@Override
 	public List<Activity> findAllActivities() {
-		String sql = "SELECT activityId, activityImgPath, activityName, activityDate, activityDescription FROM web.activity";
+		String sql = "SELECT activityId, activityImgPath, activityName, activityDate, activityDescription FROM hotel.activity";
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Activity.class));
 	}
 	
