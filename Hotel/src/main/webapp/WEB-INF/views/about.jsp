@@ -28,8 +28,8 @@
 			background-color: rgba(0, 0, 0, 0.5); /* 背景顏色 */
 			color: white;
 			padding: 50px; /* 增加 padding 來讓框框變大 */
-			font-size: 20px;
-			line-height: 2.5;
+			font-size: 35px;
+			line-height: 2;
 			width: 80%; /* 修改寬度 */
 			height: auto; /* 讓高度自適應內容 */
 			text-align: center; /* 讓文字水平置中 */
@@ -39,7 +39,7 @@
 		.slogan {
 			background-color: #afa07f; /* 背景顏色 */
 			color: white;
-			height: 150px;
+			height: 250px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -49,6 +49,7 @@
 		.slogan p {
 			text-align: center;
 			line-height: 2;
+			font-size: 30px;
 		}
 		
 		/* -----------------第一段介紹:床鋪設計---------------------------------- */
@@ -73,8 +74,9 @@
 		
 		.about1_1 p {
 			text-align: center;
-			line-height: 2;
+			line-height: 1.5;
 			color: white;
+			font-size: 26px;
 		}
 		/* -----------------第二段介紹:夜景------------------------------------- */
 		.about2 {
@@ -98,8 +100,9 @@
 		
 		.about2_1 p {
 			text-align: center;
-			line-height: 2;
+			line-height: 1.5;
 			color: white;
+			font-size: 26px;
 		}
 		/* --------------------第一段和第二段共同部分:圖片滑鼠進入放大---------------- */
 		.about1, .about2 {
@@ -159,10 +162,11 @@
 			margin-top: 20px;
 			margin-bottom: 10px; /* 修正標題的下方間距 */
 			font-weight: bold;
+			font-size: 30px;
 		}
 		
 		.about3 p {
-			font-size: 16px;
+			font-size: 24px;
 			margin-bottom: 0; /* 移除段落底部的預設間距 */
 		}
 		
@@ -178,8 +182,8 @@
 				<img alt="" src="/Hotel/images/pic22.jpg" style="width: 100%; hight: auto">
 				<div class="overlay-text">
 					<p>
-						歡迎來到我們的飯店，這裡融合了奢華與舒適，為您提供精緻的住宿體驗。<br>我們致力於營造溫馨且獨特的旅程，讓每位客人都感受到無比的尊榮與舒適。
-						<br>我們熬過了疫情艱難的時刻,期待與您再次相會。<br>希望能在您愉快的旅程留下與我們的足跡。
+						歡迎來到我們的飯店，這裡融合了奢華與舒適，<br>為您提供精緻的住宿體驗。<br>我們致力於營造溫馨且獨特的旅程，<br>讓每位客人都感受到無比的尊榮與舒適。
+						<br>希望能在您愉快的旅程留下與我們的足跡。
 					</p>
 				</div>
 			</div>
@@ -188,7 +192,7 @@
 		<section class="slogan">
 			<p>
 				我們提供6間寬敞舒適的客房，每一間融合了現代設計與溫馨氛圍。 <br>在我們飯店，您會發現舒適度和品質不僅僅是承諾，更是我們的驕傲。
-				<br>不論您是來度假還是商務出差，我們精心打造的住所將帶給您舒適與便利，讓您留下難忘美好的回憶。
+				<br>不論您是來度假還是商務出差，我們精心打造的住所將帶給您舒適與便利，<br>讓您留下難忘美好的回憶。
 			</p>
 		</section>
 	
@@ -196,7 +200,7 @@
 			<img alt="" src="/Hotel/images/pic4.jpg">
 			<div class="about1_1">
 				<p>
-					我們引以為傲的床舖設計， <br>經過精心挑選的高品質床墊讓您一躺上去就能感受到家的溫暖。 <br>我們的枕頭更是為了您的睡眠品質而精心打造，無論您喜歡柔軟還是支撐性的枕頭，
+					我們引以為傲的床舖設計，<br>精心挑選的高品質床墊能夠好好放鬆。<br>我們的枕頭有多種選擇，<br>無論您喜歡柔軟還是支撐性的枕頭，
 					<br>我們都能滿足您的需求。
 				</p>
 			</div>
@@ -205,8 +209,8 @@
 		<section class=about2>
 			<div class="about2_1">
 				<p>
-					當夜幕低垂，城市的燈火開始閃爍，位於城市中心的高樓大廈，欣賞令人讚嘆的夜景。 <br>我們擁有觀景台或餐廳，讓你盡情欣賞夜晚城市的璀璨燈光，<br>感受它所帶來的浪漫氛圍。
-					<br>這種時刻讓人陶醉，也是與摯愛、家人或朋友共度美好時光的絕佳場所。
+					夜幕低垂，欣賞令人讚嘆的夜景。<br>我們擁有觀景台，讓你盡情欣賞夜晚的璀璨燈光，<br>感受它所帶來的浪漫氛圍。
+					<br>與摯愛、家人或朋友共度美好時光的絕佳場所。
 				</p>
 			</div>
 			<img alt="" src="/Hotel/images/pic7.jpg">

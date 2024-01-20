@@ -7,16 +7,18 @@
 		<title>xx飯店</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-		<link rel="stylesheet" href="./css/main_color.css">
+		<link rel="stylesheet" href="/Hotel/css/main_color.css">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 		<link rel="icon" type=image/png href="images/logopng.png">
 	<style type="text/css">
-		.logo-img
-		{
+		.logo-img{
 			width: 50px;
 			height: auto;
 		}
+		 .navbar-nav .nav-link {
+        font-size: 26px; /* 調整字體大小，您可以根據需要修改此數值 */
+    	}
 	</style>
 	
 	</head>
@@ -30,7 +32,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link text-light ms-5" href="/Hotel/mvc/page1">關於我們</a>
+							<a class="nav-link text-light ms-5" href="/Hotel/mvc/about">關於我們</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link text-light" href="/Hotel/mvc/activity">最新消息</a>
