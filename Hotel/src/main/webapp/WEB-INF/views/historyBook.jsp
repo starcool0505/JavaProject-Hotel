@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
-<%@ include file="/WEB-INF/views/header.jsp" %>
+<%@ include file="/WEB-INF/views/header.jsp"%>
 
-<!DOCTYPE html>
-<html>
-	<body class="bg_main0 vh-100 position-relative">
-	<div class="container m-0 position-absolute top-50 start-50 translate-middle" style="margin: 0 20%">
+<section>
+	<div class="container m-0 position-absolute top-50 start-50 translate-middle"
+		 style="margin: 0 20%">
 		<table class="table table-bordered border-dark border-2">
 			<thead>
 				<tr>
@@ -17,7 +17,7 @@
 					<th scope="col-2">總金額</th>
 				</tr>
 			</thead>
-			
+
 			<tbody>
 				<tr>
 					<th scope="row">1</th>
@@ -27,7 +27,7 @@
 					<td>1</td>
 					<td>1</td>
 				</tr>
-				
+
 				<tr>
 					<th scope="row">2</th>
 					<td></td>
@@ -36,7 +36,7 @@
 					<td></td>
 					<td></td>
 				</tr>
-				
+
 				<tr>
 					<th scope="row">3</th>
 					<td></td>
@@ -47,8 +47,7 @@
 				</tr>
 			</tbody>
 		</table>
-		</div>
-	</body>
-</html>
+	</div>
+</section>
 
-<%@ include file="/WEB-INF/views/footer.jsp" %>
+<%@ include file="/WEB-INF/views/footer.jsp"%>

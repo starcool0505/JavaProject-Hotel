@@ -15,6 +15,13 @@
 		<!-- starcool使用 -->
 		<link rel="stylesheet" href="/Hotel/css/main_color.css">
 		<link rel="stylesheet" href="/Hotel/css/room_css.css">
+		<style type="text/css">
+			section{
+				min-height: 100vh;
+				padding-top:68px;
+				background-color: rgb(251, 249, 247);
+			}
+		</style>
 		
 		<!-- april使用 -->
 		
@@ -38,31 +45,31 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link text-light ms-5 fs-4" href="/Hotel/mvc/about">關於我們</a>
+							<a class="nav-link text-light ms-5 fs-4 text-nowrap" href="/Hotel/mvc/about">關於我們</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-light fs-4" href="/Hotel/mvc/activity">最新消息</a>
+							<a class="nav-link text-light fs-4 text-nowrap" href="/Hotel/mvc/activity">最新消息</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-light fs-4" href="/Hotel/mvc/room_list">客房介紹</a>
+							<a class="nav-link text-light fs-4 text-nowrap" href="/Hotel/mvc/room_list">客房介紹</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-light fs-4" href="./transportation.jsp">交通資訊</a>
+							<a class="nav-link text-light fs-4 text-nowrap" href="./transportation.jsp">交通資訊</a>
 						</li>
 						<c:if test="${user != null}">
 							<li class="nav-item">
-								<a class="nav-link text-light fs-4" href="/Hotel/mvc/historyBook">歷史訂單</a>
+								<a class="nav-link text-light fs-4 text-nowrap" href="/Hotel/mvc/historyBook">歷史訂單</a>
 							</li>
 						</c:if>
 					</ul>
 				</div>
 				
 				<c:if test="${user == null}">
-					<i class="bi bi-person-circle fs-4 text-light ml-3 mb-0" role="button" onclick="window.location.href='/Hotel/mvc/login'">登入</i>
+					<i class="bi bi-person-circle fs-4 text-light ml-3 mb-0 text-nowrap" role="button" onclick="window.location.href='/Hotel/mvc/login'">登入</i>
 				</c:if>
 				<c:if test="${user != null}">
 					<p class="text-light mb-0 me-3 fs-4">${user.userName}</p>
-					<i class="bi bi-person-circle fs-4 text-light ml-3 mb-0" role="button" onclick="window.location.href='/Hotel/mvc/logout'">登出</i>
+					<i class="bi bi-person-circle fs-4 text-light ml-3 mb-0 text-nowrap" role="button" onclick="window.location.href='/Hotel/mvc/logout'">登出</i>
 				</c:if>
 			</div>
 		</nav>

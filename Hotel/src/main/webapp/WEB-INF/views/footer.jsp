@@ -13,6 +13,12 @@
 </c:if>
 -->
 
+<!-- 
 <footer class="container-fluid bottom-0 bg_main3 text-light text-center">
+	<p class="mb-0">&copy; 2023 飯店管理網站. 聯絡地址: . 聯絡電話:.</p>
+</footer>
+ -->
+ 
+<footer class="container-fluid bg_main3 text-light text-center">
 	<p class="mb-0">&copy; 2023 飯店管理網站. 聯絡地址: . 聯絡電話:.</p>
 </footer>
