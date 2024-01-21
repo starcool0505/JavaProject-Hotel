@@ -62,7 +62,7 @@ public class LoginController
 		else
 		{
 			session.invalidate(); // session 過期失效
-			model.addAttribute("error", "無此使用者");
+			model.addAttribute("error", "查無使用者");
 			return "login";
 		}
 	}

@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Book {
+public class Book
+{
 	Integer bookId;
 	Integer userId;
 	Integer roomId;
