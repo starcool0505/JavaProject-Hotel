@@ -35,7 +35,7 @@
 		
 		.centered-text span {
 			font-family: 'EB Garamond', sans-serif; /* 使用 Google Fonts 中的  字體 */
-		    font-size: 60px;
+		    font-size: 70px;
 		    color: #FFFFFF; /* 修改文字顏色 */
 		}
 		
@@ -51,9 +51,9 @@
 	       
 	    }
 		.NewsPreviewTitle h2 {
-		    font-size: 40px; /* 設定字體大小為24像素，你可以根據需要調整這個數值 */
+		    font-size: 60px; /* 設定字體大小為60像素，你可以根據需要調整這個數值 */
 		    color: #776B5D; /* 可以設定字體顏色 */
-		    margin-bottom: 10px; /* 添加底部間距 */
+		    margin-bottom: 0px; /* 添加底部間距 */
 		     
 		}
 		/* ---------------消息預覽--------------------------------------- */
@@ -122,6 +122,7 @@
 	
 		.NewsPreview .center div h5 {
 		 text-align: center;
+		 font-size: 30px;
 		}
 		.NewsPreview .custom-button{
 		cursor: pointer; /* 讓滑鼠指針顯示為手形 */
@@ -139,7 +140,7 @@
 	       
 	    }
 	    .RoomPreviewTitle h2 {
-		    font-size: 40px; /* 設定字體大小為24像素，你可以根據需要調整這個數值 */
+		    font-size: 60px; /* 設定字體大小為60像素，你可以根據需要調整這個數值 */
 		    color: #776B5D; /* 可以設定字體顏色 */
 		    margin-bottom: 10px; /* 添加底部間距 */
 		     
@@ -175,10 +176,13 @@
 		.write1 p {
 		    text-align: center;
 		    line-height: 2;
+		    font-size: 30px;
+		   
 		}
 		
 		.write1 h2 {
 		    text-align: left;
+		    font-size: 50px;
 		}
 		
 		..write2 {
@@ -188,6 +192,7 @@
 		
 		.write2 p {
 		    text-align: center;
+		    font-size: 23px;
 		}
 
 		/* -------------------房型四人房--------------------------------- */
@@ -212,10 +217,12 @@
 		.write3 p {
 		    text-align: center;
 		    line-height: 2;
+		    font-size: 30px;
 		}
 		
 		.write3 h2 {
 		    text-align: left;
+		    font-size: 50px;
 		}
 		
 		..write4 {
@@ -225,6 +232,7 @@
 		
 		.write4 p {
 		    text-align: center;
+		    font-size: 23px;
 		}
 	/* ---------------------房間圖片增加灰層效果 目前暫停------------------------ */
 	 	/*
@@ -276,11 +284,11 @@
 	            </div>
 	        </div>
 	    </section>
-	
+	<div class="spacer"></div> 
 	<section class="NewsPreviewTitle"  >
 		<h2>消息預覽</h2>
 	</section>
-	
+	<div class="spacer"></div> 
 	<div class=Newsbg>
 	  <section class="NewsPreview">
 		<div class="center"> <!-- 引入slick畫面輪播 class取為center 要跟官網的套件同名 不然抓不到-->
@@ -288,7 +296,7 @@
 	          <div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=0'">
 	          	<img src="/Hotel/images/pic24.jpg" alt="" >
 	          </div>
-	          	<h5>富貴圓龍，好運龍來</h5>
+	          	<h5>富貴圓龍•好運龍來</h5>
 	        </div>
 	        
 	        <div>
@@ -345,7 +353,7 @@
 	        <div class="writePreview1">
 	          <div class="write1" >
 	            <h2>雙人房</h2>
-	            <p>適合情侶或好友，提供舒適的住宿體驗，讓入住者享有私密和放鬆的空間。</p>
+	            <p>適合情侶或好友，提供舒適的住宿體驗，<br>讓入住者享有私密和放鬆的空間。</p>
 	          </div>
 		            <div class="write2">
 		                <p>綠意雙人房</p>
@@ -360,7 +368,7 @@
 		  <div class="writePreview2">
 		  	<div class="write3" >
 				<h2>四人房</h2>
-				<p>適合家庭或一小群好友入住，有更寬敞的客廳空間和附加的娛樂設施。</p>
+				<p>有更寬敞的客廳空間和附加的娛樂設施，<br>適合家庭或一小群好友入住。</p>
 			</div>
 				<div class="write4">
 					<p>家庭四人房</p>

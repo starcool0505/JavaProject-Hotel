@@ -7,8 +7,6 @@ drop table if exists equipment;
 drop table if exists Activity;
 
 
-
-
 -- 建立 user table
 create table if not exists user
 (
@@ -23,7 +21,6 @@ create table if not exists user
 -- 設置 AUTO_INCREMENT = 101
 alter table user auto_increment = 101;
 
-
 -- 建立 room table
 create table if not exists room
 (
@@ -37,7 +34,6 @@ create table if not exists room
     roomPrice double,
     roomOpacity int
 );
-
 
 -- 建立 book table
 create table if not exists book
@@ -57,7 +53,6 @@ create table if not exists book
 -- 設置 AUTO_INCREMENT = 2024001
 alter table user auto_increment = 2024001;
 
-
 -- 建立 equipment table
 create table if not exists equipment
 (
@@ -65,7 +60,6 @@ create table if not exists equipment
     equName varchar(30),
     equPath varchar(500) default null
 );
-
 
 -- 建立 book table
 create table if not exists roomEquipment
@@ -76,7 +70,6 @@ create table if not exists roomEquipment
     foreign key (equId) references equipment(equId)
 );
 
-
 -- 建立 newsdata
 create table if not exists Activity(
 	activityId int auto_increment primary key,
@@ -86,11 +79,13 @@ create table if not exists Activity(
    activityDescription TEXT
 );
 
-
 -- user預設值
 insert into user(userId, userName, userPhone, userPassword, userType, userEmail, userBirth)
 values(101, "Jett", "0912345678", "valorantJett", 1, "jett@example.com", "1999-01-02");
-
+insert into user(userId, userName, userPhone, userPassword, userType, userEmail, userBirth)
+values(102, "May", "0987654321", "123456", 1, "may@example.com", "1982-06-25");
+insert into user(userId, userName, userPhone, userPassword, userType, userEmail, userBirth)
+values(103, "鄭成功", "0911222333", "qwerasdf", 1, "cheng@example.com", "1979-04-08");
 
 -- room預設值
 insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice, roomOpacity)
@@ -106,12 +101,13 @@ values(302, "溫馨四人房", "四人房", "/Hotel/images/s-room-5.jpg", "溫�
 insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice, roomOpacity)
 values(402, "太陽四人房", "四人房", "/Hotel/images/s-room-6.jpg", "太陽四人房充滿陽光，現代裝潢和寬敞空間為多人入住提供輕鬆愉悅的住宿選擇。", "光線明亮的太陽四人房，是寬敞的住宿選擇，適合多人入住。現代化的裝潢與舒適的床鋪，為您創造出愉快而輕鬆的住宿環境。", 4800, 4800*0.9, 4);
 
-
 -- book預設值
 insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, sepicalReq, bookPrice)
 values(2024001, 101, 201, "2023-12-27", "2023-12-31", 2, 0, "多一條毛巾", 2800*0.9*2);
-
-
+insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, sepicalReq, bookPrice)
+values(2024002, 102, 202, "2024-01-27", "2024-01-28", 2, 1, "準備兒童餐具", 2800*0.9*2);
+insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, sepicalReq, bookPrice)
+values(2024005, 103, 302, "2024-01-30", "2024-01-31", 2, 1, "不需要準備牙刷", 2800*0.9*2);
 
 
 -- equipment預設值
@@ -120,12 +116,10 @@ values(1001, "雙人床", "images/s_equipment1.png");
 insert into equipment(equId, equName, equPath)
 values(1002, "單人床", "images/s_equipment2.png");
 
-
 insert into equipment(equId, equName, equPath)
 values(1003, "獨立浴缸", "images/s_equipment3.png");
 insert into equipment(equId, equName, equPath)
 values(1004, "分離式浴室", "images/s_equipment4.png");
-
 
 insert into equipment(equId, equName, equPath)
 values(1005, "免治馬桶", "images/s_equipment5.png");
@@ -160,7 +154,6 @@ values(1019, "牙膏牙刷", "images/s_equipment19.png");
 insert into equipment(equId, equName, equPath)
 values(1020, "沐浴用品", "images/s_equipment20.png");
 
-
 -- roomequipment預設值
 INSERT INTO roomEquipment(roomId, equId)
 VALUES(201, 1001), (201, 1003),
@@ -174,3 +167,4 @@ INSERT INTO Activity (activityId , activityImgPath , activityName ,  activityDat
 (4, 'images/pic27.jpg', '「冬至搓湯圓•手作湯圓體驗」', '2023-12-15', '每位小朋友完成湯圓製作後，將獲得一份小禮物，感謝他們的參與和創意。'),
 (5, 'images/pic28.jpg', '「鍛鍊金工•手作體驗」', '2023-11-20', '即日起兩人同行一人半價,歡迎情侶同遊。'),
 (6, 'images/pic29.jpg', '「螃蟹產季•饗您味蕾」', '2023-11-07', '即日起早鳥9折,消費滿兩千折兩百。');
+      

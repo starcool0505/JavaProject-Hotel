@@ -38,15 +38,15 @@ public class BookDaoImpl implements BookDao {
 	}
 
 	@Override
-	public List<Room> findAvailableRoom(Date checkinDate, int guests) {
-	    String sql = "SELECT r.roomId, r.roomTitle, r.roomType, r.roomImgPaths, r.roomContext, r.roomDescribe, r.defaultRoomPrice, r.roomPrice, r.roomOpacity " +
+	public List<Room> findAvailableRoom(Date checkinDate, Date checkoutDate, int guests) {
+		String sql = "SELECT r.roomId, r.roomTitle, r.roomType, r.roomImgPaths, r.roomContext, r.roomDescribe, r.defaultRoomPrice, r.roomPrice, r.roomOpacity " +
 	            "FROM room r " +
 	            "LEFT JOIN book b ON r.roomId = b.roomId " +
-	            "WHERE b.bookId IS NULL " +
-	            "   OR (b.checkinDate > ? OR b.checkoutDate < ?) " +
-	            "   AND (b.adultNum + b.childNum) <= ?";
+	            "WHERE (b.bookId IS NULL OR (b.checkinDate > ? OR b.checkoutDate < ?)) " +
+	            "AND ? <= r.roomOpacity";
 
-	    return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Room.class), checkinDate, checkinDate, guests);
+
+	    return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Room.class), checkinDate, checkoutDate, guests);
 	}
 
 	

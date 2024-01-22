@@ -23,6 +23,7 @@
  		  align-items: center;  
 		  margin: 0 auto; 
 		  margin-top: 10vh;
+		  margin-bottom: 2vh;
 		  width: 100vw;
 		}
 		
@@ -30,11 +31,18 @@
 		    transform: scale(1.5);
 		}
 		
+		.room-container {
+		    /* 其他樣式... */
+		    margin-bottom: 20px;  /* 垂直間距 */
+		    box-shadow: 0 4px rgba(0, 0, 0, 0.1);  /* 陰影效果 */
+		}
+				
 		.room-preview {
 		  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		  margin-top: 20px;
 		  position: relative; 
 		  width: 60vw;
+		  gap: 10vh;
 		}
 
 		.room-preview img {
@@ -60,6 +68,7 @@
 			position: relative;
 			overflow: hidden;
 			width: 100%;
+			padding: 0;
 		}
 		
 		.image-container img {
@@ -119,7 +128,7 @@
 			 <div class="room-preview m-0 " id="room-preview" style="margin: 0 20%">
 				<c:forEach var="imgPath" items="${roomImgPaths}" varStatus="loopStatus">
 				
-					<div class="row mb-2">
+					<div class="room-container row mb-2">
 						<div class="image-container d-flex align-items-center justify-content-space-between">
 							<img src="${roomImgPaths[loopStatus.index]}" alt="Image${roomId}" class="img-fluid" onclick="openModal('${roomImgPaths[loopStatus.index]}')">
 							
@@ -147,11 +156,6 @@
   			 </div>
   		</div>
 	
-		<div class="room-preview m-0" style="margin: 0 20%">
-		    <div id="room-list">
-		        <!-- 這裡將顯示可用房間的列表 -->
-		    </div>
-		</div>
 		<script>
 			window.onload = function () {
 			    var checkinDateInput = document.getElementById("checkin");
@@ -203,6 +207,7 @@
 			 }
 	
 			 function checkBooking() {
+				
 				 const checkin = document.getElementById('checkin').value;
 				 const checkout = document.getElementById('checkout').value;
 				 
@@ -210,7 +215,7 @@
 			     const checkoutTime = new Date(document.getElementById('checkout').value);
 			     
 			     const guests = parseInt(document.getElementById('adult').value, 10) + parseInt(document.getElementById('child').value, 10);
-
+			     console.log(checkin);
 			     // 使用 AJAX 向後端發送請求
 			     $.ajax({
 			         type: 'GET',
@@ -234,7 +239,7 @@
 			 function displayAvailableRooms(availableRooms) {
 				    var roomListDiv = document.getElementById("room-preview");
 				    roomListDiv.innerHTML = ""; // 清空先前的顯示
-
+				  
 				    if (availableRooms.length === 0) {
 				        roomListDiv.innerHTML = "<p>沒有可用的房間</p>";
 				        return;
@@ -272,6 +277,7 @@
 				        `;
 				        roomListDiv.appendChild(roomInfo);
 				    });
+				    
 			 }
 			 
 			 function openModal(imageSrc) {

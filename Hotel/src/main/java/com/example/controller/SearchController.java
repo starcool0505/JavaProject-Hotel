@@ -58,8 +58,9 @@ public class SearchController
 		
 	@GetMapping("/showRooms")
 	public ResponseEntity<List<Room>> searchRooms(@RequestParam("checkinDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkinDate,
+			@RequestParam("checkinDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkoutDate,
             @RequestParam("guests") int guests) {
-		List<Room> availableRooms = bookDaoImpl.findAvailableRoom(checkinDate, guests);
+		List<Room> availableRooms = bookDaoImpl.findAvailableRoom(checkinDate, checkoutDate, guests);
 		return ResponseEntity.ok(availableRooms);
 	}
 

@@ -15,7 +15,7 @@ public interface BookDao {
 	Optional<Book> findBookById(Integer bookId);
 	
 	// 3. 根據日期和數量查詢空房
-	List<Room> findAvailableRoom(Date checkinDate, int guests);
+	List<Room> findAvailableRoom(Date checkinDate, Date checkoutDate, int guests);
 	
 	// 4. 新增訂單
 	void addBook(Book book);
