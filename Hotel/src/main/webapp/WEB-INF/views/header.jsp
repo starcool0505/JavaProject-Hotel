@@ -50,7 +50,10 @@
 							<a class="nav-link text-light fs-4 text-nowrap" href="/Hotel/mvc/room_list">客房介紹</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-light fs-4 text-nowrap" href="./transportation.jsp">交通資訊</a>
+							<a class="nav-link text-light fs-4 text-nowrap" href="/Hotel/mvc/searchRoom">訂房</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-light fs-4 text-nowrap" href="/Hotel/mvc/transportation">交通資訊</a>
 						</li>
 						<c:if test="${user != null}">
 							<li class="nav-item">

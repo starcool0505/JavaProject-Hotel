@@ -11,73 +11,78 @@
 	    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 	  <title>訂房</title>
 	  <style>
-	  	body {
-		  font-family: Arial, sans-serif;
-		  overflow-x: hidden; 
-		}
-		
-		.container {
-		  display: flex; 
- 		  justify-content: center; 
-		  flex-direction: column; 
- 		  align-items: center;  
-		  margin: 0 auto; 
-		  margin-top: 10vh;
-		  margin-bottom: 2vh;
-		  width: 100vw;
-		}
-		
-		.book {
-		    transform: scale(1.5);
-		}
-		
-		.room-container {
-		    /* 其他樣式... */
-		    margin-bottom: 20px;  /* 垂直間距 */
-		    box-shadow: 0 4px rgba(0, 0, 0, 0.1);  /* 陰影效果 */
-		}
-				
-		.room-preview {
-		  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		  margin-top: 20px;
-		  position: relative; 
-		  width: 60vw;
-		  gap: 10vh;
-		}
-
-		.room-preview img {
-		  width: 100%;
-		  height: auto;
-		}
-		
-		.room-details {
-		  padding: 10px;
-		}
-		
-		button {
-		  display: block;
-		  margin-top: 10px;
-		}
-		
-		.book label,.book button {
-		  display: inline-block;
-		  margin-left: 10px;
-		}
-		
-		.image-container{
-			position: relative;
-			overflow: hidden;
-			width: 100%;
-			padding: 0;
-		}
-		
-		.image-container img {
+		  body {
+		    font-family: Arial, sans-serif;
+		    overflow-x: hidden; 
+		  }
+			
+		  .container {
+             display: flex; 
+	 		 justify-content: center; 
+			 flex-direction: column; 
+	 		 align-items: center;  
+			 margin: 0 auto; 
+			 margin-top: 10vh;
+			 margin-bottom: 2vh;
+			 width: 100vw;
+        }
+        
+        .book {
+            transform: scale(1.5);
+        }
+        
+        .book label, .book button {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        .content-tainer{
+        	display: flex;
+        	flex-direction: row;
+        }
+        .room-preview {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            position: relative; 
+            width: 60%;
+            box-sizing: border-box;
+        }
+        
+        .room-preview img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .room-container {
+            width: 100%;
+            box-sizing: border-box; 
+            margin-bottom: 20px;  
+            box-shadow: 0 4px rgba(0, 0, 0, 0.1);  
+        }
+        
+        .room-details {
+            padding: 10px;
+        }
+        
+        button {
+            display: block;
+            margin-top: 10px;
+        }
+        
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding: 0;
+        }
+        
+        .image-container img {
             width: 40%;
             height: auto;
             cursor: zoom-in;
         }
-		
-		.modal {
+        
+        .modal {
             display: none;
             position: fixed;
             top: 0;
@@ -88,12 +93,22 @@
             justify-content: center;
             align-items: center;
         }
-
+        
         .modal img {
             max-width: 80%;
             max-height: 80%;
         }
-	  </style>
+
+        .cart-container {
+            margin-left: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            width: 40%;
+        }
+    </style>
 	</head>
 	<body>
 		<div class="container">
@@ -123,7 +138,8 @@
 					<i class="bi bi-search"></i>
 				</button>
 		     </div> 
-		
+			
+			<div class="content-container">
 			 <h3 class="mt-2 mb-2" style="top: -10%;">客房列表</h3>
 			 <div class="room-preview m-0 " id="room-preview" style="margin: 0 20%">
 				<c:forEach var="imgPath" items="${roomImgPaths}" varStatus="loopStatus">
@@ -153,7 +169,14 @@
 						</div>
 					</div>
 				 </c:forEach>
+		  	 </div>
+	  			 <div class="cart-container">
+				    <h4>購物車</h4>
+				    <p>應付金額: <span id="totalAmount">NT$ 0元</span></p>
+				</div>
   			 </div>
+  			 
+  			 
   		</div>
 	
 		<script>
