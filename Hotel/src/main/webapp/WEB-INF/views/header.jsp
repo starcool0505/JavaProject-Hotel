@@ -16,9 +16,10 @@
 			width: 50px;
 			height: auto;
 		}
+		/*
 		 .navbar-nav .nav-link {
         font-size: 26px; /* 調整字體大小，您可以根據需要修改此數值 */
-    	}
+    	}*/
 	</style>
 	
 	</head>
