@@ -47,7 +47,7 @@ create table if not exists book
     checkoutDate date,
     adultNum int,
     childNum int,
-    sepicalReq varchar(2000),
+    specialReq varchar(2000),
     bookPrice double
 );
 -- 設置 AUTO_INCREMENT = 2024001
@@ -82,9 +82,11 @@ create table if not exists Activity
 
 -- user預設值
 insert into user(userId, userName, userPhone, userPassword, userType, userEmail, userBirth)
-values(101, "Jett", "0912345678", "12345678", 1, "jett@example.com", "1999-01-02");
+values(101, "Jett", "0912345678", "12345", 1, "jett@example.com", "1999-01-02");
 insert into user(userId, userName, userPhone, userPassword, userType, userEmail, userBirth)
-values(102, "Sage", "0987654321", "123456789", 2, "jett@example.com", "1998-11-22");
+values(102, "Sage", "0987654321", "123456", 2, "Sage@example.com", "1998-11-22");
+insert into user(userId, userName, userPhone, userPassword, userType, userEmail, userBirth)
+values(103, "Neon", "0945678932", "1234567", 1, "Neon@example.com", "1996-05-15");
 
 -- room預設值
 insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice, roomOpacity)
@@ -101,13 +103,23 @@ insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDes
 values(402, "太陽四人房", "四人房", "/Hotel/images/s-room-6.jpg", "太陽四人房充滿陽光，現代裝潢和寬敞空間為多人入住提供輕鬆愉悅的住宿選擇。", "太陽四人房是一個充滿陽光與寬敞感的理想住宿選擇。現代化裝潢營造出明亮舒適的氛圍，供應多人入住所需。寬敞的房間配置舒適床鋪，為您打造一個愉快而富有輕鬆感的住宿環境。讓您在這裡感受到溫暖陽光的同時，享受美好的休息時光。", 4800, 4800*0.9, 4);
 
 -- book預設值
-insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, sepicalReq, bookPrice)
-values(2024001, 101, 201, "2023-12-27", "2023-12-31", 2, 0, "多一條毛巾", 2800*0.9*2);
-insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, sepicalReq, bookPrice)
-values(2024002, 101, 401, "2023-12-30", "2024-01-10", 1, 1, "多2條毛巾",
+insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
+values(2024001, 101, 201, "2023-12-27", "2023-12-31", 2, 0, "多一條毛巾",
        (SELECT (DATEDIFF("2023-12-31", "2023-12-27") + 1) * roomPrice
         FROM room
         WHERE roomId = 201)
+        );
+insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
+values(2024002, 101, 401, "2023-12-30", "2024-01-10", 1, 1, "多2條毛巾",
+       (SELECT (DATEDIFF("2024-01-10", "2023-12-30") + 1) * roomPrice
+        FROM room
+        WHERE roomId = 401)
+);
+insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
+values(2024003, 103, 302, "2024-01-24", "2024-02-10", 1, 0, "我要一本聖經",
+       (SELECT (DATEDIFF("2024-02-10", "2024-01-24") + 1) * roomPrice
+        FROM room
+        WHERE roomId = 302)
 );
 
 

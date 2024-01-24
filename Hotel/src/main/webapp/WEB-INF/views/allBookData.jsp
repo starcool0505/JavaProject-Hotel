@@ -9,23 +9,31 @@
 		<table class="table table-bordered border-dark border-2">
 			<thead>
 				<tr>
-					<th scope="col-1"></th>
 					<th scope="col-2">訂單編號</th>
-					<th scope="col-2">房間編號</th>
+					<th scope="col-1">客戶編號</th>
+					<th scope="col-1">客戶姓名</th>
+					<th scope="col-2">客戶電話</th>
+					<th scope="col-1">房間編號</th>
 					<th scope="col-2">入住時間</th>
 					<th scope="col-2">退房時間</th>
-					<th scope="col-2">總金額</th>
+					<th scope="col-1">訂房人數</th>
+					<th scope="col-2">備註</th>
+					<th scope="col-1">總金額</th>
 				</tr>
 			</thead>
 			
 			<tbody>
-				<c:forEach var="book" items="${historyBooks}" varStatus="loopStatus">
+				<c:forEach var="book" items="${allBooks}" varStatus="loopStatus">
 					<tr>
-						<th scope="row">${loopStatus.index + 1}</th>
-						<td>${book.bookId}</td>
+						<th scope="row">${book.bookId}</th>
+						<td>${book.userId}</td>
+						<td>${book.userName}</td>
+						<td>${book.userPhone}</td>
 						<td>${book.roomId}</td>
 						<td><fmt:formatDate value="${book.checkinDate}" pattern="yyyy-MM-dd" /></td>
 						<td><fmt:formatDate value="${book.checkoutDate}" pattern="yyyy-MM-dd" /></td>
+						<td>${book.totalGuests}</td>
+						<td>${book.specialReq}</td>
 						<td>${book.bookPrice}</td>
 					</tr>
 				</c:forEach>

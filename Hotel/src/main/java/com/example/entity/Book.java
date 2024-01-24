@@ -20,4 +20,9 @@ public class Book
 	Integer childNum;
 	String sepicalReq;
 	Double bookPrice;
+	
+	String userName;
+	String userPhone;
+	Integer totalGuests;
+	String specialReq;
 }

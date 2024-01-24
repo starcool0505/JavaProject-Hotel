@@ -38,4 +38,19 @@ public class UserDaoImpl implements UserDao {
 			return Optional.empty();
 		}
 	}
+	
+	@Override
+    public Optional<Integer> findUserTypeByUserName(String username)
+	{
+		String sql = "SELECT userType FROM hotel.user where userName=?";
+		try
+		{
+			Integer userType = jdbcTemplate.queryForObject(sql, Integer.class, username);
+			return Optional.ofNullable(userType);
+		}
+		catch (EmptyResultDataAccessException e)
+		{
+			return Optional.empty();
+		}
+	}
 }

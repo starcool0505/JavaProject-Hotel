@@ -50,7 +50,12 @@ public class LoginController
 			if(user.getUserPassword().equals(password))
 			{
 				session.setAttribute("user", user); // 將 user 物件放入到 session 變數中
-				return "redirect:/mvc/room_list"; // OK, 導向前台首頁
+				
+				Optional<Integer> userTypeOptional = userDao.findUserTypeByUserName(username);
+				userTypeOptional.ifPresent(userType -> session.setAttribute("userType", userType));
+				
+				return "redirect:/"; // OK, 導向前台首頁
+				
 			}
 			else
 			{

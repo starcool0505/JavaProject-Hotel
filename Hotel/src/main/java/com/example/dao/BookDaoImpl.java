@@ -25,4 +25,14 @@ public class BookDaoImpl implements BookDao
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Book.class), username);
 	}
 
+	@Override
+	public List<Book> findAllBookData()
+	{
+		String sql = "SELECT b.bookId, b.userId, b.roomId, u.userName, u.userPhone, b.checkinDate, b.checkoutDate, (b.adultNum + b.childNum) AS totalGuests, b.specialReq, b.bookPrice "
+				+ "FROM hotel.book b "
+				+ "JOIN hotel.user u ON b.userId = u.userId";
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Book.class));
+	}
+	
+	
 }

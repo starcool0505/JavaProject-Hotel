@@ -9,4 +9,6 @@ public interface UserDao
 	Optional<User> findUserById(Integer id);
 	
 	Optional<User> findUserByUserName(String username);
+	
+	Optional<Integer> findUserTypeByUserName(String username);
 }

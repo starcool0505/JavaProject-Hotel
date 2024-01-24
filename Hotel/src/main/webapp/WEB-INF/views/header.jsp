@@ -49,16 +49,16 @@
 						<li class="nav-item">
 							<a class="nav-link text-light fs-4 text-nowrap" href="./transportation.jsp">交通資訊</a>
 						</li>
-						<c:if test="${user != null}">
+						<c:if test="${userType==1}">
 							<li class="nav-item">
 								<a class="nav-link text-light fs-4 text-nowrap" href="/Hotel/mvc/historyBook">歷史訂單</a>
 							</li>
 						</c:if>
-<%-- 						<c:if test="${user != null}"> --%>
-<!-- 							<li class="nav-item"> -->
-<!-- 								<a class="nav-link text-light fs-4 text-nowrap" href="/Hotel/mvc/historyBook">歷史訂單</a> -->
-<!-- 							</li> -->
-<%-- 						</c:if> --%>
+						<c:if test="${userType==2}">
+							<li class="nav-item">
+								<a class="nav-link text-light fs-4 text-nowrap" href="/Hotel/mvc/allBookData">所有訂單</a>
+							</li>
+						</c:if>
 					</ul>
 				</div>
 				
