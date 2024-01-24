@@ -5,12 +5,15 @@ import java.util.Optional;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.dao.UserDao;
 import com.example.entity.User;
@@ -54,7 +57,7 @@ public class LoginController
 				Optional<Integer> userTypeOptional = userDao.findUserTypeByUserName(username);
 				userTypeOptional.ifPresent(userType -> session.setAttribute("userType", userType));
 				
-				return "redirect:/"; // OK, 導向前台首頁
+				return "redirect:/mvc/index"; // OK, 導向前台首頁
 				
 			}
 			else
@@ -79,4 +82,15 @@ public class LoginController
 		session.invalidate();
 		return "redirect:/mvc/login";
 	}
+	
+	@GetMapping("/checkLogin")
+	@ResponseBody
+	public ResponseEntity<String> checkLogin(HttpSession session) {
+	    if (session.getAttribute("user") != null) {
+	        return ResponseEntity.ok("User is logged in");
+	    } else {
+	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User is not logged in");
+	    }
+	}
+
 }

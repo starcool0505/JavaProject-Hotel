@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <%@ include file="/WEB-INF/views/header.jsp"%>
 
 <!DOCTYPE html>
@@ -21,50 +23,16 @@
 		<div class="spacer"></div>
 		<div class=Newsbg>
 			<section class="NewsPreview">
-				<div class="center">
-					<!-- 引入slick畫面輪播 class取為center 要跟官網的套件同名 不然抓不到-->
-					<div>
-						<div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=0'">
-							<img src="/Hotel/images/pic24.jpg" alt="">
-						</div>
-						<h5>富貴圓龍•好運龍來</h5>
+					<div class="center">
+						<c:forEach var="activity" items="${activities}" varStatus="loopStatus">
+							<div>
+								<div class="custom-button" onclick="window.location.href='/Hotel/mvc/activity/${activity.activityId}'">
+									<img src="${activity.activityImgPath}" alt="">
+								</div>
+								<h5>${activity.activityName}</h5>
+							</div>
+						</c:forEach>
 					</div>
-	
-					<div>
-						<div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=1'">
-							<img src="/Hotel/images/pic25.jpg" alt="">
-						</div>
-						<h5>跨年表演•音樂派對</h5>
-					</div>
-	
-					<div>
-						<div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=2'">
-							<img src="/Hotel/images/pic26.jpg" alt="">
-						</div>
-						<h5>聖誕豪華之旅</h5>
-					</div>
-	
-					<div>
-						<div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=3'">
-							<img src="/Hotel/images/pic27.jpg" alt="">
-						</div>
-						<h5>冬至搓湯圓•手作湯圓</h5>
-					</div>
-	
-					<div>
-						<div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=4'">
-							<img src="/Hotel/images/pic28.jpg" alt="">
-						</div>
-						<h5>鍛鍊金工•手作體驗</h5>
-					</div>
-	
-					<div>
-						<div class="custom-button" onclick="window.location.href='/Hotel/page2_1.jsp?post=5'">
-							<img src="/Hotel/images/pic29.jpg" alt="">
-						</div>
-						<h5>螃蟹產季•饗您味蕾</h5>
-					</div>
-				</div>
 			</section>
 		</div>
 		<div class="spacer"></div>
@@ -111,27 +79,30 @@
 		<!-- slick畫面輪播 使用Center Mode -->
 		<script>
 			$('.center').slick({
-				centerMode : true,
-				centerPadding : '60px',
-				slidesToShow : 3,
-				responsive : [ {
-					breakpoint : 768,
-					settings : {
-						arrows : true,
-						centerMode : true,
-						centerPadding : '40px',
-						slidesToShow : 3
-					}
-				}, {
-					breakpoint : 480,
-					settings : {
-						arrows : true,
-						centerMode : true,
-						centerPadding : '40px',
-						slidesToShow : 1
-					}
-				} ]
-			});
+			       centerMode: true,
+			       centerPadding: '60px',
+			       slidesToShow: 3,
+			       responsive: [
+			         {
+			           breakpoint: 768,
+			           settings: {
+			             arrows: true,
+			             centerMode: true,
+			             centerPadding: '40px',
+			             slidesToShow: 3
+			           }
+			         },
+			         {
+			           breakpoint: 480,
+			           settings: {
+			             arrows: true,
+			             centerMode: true,
+			             centerPadding: '40px',
+			             slidesToShow: 1
+			           }
+			         }
+			       ]
+			     });
 		</script>
 	</body>
 </html>

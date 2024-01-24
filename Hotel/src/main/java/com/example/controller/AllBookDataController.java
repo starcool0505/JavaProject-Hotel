@@ -22,7 +22,7 @@ public class AllBookDataController
 	private BookDao bookDao;
 	
 	@GetMapping()
-	public String historyBook(HttpSession session, Model model)
+	public String allBook(HttpSession session, Model model)
 	{
 		List<Book> allBooks = bookDao.findAllBookData();
 		model.addAttribute("allBooks", allBooks);

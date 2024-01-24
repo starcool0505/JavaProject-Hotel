@@ -1,0 +1,66 @@
+.bg_main0
+{
+	background-color: #f0f0f0; /* Set the background color as needed */
+}
+
+.content-container
+{
+	margin: 0 10%;
+	display: flex;
+	height: 600px;
+	margin-bottom: 2%;
+	margin-top: 0;
+	padding: 5%;
+	background-color: #EEEEDF;
+}
+
+.right-sidebar
+{
+	flex: 1;
+	min-width: 40%;
+	padding: 20px;
+	margin-left: 10%;
+	border-left: 2px solid #ccc; /* 添加右邊框 */
+	align-items: center; /* 讓子元素在垂直方向上居中對齊 */
+}
+
+.map-container
+{
+	flex: 4;
+	margin-top: 0;
+	max-width: 80%;
+	max-height: 100%;
+	display: flex;
+}
+
+.contactInfo
+{
+	text-align: center; /* 新增：讓內容置中 */
+}
+
+.contactInfoList
+{
+	display: flex;
+	flex-direction: row;
+	padding-left: 15%;
+	list-style-type: none;
+	justify-content: center;
+	margin: 0;
+}
+
+.contactInfoItem
+{
+	margin-right: 10%;
+	text-align: center;
+}
+
+.contactInfoIcon img
+{
+	width: 40px;
+	height: 40px;
+}
+
+.text
+{
+	padding: 0 10%;
+}
