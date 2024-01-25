@@ -121,6 +121,12 @@ values(2024003, 103, 302, "2024-01-24", "2024-02-10", 1, 0, "我要一本聖經"
         FROM room
         WHERE roomId = 302)
 );
+insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
+values(2024004, 101, 201, "2024-01-30", "2024-01-31", 1, 0, "",
+       (SELECT (DATEDIFF("2024-01-31", "2024-01-30") + 1) * roomPrice
+        FROM room
+        WHERE roomId = 201)
+        );
 
 
 
