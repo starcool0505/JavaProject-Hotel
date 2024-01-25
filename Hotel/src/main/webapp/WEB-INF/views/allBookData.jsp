@@ -5,7 +5,7 @@
 
 <section class="bg_main0" style="min-height: 97.6vh; padding-top: 68px;">
 	<div class="container m-0 position-absolute top-50 start-50 translate-middle" style="margin: 0 20%;">
-	<h3>歷史訂單</h3>
+	<h3>所有訂單</h3>
 		<table class="table table-bordered border-dark border-2">
 			<thead>
 				<tr>
