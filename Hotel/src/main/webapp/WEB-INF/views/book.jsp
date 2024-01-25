@@ -196,7 +196,7 @@
 		      var email = document.getElementById("email").value;
 		      var specialRequests = document.getElementById("special-requests").value;
 		
-		      var redirectURL = '/Hotel/mvc/bookDetail' +
+		      var redirectURL = '/Hotel/mvc/book/bookDetail' +
 		        '?name=' + encodeURIComponent(name) +
 		        '&phone=' + encodeURIComponent(phone) +
 		        '&email=' + encodeURIComponent(email) +
