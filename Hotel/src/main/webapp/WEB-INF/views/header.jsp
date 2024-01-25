@@ -13,7 +13,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 		
 		<!-- starcool使用 -->
-		<link rel="stylesheet" href="/Hotel/css/main_color.css">
+		<link rel="stylesheet" href="/Hotel/src/main/webapp/css/main_color.css">
 		<link rel="stylesheet" href="/Hotel/css/room_css.css">
 		<style type="text/css">
 		

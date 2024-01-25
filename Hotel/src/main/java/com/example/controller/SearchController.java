@@ -55,7 +55,6 @@ public class SearchController
 		return "searchRoom";
 	}
 	
-		
 	@GetMapping("/showRooms")
 	public ResponseEntity<List<Room>> searchRooms(@RequestParam("checkinDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkinDate,
 			@RequestParam("checkinDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkoutDate,

@@ -45,7 +45,6 @@ public class BookDaoImpl implements BookDao {
 	            "WHERE (b.bookId IS NULL OR (b.checkinDate > ? OR b.checkoutDate < ?)) " +
 	            "AND ? <= r.roomOpacity";
 
-
 	    return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Room.class), checkinDate, checkoutDate, guests);
 	}
 

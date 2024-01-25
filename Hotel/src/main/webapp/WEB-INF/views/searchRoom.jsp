@@ -1,118 +1,98 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="/WEB-INF/views/header.jsp" %>
-
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/header.jsp"%>
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 	<head>
-	    <meta charset="UTF-8">
-	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-	    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-	  <title>訂房</title>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	  <style>
-		  body {
-		    font-family: Arial, sans-serif;
-		    overflow-x: hidden; 
-		  }
-			
-		  .container {
-             display: flex; 
-	 		 justify-content: center; 
-			 flex-direction: column; 
-	 		 align-items: center;  
-			 margin: 0 auto; 
-			 margin-top: 10vh;
-			 margin-bottom: 2vh;
-			 width: 100vw;
-        }
-        
-        .book {
-            transform: scale(1.5);
-        }
-        
-        .book label, .book button {
-            display: inline-block;
-            margin-left: 10px;
-        }
-        
-        .content-tainer{
-        	display: flex;
-        	flex-direction: row;
-        }
-        .room-preview {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-            position: relative; 
-            width: 60%;
-            box-sizing: border-box;
-        }
-        
-        .room-preview img {
-            width: 100%;
-            height: auto;
-        }
-        
-        .room-container {
-            width: 100%;
-            box-sizing: border-box; 
-            margin-bottom: 20px;  
-            box-shadow: 0 4px rgba(0, 0, 0, 0.1);  
-        }
-        
-        .room-details {
-            padding: 10px;
-        }
-        
-        button {
-            display: block;
-            margin-top: 10px;
-        }
-        
-        .image-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            padding: 0;
-        }
-        
-        .image-container img {
-            width: 40%;
-            height: auto;
-            cursor: zoom-in;
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .modal img {
-            max-width: 80%;
-            max-height: 80%;
-        }
+	   	body {
+	   	 width: 90%;
+	      font-family: Arial, sans-serif;
+	       overflow-x: hidden; 
+	    }
+	
+	    .container {
+	      width: 90%;
+	      margin: 0 auto;
+	      margin-top: 10vh;
+	      padding: 0 5%; /* 調整左右邊距 */
+	      box-sizing: border-box;
+	      flex-wrap: nowrap;
+	      flex-direction: column; 
+	      display: flex;
+	    }
+	    
+	    .book {
+	      margin-left: 10vw;
+	      transform: scale(1.5);
+	    }
+	          
+	    .book label, .book button {
+	      display: inline-block;
+	      margin-left: 10px;
+	      margin-top: 10px;
+	    }
+	    
+	    .content-container {
+	      display: flex;
+	      flex-direction: row; /* 將子元素設置為垂直方向排列 */
+	      justify-content: flex-start; 
 
-        .cart-container {
-            margin-left: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
-            width: 40%;
-        }
-    </style>
+	    }
+	    
+	    .roomlist-container {
+	      display: flex;
+	      flex-direction: column; 
+	      width: 100%;
+	      margin-right: 0;
+	    }
+	
+	    .room-container {
+	      display: flex;
+	      flex-direction: column; /* 將子元素設置為垂直方向排列 */
+	      box-sizing: border-box;
+	      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	      margin-right: 5vw;
+	    }
+	
+	    .room-container, .cart-container {
+	      display: flex;
+	      flex-direction: row; /* 將子元素設置為垂直方向排列 */
+	      box-sizing: border-box;
+	      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	      margin-bottom: 20px; 
+	    }
+	
+	    .room-container img {
+	      width: 40%; 
+	      object-fit: cover;
+	    }
+	
+	    .room-container-text, .cart {
+	      padding: 10px;
+	      width: 100%;
+	    }
+	
+	    .cart-container {
+		  height: 100%; 
+		   width:35%;
+		}
+	
+		.cart {
+		  height: 100%; 
+		  box-shadow: none; 
+		}
+	
+	  </style>
+	  <title>訂房</title>
 	</head>
+	
 	<body>
+
 		<div class="container">
-			<div class="book mb-3">
+		  	<div class="book mb-3">
 				<label for="checkin" style="font-size: 16px;"> 入住時間: </label>
 				<input type="date" id="checkin" name="checkin" onchange="updateCheckoutDate()" required>
 				<label for="checkout"> 退房時間: </label>
@@ -125,6 +105,7 @@
 					<option value="3"> 3人 </option>
 					<option value="4"> 4人 </option>
 				</select>
+				
 				<label for="child">兒童:</label>
 				<select id="child" name="child">
 					<option value="0"> 0人 </option>
@@ -134,52 +115,40 @@
 					<option value="4"> 4人 </option>
 				</select>
 				
-				<button  onclick="checkBooking()"> 查詢
+				<button onclick="checkBooking()"> 查詢
 					<i class="bi bi-search"></i>
 				</button>
-		     </div> 
-			
-			<div class="content-container">
-			 <h3 class="mt-2 mb-2" style="top: -10%;">客房列表</h3>
-			 <div class="room-preview m-0 " id="room-preview" style="margin: 0 20%">
-				<c:forEach var="imgPath" items="${roomImgPaths}" varStatus="loopStatus">
-				
-					<div class="room-container row mb-2">
-						<div class="image-container d-flex align-items-center justify-content-space-between">
-							<img src="${roomImgPaths[loopStatus.index]}" alt="Image${roomId}" class="img-fluid" onclick="openModal('${roomImgPaths[loopStatus.index]}')">
-							
-							<!-- 圖片放大 -->
-							<div id="myModal" class="modal" onclick="closeModal()">
-							    <img src="${roomImgPaths[loopStatus.index]}" id="modalImg" alt="Large Image">
-							</div>
-							
-							<div class="text-container" style="width: 60%; padding: 0 20px">
-								<div class="d-flex h-20 justify-content-between align-items-center" style="font-weight: bold; color: #180A0A">
-									<p style="font-size: 24px;">${roomTitle[loopStatus.index]}</p>
-										<p style="font-size: 18px;">房號: ${roomId[loopStatus.index]}</p>
-										<p style="font-size: 18px;">${equName[loopStatus.index]}</p>
-								</div>
-								<div style="height: 80%;">
-									<p>${roomContext[loopStatus.index]}</p>
-									<div class="mt-3 text-center">
-										<a href="../page5.jsp" class="btn color1 text-light">前往訂房</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				 </c:forEach>
-		  	 </div>
-	  			 <div class="cart-container">
-				    <h4>購物車</h4>
-				    <p>應付金額: <span id="totalAmount">NT$ 0元</span></p>
+			</div> 
+			  	
+			<div class="content-container">	
+				<div class="roomlist-container" id="roomlist-container">
+					<c:forEach var="imgPath" items="${roomImgPaths}" varStatus="loopStatus">
+					   <div class="room-container" id="room-container">
+					     <img src="${roomImgPaths[loopStatus.index]}" alt="Image${roomId[loopStatus.index]}" class="img-fluid" onclick="openModal('${roomImgPaths[loopStatus.index]}')">
+					    
+					     <div class="room-container-text">
+					       <h2>${roomTitle[loopStatus.index]}</h2>
+					       <p>房號: ${roomId[loopStatus.index]}</p>
+					       <p>${roomContext[loopStatus.index]}</p>
+					       <a href="../page5.jsp" class="btn color1 text-light">前往訂房</a>
+					     </div>
+					   </div>
+				    </c:forEach>
 				</div>
-  			 </div>
-  			 
-  			 
-  		</div>
-	
-		<script>
+		  	 
+			    <div class="cart-container">
+			      <div class="cart">
+			        <h2>購物車</h2>
+			        <p>商品1: $50</p>
+			        <p>商品2: $30</p>
+			        <p>總金額: $80</p>
+			       
+			      </div>
+			    </div> 
+		    </div>
+	  </div>
+
+	<script>
 			window.onload = function () {
 			    var checkinDateInput = document.getElementById("checkin");
 			    var checkoutDateInput = document.getElementById("checkout");
@@ -236,9 +205,8 @@
 				 
 			     const checkinTime = new Date(document.getElementById('checkin').value);
 			     const checkoutTime = new Date(document.getElementById('checkout').value);
-			     
 			     const guests = parseInt(document.getElementById('adult').value, 10) + parseInt(document.getElementById('child').value, 10);
-			     console.log(checkin);
+			    
 			     // 使用 AJAX 向後端發送請求
 			     $.ajax({
 			         type: 'GET',
@@ -260,7 +228,7 @@
 			 }
 			     
 			 function displayAvailableRooms(availableRooms) {
-				    var roomListDiv = document.getElementById("room-preview");
+				    var roomListDiv = document.getElementById("roomlist-container");
 				    roomListDiv.innerHTML = ""; // 清空先前的顯示
 				  
 				    if (availableRooms.length === 0) {
@@ -273,30 +241,17 @@
 				    	var roomImgPaths = room.roomImgPaths;
 				    	
 				        var roomInfo = document.createElement("div");
-				        roomInfo.className = "row mb-2";
+				        roomInfo.className = "room-container";
 				        roomInfo.innerHTML = `
-				            <div class="image-container d-flex align-items-center justify-content-space-between">
-				                <img src="\${roomImgPaths}" class="img-fluid" onclick="openModal('\${room.roomImgPaths}')">
-
-				                <!-- 圖片放大 -->
-				                <div id="myModal" class="modal" onclick="closeModal()">
-				                    <img src="\${room.roomImgPaths}" id="modalImg" alt="Large Image">
-				                </div>
-
-				                <div class="text-container" style="width: 60%; padding: 0 20px">
-				                    <div class="d-flex h-20 justify-content-between align-items-center" style="font-weight: bold; color: #180A0A">
-				                        <p style="font-size: 24px;">\${room.roomTitle}</p>
-				                        <p style="font-size: 18px;">房號: \${room.roomId}</p>
-				                        <p style="font-size: 18px;">\${room.roomContext}</p>
-				                    </div>
-				                    <div style="height: 80%;">
-				                        <p>${room.roomContext}</p>
-				                        <div class="mt-3 text-center">
-				                            <a href="../page5.jsp" class="btn color1 text-light">前往訂房</a>
-				                        </div>
-				                    </div>
-				                </div>
-				            </div>
+						     <img src="\${room.roomImgPaths}"  class="img-fluid" onclick="openModal('\${room.roomImgPaths}')">
+						    
+						     <div class="room-container-text">
+						       <h2>\${room.roomTitle}</h2>
+						       <p>房號: \${room.roomId}</p>
+						       <p>\${room.roomContext}</p>
+						       <a href="../page5.jsp" class="btn color1 text-light">前往訂房</a>
+						     
+						   </div>
 				        `;
 				        roomListDiv.appendChild(roomInfo);
 				    });
@@ -316,8 +271,7 @@
 			    modal.style.display = "none"; // 隱藏 modal
 			 }
 		</script>
+
 	</body>
 </html>
-
-
-<%@ include file="/WEB-INF/views/footer.jsp" %>
+<%@ include file="/WEB-INF/views/footer.jsp"%>
