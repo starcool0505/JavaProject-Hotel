@@ -39,7 +39,7 @@
 	      display: flex;
 	      flex-direction: row; /* 將子元素設置為垂直方向排列 */
 	      justify-content: flex-start; 
-
+		  margin-top: 1vh;
 	    }
 	    
 	    .roomlist-container {
@@ -130,7 +130,7 @@
 					       <h2>${roomTitle[loopStatus.index]}</h2>
 					       <p>房號: ${roomId[loopStatus.index]}</p>
 					       <p>${roomContext[loopStatus.index]}</p>
-					       <a href="../page5.jsp" class="btn color1 text-light">前往訂房</a>
+					       <a class="btn color1 text-light" onclick="redirectToBooking()">前往訂房</a>
 					     </div>
 					   </div>
 				    </c:forEach>
@@ -138,7 +138,7 @@
 		  	 
 			    <div class="cart-container">
 			      <div class="cart">
-			        <h2>購物車</h2>
+			        <h3 style="text-align: center">我的購物車</h3>
 			        <p>商品1: $50</p>
 			        <p>商品2: $30</p>
 			        <p>總金額: $80</p>
@@ -169,13 +169,6 @@
 			    var tomorrow = nextDay.toISOString().split('T')[0];
 			    checkoutDateInput.setAttribute('min', tomorrow);
 			};
-			// 格式化日期（yyyy-MM-dd）
-			function formatDate(date) {
-			    const year = date.getFullYear();
-			    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-			    const day = date.getDate().toString().padStart(2, '0');
-			    return `${year}-${month}-${day}`;
-			}
 
 			//格式化
 			var today = new Date().toISOString().split('T')[0];
@@ -199,7 +192,6 @@
 			 }
 	
 			 function checkBooking() {
-				
 				 const checkin = document.getElementById('checkin').value;
 				 const checkout = document.getElementById('checkout').value;
 				 
@@ -237,10 +229,9 @@
 				    }
 
 				    availableRooms.forEach(function (room) {
-				    	console.log(room.roomImgPaths);
 				    	var roomImgPaths = room.roomImgPaths;
-				    	
 				        var roomInfo = document.createElement("div");
+				        
 				        roomInfo.className = "room-container";
 				        roomInfo.innerHTML = `
 						     <img src="\${room.roomImgPaths}"  class="img-fluid" onclick="openModal('\${room.roomImgPaths}')">
@@ -249,19 +240,16 @@
 						       <h2>\${room.roomTitle}</h2>
 						       <p>房號: \${room.roomId}</p>
 						       <p>\${room.roomContext}</p>
-						       <a href="../page5.jsp" class="btn color1 text-light">前往訂房</a>
-						     
-						   </div>
+						       <a class="btn color1 text-light" onclick="redirectToBooking()">前往訂房</a>
+						     </div>
 				        `;
 				        roomListDiv.appendChild(roomInfo);
 				    });
-				    
 			 }
 			 
 			 function openModal(imageSrc) {
 			    var modal = document.getElementById("myModal");
 			    var modalImg = document.getElementById("modalImg");
-
 			    modal.style.display = "flex"; // 顯示 modal
 			    modalImg.src = imageSrc; // 設置大圖的來源
 			 }
@@ -270,6 +258,16 @@
 			    var modal = document.getElementById("myModal");
 			    modal.style.display = "none"; // 隱藏 modal
 			 }
+			 
+			 function redirectToBooking() {
+				 var checkin = encodeURIComponent(document.getElementById('checkin').value);
+				 var checkout = encodeURIComponent(document.getElementById('checkout').value);
+				 var guests = parseInt(document.getElementById('adult').value, 10) + parseInt(document.getElementById('child').value, 10);
+				 var roomTytle = encodeURIComponent(roomTytle);  
+				 var roomId = encodeURIComponent(roomId);  
+				 // 使用 window.location.href 修改網址
+				 window.location.href = "mvc/searchRoom/book?checkin=" + checkin + "&checkout=" + checkout + "guests" + guests + "&roomId=" + roomId;
+			}
 		</script>
 
 	</body>
