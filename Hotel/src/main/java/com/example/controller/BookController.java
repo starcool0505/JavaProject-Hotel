@@ -13,7 +13,7 @@ import com.example.dao.RoomDaoImpl;
  * http://localhost:8080/Hotel/mvc/page3
  */
 @Controller
-@RequestMapping("/search")
+@RequestMapping("/book")
 public class BookController {
 
 	@Autowired
@@ -36,7 +36,24 @@ public class BookController {
 //		model.addAttribute("roomType", roomType);
 //		model.addAttribute("roomContext", roomContext);
 		
-		return "search";
+		return "book";
+	}
+	
+	@GetMapping("/bookDetail")
+	public String bookDetail(Model model) {
+		
+//		List<Book> books = bookDaoImpl.findAllBooks();
+//		
+//		String[] roomTitle = rooms.stream().map(Room::getRoomType).toArray(String[]::new);
+//		List<String> roomType = rooms.stream().map(Room::getRoomType).collect(Collectors.toList());
+//		String[] roomContext = rooms.stream().map(Room::getRoomDescription).toArray(String[]::new);
+//		
+//		model.addAttribute("roomImgPaths", roomImgPaths);
+//		model.addAttribute("roomTitle", roomTitle);
+//		model.addAttribute("roomType", roomType);
+//		model.addAttribute("roomContext", roomContext);
+		
+		return "bookDetail";
 	}
 	
 }
