@@ -1,0 +1,77 @@
+body {
+  font-family: Arial, sans-serif;
+   overflow-x: hidden; 
+}
+
+.container {
+  width: 90%;
+  min-height: 100vh;
+  margin: 0 auto;
+  margin-top: 10vh;
+  padding: 0 5%; /* 調整左右邊距 */
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  flex-direction: column; 
+  display: flex;
+}
+
+.book {
+  margin-left: 10vw;
+  transform: scale(1.5);
+}
+      
+.book label, .book button {
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row; /* 將子元素設置為垂直方向排列 */
+  justify-content: flex-start; 
+  margin-top: 1vh;
+}
+
+.roomlist-container {
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+  margin-right: 0;
+}
+
+.room-container {
+  display: flex;
+  flex-direction: column; /* 將子元素設置為垂直方向排列 */
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-right: 5vw;
+}
+
+.room-container, .cart-container {
+  display: flex;
+  flex-direction: row; /* 將子元素設置為垂直方向排列 */
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; 
+}
+
+.room-container img {
+  width: 40%; 
+  object-fit: cover;
+}
+
+.room-container-text, .cart {
+  padding: 10px;
+  width: 100%;
+}
+
+.cart-container {
+  height: 100%; 
+   width:35%;
+}
+
+.cart {
+  height: 100%; 
+  box-shadow: none; 
+}

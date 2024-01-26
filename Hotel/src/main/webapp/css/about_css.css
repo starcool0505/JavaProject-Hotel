@@ -1,0 +1,163 @@
+/* -------------第一頁----------------------------------------- */
+/* 圖片+黑色框框*/
+.text-overlay {
+	position: relative;
+	width: 100%; /* 圖片最大寬度為視窗寬度，如果視窗比圖片寬，則圖片保持原大小 */
+	height: auto; /* 讓圖片按比例縮放 */
+}
+
+.text-overlay .overlay-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(0, 0, 0, 0.5); /* 背景顏色 */
+	color: white;
+	padding: 50px; /* 增加 padding 來讓框框變大 */
+	font-size: 30px;
+	line-height: 2;
+	width: 80%; /* 修改寬度 */
+	height: auto; /* 讓高度自適應內容 */
+	text-align: center; /* 讓文字水平置中 */
+}
+
+/* ------------------------------------------------------ */
+.slogan {
+	background-color: #afa07f; /* 背景顏色 */
+	color: white;
+	height: 250px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px; /* 可以添加内边距来增加文字区域的大小 */
+}
+
+.slogan p {
+	text-align: center;
+	line-height: 2;
+	font-size: 20px;
+}
+
+/* -----------------第一段介紹:床鋪設計---------------------------------- */
+.about1 {
+	display: flex;
+	background-color: #393939;
+}
+
+.about1 img {
+	width: 50%
+}
+
+.about1_1 {
+	width: 50%;
+	background-color:transparent;
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-right: 20px;
+}
+
+.about1_1 p {
+	text-align: center;
+	line-height: 1.5;
+	color: white;
+	font-size: 20px;
+}
+/* -----------------第二段介紹:夜景------------------------------------- */
+.about2 {
+	display: flex;
+	background-color: #393939;
+}
+
+.about2 img {
+	width: 50%
+}
+
+.about2_1 {
+	width: 50%;
+	background-color:transparent;
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-right: 20px;
+}
+
+.about2_1 p {
+	text-align: center;
+	line-height: 1.5;
+	color: white;
+	font-size: 20px;
+}
+/* --------------------第一段和第二段共同部分:圖片滑鼠進入放大---------------- */
+.about1, .about2 {
+	display: flex;
+	background-color: #393939;
+	overflow: hidden; /* 確保圖片放大時不會溢出容器 */
+}
+
+.about1 img, .about2 img {
+	width: 50%;
+	transition: transform 0.3s ease; /* 加入變換的動畫效果 */
+}
+
+.about1 img:hover, .about2 img:hover {
+	transform: scale(1.1); /* 滑鼠滑入時放大 1.1 倍 */
+}
+
+.about1_1, .about2_1 {
+	width: 50%;
+	background-color: transparent;
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-right: 20px;
+}
+
+.about1_1 p, .about2_1 p {
+	text-align: center;
+	line-height: 2;
+	color: white;
+}
+/* ----------------第三段介紹:設備-------------------------------------- */
+.about3 {
+	display: flex;
+	background-color: #EBE3D5;
+	justify-content: space-between;
+	align-items: center;
+	padding: 80px 80px;
+}
+
+.about3 div {
+	width: 300px;
+	text-align: center;
+	margin: 0 15px; /* 調整左右間距 */
+	box-sizing: border-box; /* 確保邊框和內距不會增加區塊寬度 */
+}
+
+.about3 img {
+	width: 100%;
+	border-radius: 10px; /*製造圓角效果 */
+	transition: transform 0.3s ease; /* 動畫效果，使變化更平滑 */
+}
+
+.about3 h4 {
+	margin-top: 20px;
+	margin-bottom: 10px; /* 修正標題的下方間距 */
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.about3 p {
+	font-size: 20px;
+	margin-bottom: 0; /* 移除段落底部的預設間距 */
+}
+
+.about3 img:hover {
+	transform: scale(1.1); /* 滑鼠滑入時放大 1.1 倍 */
+}

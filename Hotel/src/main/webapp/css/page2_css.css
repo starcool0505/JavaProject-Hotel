@@ -1,0 +1,51 @@
+.custom-button
+{
+	border: 1px solid #000; /* 設置邊框 */
+	cursor: pointer; /* 讓滑鼠指針顯示為手形 */
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-bottom: 1px solid #ccc; /* 只保留底部框線 */
+	padding: 1%;
+	background-color: #f2f2f2;
+	margin: 0 20%; /* 調整左右間距 */
+	position: relative; /* 確保可以定位圖片 */
+	overflow: hidden;
+}
+
+.custom-button:hover
+{
+	background-color: #f0f0f0; /* 滑鼠懸停時的背景色 */
+}
+
+.custom-button p:nth-child(1)
+{
+	font-size: 90%; /* 或者你想要的其他比例或像素大小 */
+	text-align: left;
+}
+
+.custom-button p:nth-child(2)
+{
+	text-align: left; /* 將第一個 <p> 元素文字設為靠左 */
+}
+
+.custom-button p:nth-child(3)
+{
+	font-size: 90%; /* 或者你想要的其他比例或像素大小 */
+	text-align: left;
+}
+
+.custom-img
+{
+	width: 20%; /* 設置圖片寬度為父元素寬度的百分比 */
+	height: auto; /* 讓高度自適應寬度，防止圖片變形 */
+	position: absolute; /* 圖片絕對定位 */
+	top: 50%; /* 往上偏移50% */
+	right: 10px; /* 靠右對齊 */
+	transform: translateY(-50%); /* 將圖片往上偏移50%自身高度的距離 */
+}
+
+.spacer
+{
+	height: 100px; /* 調整你想要的間距高度 */
+}
