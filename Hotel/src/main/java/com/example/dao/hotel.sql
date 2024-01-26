@@ -4,6 +4,7 @@ drop table if exists book;
 drop table if exists user;
 drop table if exists room;
 drop table if exists equipment;
+drop table if exists Activity;
 
 
 -- 建立 user table
@@ -30,7 +31,8 @@ create table if not exists room
     roomContext varchar(1000),
     roomDescribe varchar(1000),
     defaultRoomPrice double,
-    roomPrice double
+    roomPrice double,
+    roomOpacity int
 );
 
 -- 建立 book table
@@ -38,6 +40,9 @@ create table if not exists book
 (
     bookId int auto_increment primary key,
     userId int,
+	bookName varchar(500),
+	bookPhone varchar(500),
+    bookEmail varchar(100),
     roomId int,
     foreign key (userId) references user(userId),
     foreign key (roomId) references room(roomId),
@@ -45,7 +50,7 @@ create table if not exists book
     checkoutDate date,
     adultNum int,
     childNum int,
-    sepicalReq varchar(2000),
+    specialReq varchar(2000),
     bookPrice double
 );
 -- 設置 AUTO_INCREMENT = 2024001
@@ -59,7 +64,7 @@ create table if not exists equipment
     equPath varchar(500) default null
 );
 
--- 建立 book table
+-- 建立 roomEquipment table
 create table if not exists roomEquipment
 (
 	roomId int,
@@ -68,29 +73,61 @@ create table if not exists roomEquipment
     foreign key (equId) references equipment(equId)
 );
 
+-- 建立 newsdata
+create table if not exists Activity
+(
+	activityId int auto_increment primary key,
+	activityImgPath varchar(1000),
+	activityName varchar(50),
+	activityDate date,
+	activityDescription TEXT
+);
+
 -- user預設值
 insert into user(userId, userName, userPhone, userPassword, userType, userEmail, userBirth)
-values(101, "Jett", "0912345678", "valorantJett", 1, "jett@example.com", "1999-01-02");
+values(101, "Jett", "0912345678", "12345", 1, "jett@example.com", "1999-01-02");
 insert into user(userId, userName, userPhone, userPassword, userType, userEmail, userBirth)
-values(102, "Sage", "0987654321", "valorantJSage", 2, "jett@example.com", "1998-11-22");
+values(102, "Sage", "0987654321", "123456", 2, "Sage@example.com", "1998-11-22");
+insert into user(userId, userName, userPhone, userPassword, userType, userEmail, userBirth)
+values(103, "Neon", "0945678932", "1234567", 1, "Neon@example.com", "1996-05-15");
 
 -- room預設值
-insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice)
-values(201, "綠意雙人房", "雙人房", "/Hotel/images/s-room-1.jpg", "沉浸在翠綠色調的綠意雙人房，享受寧靜氛圍和陽台上的綠意植物，帶來自然舒適的休息空間。", "沉浸在環境清幽的綠意雙人房中，您將感受到大自然的靜謐。室內以翠綠色調為主，搭配舒適的雙人床，讓您在寧靜中放鬆身心。陽台上種植著各種綠意植物，提供一個愜意的休憩空間，讓您盡情享受大自然的美好。", 2800, 2800*0.9);
-insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice)
-values(301, "海景雙人房", "雙人房", "/Hotel/images/s-room-2.jpg", "開窗即見蔚藍大海，海景雙人房以浪漫裝潢和私人陽台提供難忘的海灘度假體驗。", "開窗即可迎接壯觀的海景，窗外是潔白的沙灘和蔚藍的大海。房間內部以精心設計的裝潢營造浪漫且舒適的氛圍，配有舒適的雙人床和私人陽台，為您帶來難忘的海灘度假體驗。", 3200, 3200*0.9);
-insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice)
-values(401, "藍天雙人房", "雙人房", "/Hotel/images/s-room-3.jpg", "藍天雙人房以清新的藍色調設計，透過高窗營造明亮空間，提供放鬆身心的居住感。", "歡迎入住藍天雙人房，這個房型以清新的藍色調為主，為您提供愉悅的住宿體驗。寬敞明亮的空間內設有舒適的雙人床，高窗設計帶來充足的陽光，讓整個房間充滿活力。", 3000, 3000*0.9);
-insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice)
-values(202, "家庭四人房", "四人房", "/Hotel/images/s-room-4.jpg", "寬敞的家庭四人房適合親子入住，溫馨裝潢和完備的家庭設施為您打造溫馨家庭時光。", "家庭四人房提供充足的空間和舒適的床鋪，適合家庭入住。溫馨的裝潢和家庭設施，讓您在這裡度過美好的家庭時光。", 4500, 4500*0.9);
-insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice)
-values(302, "溫馨四人房", "四人房", "/Hotel/images/s-room-5.jpg", "溫馨四人房為小型團體或家庭提供愉悅的住宿體驗，舒適床鋪和基本生活設施滿足您的需求。", "溫馨四人房是小型團體或家庭的理想之選。房內的裝潢溫馨，提供輕鬆愉悅的住宿體驗，同時配有基本的生活設施，讓您感受到賓至如歸的溫馨。", 4200, 4200*0.9);
-insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice)
-values(402, "太陽四人房", "四人房", "/Hotel/images/s-room-6.jpg", "太陽四人房充滿陽光，現代裝潢和寬敞空間為多人入住提供輕鬆愉悅的住宿選擇。", "光線明亮的太陽四人房，是寬敞的住宿選擇，適合多人入住。現代化的裝潢與舒適的床鋪，為您創造出愉快而輕鬆的住宿環境。", 4800, 4800*0.9);
+insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice, roomOpacity)
+values(201, "綠意雙人房", "雙人房", "/Hotel/images/s-room-1.jpg", "沉浸在翠綠色調的綠意雙人房，享受寧靜氛圍和陽台上的綠意植物，帶來自然舒適的休息空間。", "沉浸在環境清幽的綠意雙人房中，您將感受到大自然的靜謐。室內以翠綠色調為主，搭配舒適的雙人床，讓您在寧靜中放鬆身心。陽台上種植著各種綠意植物，提供一個愜意的休憩空間，讓您盡情享受大自然的美好。", 2800, 2800*0.9, 2);
+insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice, roomOpacity)
+values(301, "海景雙人房", "雙人房", "/Hotel/images/s-room-2.jpg", "開窗即見蔚藍大海，海景雙人房以浪漫裝潢和私人陽台提供難忘的海灘度假體驗。", "開窗即可迎接壯觀的海景，窗外是潔白的沙灘和蔚藍的大海。房間內部以精心設計的裝潢營造浪漫且舒適的氛圍，配有舒適的雙人床和私人陽台，為您帶來難忘的海灘度假體驗。", 3200, 3200*0.9, 2);
+insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice, roomOpacity)
+values(401, "藍天雙人房", "雙人房", "/Hotel/images/s-room-3.jpg", "藍天雙人房以清新的藍色調設計，透過高窗營造明亮空間，提供放鬆身心的居住感。", "歡迎入住藍天雙人房，這個房型以清新的藍色調為主，為您提供愉悅的住宿體驗。寬敞明亮的空間內設有舒適的雙人床，高窗設計帶來充足的陽光，讓整個房間充滿活力。", 3000, 3000*0.9, 2);
+insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice, roomOpacity)
+values(202, "家庭四人房", "四人房", "/Hotel/images/s-room-4.jpg", "寬敞的家庭四人房適合親子入住，溫馨裝潢和完備的家庭設施為您打造溫馨家庭時光。", "家庭四人房提供充足的空間和舒適的床鋪，適合家庭入住。明亮溫馨的裝潢以及豐富的家庭設施，為您打造一個溫馨與美好的家庭時光。在這個家庭友善的環境中，共度愉快且難忘的住宿體驗。", 4500, 4500*0.9, 4);
+insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice, roomOpacity)
+values(302, "溫馨四人房", "四人房", "/Hotel/images/s-room-5.jpg", "溫馨四人房為小型團體或家庭提供愉悅的住宿體驗，舒適床鋪和基本生活設施滿足您的需求。", "溫馨四人房是小型團體或家庭的理想之選。房內的裝潢溫馨，提供輕鬆愉悅的住宿體驗，同時配有基本的生活設施，讓您感受到賓至如歸的溫馨。", 4200, 4200*0.9, 4);
+insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDescribe, defaultRoomPrice, roomPrice, roomOpacity)
+values(402, "太陽四人房", "四人房", "/Hotel/images/s-room-6.jpg", "太陽四人房充滿陽光，現代裝潢和寬敞空間為多人入住提供輕鬆愉悅的住宿選擇。", "太陽四人房是一個充滿陽光與寬敞感的理想住宿選擇。現代化裝潢營造出明亮舒適的氛圍，供應多人入住所需。寬敞的房間配置舒適床鋪，為您打造一個愉快而富有輕鬆感的住宿環境。讓您在這裡感受到溫暖陽光的同時，享受美好的休息時光。", 4800, 4800*0.9, 4);
 
 -- book預設值
-insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, sepicalReq, bookPrice)
-values(2024001, 101, 201, "2023-12-27", "2023-12-31", 2, 0, "多一條毛巾", 2800*0.9*2);
+insert into book(bookId, userId, bookName, bookPhone, bookEmail, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
+values(2024001, 101, 201, "Jett", "0912345678", "jett@example.com", "2023-12-27", "2023-12-31", 2, 0, "多一條毛巾",
+       (SELECT (DATEDIFF("2023-12-31", "2023-12-27") + 1) * roomPrice
+        FROM room
+        WHERE roomId = 201)
+        );
+insert into book(bookId, userId, bookName, bookPhone, bookEmail, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
+values(2024002, 101, 401, "Jett", "0912345678", "jett@example.com",  "2023-12-30", "2024-01-10", 1, 1, "多2條毛巾",
+       (SELECT (DATEDIFF("2024-01-10", "2023-12-30") + 1) * roomPrice
+        FROM room
+        WHERE roomId = 401)
+);
+insert into book(bookId, userId, bookName, bookPhone, bookEmail, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
+values(2024003, 103, "Neon", "0945678932", "Neon@example.com", 302, "2024-01-24", "2024-02-10", 1, 0, "我要一本聖經",
+       (SELECT (DATEDIFF("2024-02-10", "2024-01-24") + 1) * roomPrice
+        FROM room
+        WHERE roomId = 302)
+);
+insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
+values(2024004, 101, 201, "2024-01-30", "2024-01-31", 1, 0, "", 3000);
+
+
 
 
 -- equipment預設值
@@ -156,3 +193,12 @@ VALUES(401, 1002), (401, 1003),
 INSERT INTO roomEquipment(roomId, equId)
 VALUES(402, 1001), (402, 1003),
 	  (402, 1005), (402, 1006), (402, 1007), (402, 1008), (402, 1009), (402, 1010), (402, 1011), (402, 1012), (402, 1013), (402, 1014), (402, 1015), (402, 1016), (402, 1017), (402, 1018), (402, 1019), (402, 1020);
+      
+-- 最新消息資料
+INSERT INTO Activity (activityId , activityImgPath , activityName ,  activityDate, activityDescription) VALUES
+(1, '/Hotel/images/pic24.jpg', '「富貴圓龍，好運龍來」', '2023-01-18', '即日起早鳥9折 加贈圓山限定「好運龍」時尚保冷袋和圓山調味珍鮮。'),
+(2, '/Hotel/images/pic25.jpg', '「跨年表演•音樂派對」', '2023-12-31', '在夜空中盡情綻放的煙火秀，為新年的來臨增添絢麗色彩，打造夢幻般的跨年時刻。'),
+(3, '/Hotel/images/pic26.jpg', '「星光璀璨•聖誕豪華之旅」', '2023-12-25', '品嚐來自世界各地的美食佳餚，精選的聖誕甜點，為您帶來美味的節日盛宴。'),
+(4, '/Hotel/images/pic27.jpg', '「冬至搓湯圓•手作湯圓體驗」', '2023-12-15', '每位小朋友完成湯圓製作後，將獲得一份小禮物，感謝他們的參與和創意。'),
+(5, '/Hotel/images/pic28.jpg', '「鍛鍊金工•手作體驗」', '2023-11-20', '即日起兩人同行一人半價,歡迎情侶同遊。'),
+(6, '/Hotel/images/pic29.jpg', '「螃蟹產季•饗您味蕾」', '2023-11-07', '即日起早鳥9折,消費滿兩千折兩百。');

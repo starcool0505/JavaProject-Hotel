@@ -49,7 +49,8 @@ public class BookController {
 	public String book(
 			@RequestParam("checkInDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkinDate,
 			@RequestParam("checkOutDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkoutDate,
-			@RequestParam("guests") int guests,
+			@RequestParam("adult") int adult,
+			@RequestParam("child") int child,
 			@RequestParam("roomId") int roomId, Model model, HttpSession session) {
 		
 		Room room = roomDaoImpl.findAllRoomById(roomId);
@@ -77,7 +78,6 @@ public class BookController {
 	
 	@GetMapping("/bookDetail")
 	public String bookDetail(Model model) {
-		
 		
 		return "bookDetail";
 	}

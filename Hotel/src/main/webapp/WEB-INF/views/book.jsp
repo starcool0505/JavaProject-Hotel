@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="/WEB-INF/views/header.jsp" %>
 
 <!DOCTYPE html>
@@ -7,6 +8,8 @@
 	<%
 		String checkInDate=request.getParameter("checkInDate");
 		String checkOutDate=request.getParameter("checkOutDate");
+		String adult=request.getParameter("adult");
+		String child=request.getParameter("child");
 		String guests=request.getParameter("guests");
 	%>
 		<style>
@@ -38,10 +41,10 @@
 	            wrap: nowrap;
 	        }
 	        
-	        .pure-table td {
-            	vertical-align: middle; /* 垂直置中 */
-        	}
-		    
+	        
+		    .pure-table p{
+		    	margin-bottom: 0;
+		    }
 		    .book-container{
 		    	flex-direction: column;
 		    }
@@ -106,12 +109,12 @@
 		<div class="roomData-container mb-5">
 		  	<div style="width: 100%">
 				<table class="pure-table pure-table-bordered pure-table-striped" style="min-width: 100%; white-space: nowrap;">
-					  <tbody>
+					  <tbody style="vertical-align: middle;">
 					    <tr>
 					      <th scope="col-3">住宿期間</th>
 					      <td scope="col-3">
 							<p class="mb-1 checkinDate" id="checkoutDate" style="margin-bottom: 1vh">入住日期：<%=checkInDate %> </p>
-							<p class="mb-1checkinDate" id="checkoutDate">退房日期：<%=checkOutDate %> </p>
+							<p class="mb-1 checkinDate" id="checkoutDate">退房日期：<%=checkOutDate %> </p>
 						  </td>
 					    </tr>
 					    <tr>
@@ -127,9 +130,17 @@
 						  </td>
 					    </tr>
 					    <tr>
+					    
 					      <th scope="col-3">人數</th>
 					      <td scope="col-3">
-							<p> <%=guests %>人 </p>
+							<p> 成人：<%=adult %>人 </p>
+							<p>${child}</p>
+							<script>
+							    var childCount = <%= child %>; // 將後端傳遞的兒童人數資料轉換為JavaScript變數
+							    if (childCount !== 0) {
+							      document.write('<p> 兒童：' + childCount + '人 </p>');
+							    }
+							</script>
 						  </td>
 					    </tr>
 					    <tr>

@@ -18,7 +18,7 @@
 				<label for="checkout"> 退房時間: </label>
 				<input type="date" id="checkout" name="checkout" >
 				 
-				<label for="adult">大人:</label>
+				<label for="adult">成人：</label>
 				<select id="adult" name="adult">
 					<option value="1"> 1人 </option>
 					<option value="2"> 2人 </option>
@@ -26,7 +26,7 @@
 					<option value="4"> 4人 </option>
 				</select>
 				
-				<label for="child">兒童:</label>
+				<label for="child">兒童(12歲以下)：</label>
 				<select id="child" name="child">
 					<option value="0"> 0人 </option>
 					<option value="1"> 1人 </option>
@@ -160,7 +160,7 @@
 						       <h2>\${room.roomTitle}</h2>
 						       <p>房號: \${room.roomId}</p>
 						       <p>\${room.roomContext}</p>
-						       <a class="btn color1 text-light" onclick="redirectToBooking()">前往訂房</a>
+						       <a class="btn color1 text-light" onclick="redirectToBooking(\${room.roomId})">前往訂房</a>
 						     </div>
 				        `;
 				        roomListDiv.appendChild(roomInfo);
@@ -182,10 +182,12 @@
 			 function redirectToBooking(roomId) {
 				 var checkInDate = encodeURIComponent(document.getElementById('checkin').value);
 				 var checkOutDate = encodeURIComponent(document.getElementById('checkout').value);
-				 var guests = parseInt(document.getElementById('adult').value, 10) + parseInt(document.getElementById('child').value, 10);
+				 var adult = encodeURIComponent(document.getElementById('adult').value);
+				 var child = encodeURIComponent(document.getElementById('child').value);
 				 var roomId = encodeURIComponent(roomId);  
 				 // 使用 window.location.href 修改網址(/Hotel/mvc/book?checkInDate=2024-01-26&checkOutDate=2024-01-27&guests=1&roomId=201)
-			 	 window.location.href = "/Hotel/mvc/book?checkInDate=" + checkInDate + "&checkOutDate=" + checkOutDate + "&guests=" + guests + "&roomId=" + roomId;
+			 	 window.location.href = "/Hotel/mvc/book?checkInDate=" + checkInDate + "&checkOutDate=" + checkOutDate 
+			 			 + "&adult=" + adult + "&child=" +child + "&roomId=" + roomId;
 			}
 		</script>
 

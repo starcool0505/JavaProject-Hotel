@@ -16,8 +16,8 @@ body {
 }
 
 .book {
-  margin-left: 10vw;
-  transform: scale(1.5);
+  margin-left: 4vw;
+  transform: scale(1.25);
 }
       
 .book label, .book button {
