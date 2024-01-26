@@ -28,7 +28,7 @@
 		        background-color: #fff;
 		        border-radius: 8px;
 		        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		         align-items: stretch; 
+		        align-items: stretch; 
 		    }
 		    
 		    .roomData-container{
@@ -106,6 +106,13 @@
 	  	</style>
 	</head>
 	<body>
+		<%
+		  String checkInDate = request.getParameter("checkInDate");
+		  String checkOutDate = request.getParameter("checkOutDate");
+		  String adult = request.getParameter("adult");
+		  String child = request.getParameter("child");
+	  	%>
+	
 		<div class="roomData-container mb-5">
 		  	<div style="width: 100%">
 				<table class="pure-table pure-table-bordered pure-table-striped" style="min-width: 100%; white-space: nowrap;">
@@ -113,8 +120,8 @@
 					    <tr>
 					      <th scope="col-3">住宿期間</th>
 					      <td scope="col-3">
-							<p class="mb-1 checkinDate" id="checkoutDate" style="margin-bottom: 1vh">入住日期: 2024-01-30 </p>
-							<p class="mb-1checkinDate" id="checkoutDate">退房日期: 2024-01-31 </p>
+							<p class="mb-1 checkinDate" id="checkoutDate" style="margin-bottom: 1vh">入住日期：<%=checkInDate %> </p>
+							<p class="mb-1checkinDate" id="checkoutDate">退房日期：<%=checkOutDate %> </p>
 						  </td>
 					    </tr>
 					    <tr>
@@ -126,13 +133,20 @@
 					    <tr>
 					      <th scope="col-3">房型</th>
 					      <td scope="col-3">
-							<p> 綠意雙人房</p>
+							<p>${room.Title }</p>
+						  </td>
+					    </tr>
+					    <tr>
+					      <th scope="col-3">人數</th>
+					      <td scope="col-3">
+							<p>${room.Title }</p>
+							<p>${room.Title }</p>
 						  </td>
 					    </tr>
 					    <tr>
 					      <th scope="col-3">小計</th>
 					      <td scope="col-3">
-							<p>$ 3000 元</p>
+							<p>$ ${room.roomPrice}元</p>
 						  </td>
 					    </tr>
 					  </tbody>

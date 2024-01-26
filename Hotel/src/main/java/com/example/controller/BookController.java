@@ -37,32 +37,22 @@ public class BookController {
 	 * @return
 	 */
 	@GetMapping()
-	public String searchRooms(
+	public String book(
 			@RequestParam("checkInDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkinDate,
 			@RequestParam("checkOutDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkoutDate,
             @RequestParam("guests") int guests,
+            @RequestParam("adult") int adult,
+			@RequestParam("child") int child,
             @RequestParam("roomId") int roomId, Model model) {
 		
-		List<Room> availableRooms = bookDaoImpl.findAvailableRoom(checkinDate, checkoutDate, guests);
-		
-		model.addAttribute("availableRooms", availableRooms);
+		List<Room> rooms = roomDaoImpl.findAllRooms();
+		model.addAttribute("rooms", rooms);
 		
 		return "book";
 	}
 	
 	@GetMapping("/bookDetail")
 	public String bookDetail(Model model) {
-		
-//		List<Book> books = bookDaoImpl.findAllBooks();
-//		
-//		String[] roomTitle = rooms.stream().map(Room::getRoomType).toArray(String[]::new);
-//		List<String> roomType = rooms.stream().map(Room::getRoomType).collect(Collectors.toList());
-//		String[] roomContext = rooms.stream().map(Room::getRoomDescription).toArray(String[]::new);
-//		
-//		model.addAttribute("roomImgPaths", roomImgPaths);
-//		model.addAttribute("roomTitle", roomTitle);
-//		model.addAttribute("roomType", roomType);
-//		model.addAttribute("roomContext", roomContext);
 		
 		return "bookDetail";
 	}

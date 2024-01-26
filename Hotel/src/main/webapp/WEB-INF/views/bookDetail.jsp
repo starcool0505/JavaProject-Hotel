@@ -32,7 +32,30 @@
 		  String phone = request.getParameter("phone");
 		  String email = request.getParameter("email");
 		  String specialRequests = request.getParameter("special-requests");
+		  String checkInDate = request.getParameter("checkInDate");
+		  String checkOutDate = request.getParameter("checkOutDate");
+		  String guests = request.getParameter("guests");
+		 
 	  %>
+	  <%! 
+		  // 計算日期差的方法
+		  public int calculateDateDifference(String checkInDate, String checkOutDate) {
+		    try {
+		      // 將日期字符串轉換為日期對象
+		      java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+		      java.util.Date startDate = sdf.parse(checkInDate);
+		      java.util.Date endDate = sdf.parse(checkOutDate);
+		
+		      // 計算兩個日期之間的天數差
+		      long diff = endDate.getTime() - startDate.getTime();
+		      int daysDifference = (int) (diff / (24 * 60 * 60 * 1000));
+		      return daysDifference;
+		    } catch (Exception e) {
+		      e.printStackTrace();
+		      return 0;
+		    }
+		  }
+		%>
 	  <h2>訂單完成</h2>
 	  <div class="container mt-5" style="margin: 0 auto; min-height: 89.3vh;">
 	  
@@ -49,7 +72,7 @@
 				    <tr class="book-info">
 				      <th width="30%">夜數</th>
 				      <td>
-						<p> 1 晚</p>
+						 <p><%= calculateDateDifference(checkInDate, checkOutDate) %> 晚</p>
 					  </td>
 				    </tr>
 				    <tr class="book-info">
