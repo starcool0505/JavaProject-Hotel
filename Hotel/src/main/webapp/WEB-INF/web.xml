@@ -5,6 +5,12 @@
 	id="WebApp_ID" version="4.0">
 	<display-name>Hotel</display-name>
 	
+	<welcome-file-list>
+	
+		<welcome-file>index.html</welcome-file>
+	
+	</welcome-file-list>
+	
 	<!-- 中文支援 -->
 	<filter>
 		<filter-name>springUtf8Encoding</filter-name>

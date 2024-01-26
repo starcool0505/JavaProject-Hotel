@@ -1,9 +1,9 @@
-.spacer
+#activity .spacer
 {
 	height: 100px; /* 調整你想要的間距高度 */
 }
 
-.activity-info {
+#activity .activity-info {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -13,7 +13,7 @@
 	text-align: center;
 }
 
-img {
+#activity img {
 	max-width: 50%;
 	height: auto;
 	margin-bottom: 20px; /* 圖片下方增加間距 */
@@ -23,26 +23,26 @@ img {
 	margin-top: 0; /* 將圖片上方的 margin 調整為 0 */
 }
 
-h2 {
+#activity h2 {
 	margin: 0; /* 調整 h2 元素的 margin 為 0，消除上下間距 */
 	margin-left: 25%; /* 加入 left margin 以對齊 img 的位置 */
 	margin-bottom: 10px;/* 在 h2 下方添加一些間距 */
 }
 
-.info-item {
+#activity .info-item {
 	display: flex;
 	align-items: center;
 	margin-bottom: 10px;
 }
 
-.info-label {
+#activity .info-label {
 	background-color: #EBE3D5;
 	padding: 5px; 
 	white-space: nowrap; /* 防止標題換行 */
 	font-size: 20px;
 }
 
-.info-content {
+#activity .info-content {
 	margin-left: 10px;
 	margin-bottom: 0;
 	flex-grow: 1; /* 讓後面的內容自動擴展填充空間 */

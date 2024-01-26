@@ -4,7 +4,9 @@
 
 <section class="bg_main0" style="min-height: 97.5vh; padding-top: 68px;">
 		<div class="w-100 d-flex align-content-center" style="height: 90vh">
-		<form class="needs-validation mx-auto d-flex flex-column justify-content-center" method="post" action="${pageContext.request.contextPath}/mvc/login" style="width:15em; ">
+		<form class="needs-validation mx-auto d-flex flex-column justify-content-center" method="post" 
+		      action="${pageContext.request.contextPath}/mvc/login"
+		      style="width:15em; ">
 			<h4 class="text-center">登入</h4>
 			<!-- 顯示錯誤提示，如果有錯誤信息存在 -->
 			<%
@@ -43,5 +45,26 @@
 		</form>
 	</div>
 </section>
+
+<script>
+
+document.querySelector("form").addEventListener("submit", function(e){
+    let url = getActionUrl();
+    console.log(url);
+    $('form').attr('action',url);
+    //e.preventDefault();
+});
+
+function getActionUrl() {
+	let loginUrl = '${pageContext.request.contextPath}/mvc/login';
+	if(window.sessionStorage.getItem('currentPage') != null) {
+		loginUrl +='?currentPage='+window.sessionStorage.getItem('currentPage');
+		window.sessionStorage.removeItem('currentPage');
+	}
+	return loginUrl;
+}
+
+
+</script>
 
 <%@ include file="/WEB-INF/views/footer.jsp" %>

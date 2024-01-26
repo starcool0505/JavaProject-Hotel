@@ -53,6 +53,7 @@
 				else
 				{
 					// 使用者未登入，導向登入頁面
+					window.sessionStorage.setItem('currentPage',window.location.href);
 					window.location.href = '/Hotel/mvc/login';
 				}
 			}

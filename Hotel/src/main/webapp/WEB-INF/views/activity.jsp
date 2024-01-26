@@ -3,7 +3,8 @@
 <%@ include file="/WEB-INF/views/header.jsp"%>
 
 <link rel="stylesheet" href="/Hotel/css/activity_css.css">
-<body class="bg_main0 vh-100">
+
+<div class="bg_main0 vh-100" id="activity">
 	<div class="spacer"></div>
 	<div class="activity-img">
 		<h2>活動介紹</h2>
@@ -32,5 +33,5 @@
 		</div>
 	</div>
 	<div class="spacer"></div>
-</body>
+</div>
 <%@ include file="/WEB-INF/views/footer.jsp"%>

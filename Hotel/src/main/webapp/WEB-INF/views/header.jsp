@@ -70,7 +70,7 @@
 				</c:if>
 				<c:if test="${user != null}">
 					<p class="text-light mb-0 me-3 fs-4">${user.userName}</p>
-					<i class="bi bi-person-circle fs-4 text-light ml-3 mb-0" role="button" onclick="window.location.href='/Hotel/mvc/logout'">登出</i>
+					<i class="bi bi-person-circle fs-4 text-light ml-3 mb-0 text-nowrap" role="button" onclick="window.location.href='/Hotel/mvc/logout'">登出</i>
 				</c:if>
 			</div>
 		</nav>

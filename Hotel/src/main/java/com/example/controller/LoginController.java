@@ -1,7 +1,9 @@
 package com.example.controller;
 
+import java.io.IOException;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,7 +43,8 @@ public class LoginController
 	@PostMapping("/login")
 	public String login(@RequestParam("username") String username,
 						@RequestParam("password") String password,
-						HttpSession session, Model model)
+						@RequestParam(name = "currentPage" ,required = false, defaultValue = "") String currentPage,
+						HttpSession session, Model model, HttpServletResponse response) throws IOException
 	{
 		// 根據 username 查找 user 物件
 		Optional<User> userOptional = userDao.findUserByUserName(username);
@@ -57,8 +61,12 @@ public class LoginController
 				Optional<Integer> userTypeOptional = userDao.findUserTypeByUserName(username);
 				userTypeOptional.ifPresent(userType -> session.setAttribute("userType", userType));
 				
-				return "redirect:/mvc/index"; // OK, 導向前台首頁
-				
+				//http://localhost:8080/Hotel/mvc/room_list/room_index/202
+				if(!StringUtils.isEmpty(currentPage)) {
+					return "redirect:"+currentPage.substring(currentPage.indexOf("/mvc"));
+				}
+	
+			    return "redirect:/mvc/index"; // OK, 導向前台首頁
 			}
 			else
 			{
