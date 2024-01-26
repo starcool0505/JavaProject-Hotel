@@ -55,7 +55,7 @@ public class BookDaoImpl implements BookDao
 			return Optional.empty();
 		}
 	}
-
+	
 	@Override
 	public List<Room> findAvailableRoom(Date checkinDate, Date checkoutDate, int guests) {
 		String sql = "SELECT r.roomId, r.roomTitle, r.roomType, r.roomImgPaths, r.roomContext, r.roomDescribe, r.defaultRoomPrice, r.roomPrice, r.roomOpacity " +
@@ -63,7 +63,6 @@ public class BookDaoImpl implements BookDao
 					 "LEFT JOIN book b ON r.roomId = b.roomId " +
 					 "WHERE (b.bookId IS NULL OR (b.checkinDate > ? OR b.checkoutDate < ?)) " +
 					 "AND ? <= r.roomOpacity";
-
 
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Room.class), checkinDate, checkoutDate, guests);
 	}
