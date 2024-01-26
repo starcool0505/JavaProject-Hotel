@@ -16,4 +16,3 @@ public class Activity {
 	Date activityDate;
 	String activityDescription;
 }
-

@@ -13,13 +13,11 @@
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 		
 		<!-- starcool使用 -->
-		<link rel="stylesheet" href="/Hotel/src/main/webapp/css/main_color.css">
+		<link rel="stylesheet" href="/Hotel/css/main_color.css">
 		<link rel="stylesheet" href="/Hotel/css/room_css.css">
-		<style type="text/css">
-		
-		</style>
 		
 		<!-- april使用 -->
+		<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrwdSb-WZgrv3mLogWyURlXDiDXaKPFVI&callback=console.debug&libraries=maps,marker&v=beta"></script>
 		
 		<!-- w0616使用 -->
 		<link href="https://fonts.googleapis.com/css?family=EB Garamond" rel="stylesheet">
@@ -35,7 +33,7 @@
 	<body>
 		<nav class="navbar navbar-expand-lg bg_main4 fixed-top">
 			<div class="container-fluid" style="margin: 0 20%">
-				<button class="navbar-brand text-light me-0" onclick="window.location.href='/Hotel'" style="background: none; border: none; padding: 0; cursor: pointer;">
+				<button class="navbar-brand text-light me-0" onclick="window.location.href='/Hotel/mvc/index'" style="background: none; border: none; padding: 0; cursor: pointer;">
 					<img src="/Hotel/images/logo7.jpg" alt="XX飯店圖片" style="width: 30%;">
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -50,15 +48,19 @@
 							<a class="nav-link text-light fs-4 text-nowrap" href="/Hotel/mvc/room_list">客房介紹</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-light fs-4 text-nowrap" href="/Hotel/mvc/searchRoom">訂房</a>
-						</li>
-						<li class="nav-item">
 							<a class="nav-link text-light fs-4 text-nowrap" href="/Hotel/mvc/transportation">交通資訊</a>
 						</li>
 						<c:if test="${user != null}">
-							<li class="nav-item">
-								<a class="nav-link text-light fs-4 text-nowrap" href="/Hotel/mvc/historyBook">歷史訂單</a>
-							</li>
+							<c:if test="${userType==1}">
+								<li class="nav-item">
+									<a class="nav-link text-light fs-4 text-nowrap" href="/Hotel/mvc/historyBook">歷史訂單</a>
+								</li>
+							</c:if>
+							<c:if test="${userType==2}">
+								<li class="nav-item">
+									<a class="nav-link text-light fs-4 text-nowrap" href="/Hotel/mvc/allBookData">所有訂單</a>
+								</li>
+							</c:if>
 						</c:if>
 					</ul>
 				</div>

@@ -34,9 +34,9 @@
 		  String specialRequests = request.getParameter("special-requests");
 	  %>
 	  <h2>訂單完成</h2>
-	  <div class="container mt-5" style="margin: 0 auto">
+	  <div class="container mt-5" style="margin: 0 auto; min-height: 89.3vh;">
 	  
-	  	<div class="table-container" style="margin: 0 auto">
+	  	<div class="d-flex flex-column justify-content-center align-items-center" style="margin: 0 auto">
 			<table class="pure-table pure-table-bordered pure-table-striped mb-5" style="width: 60%">
 				  <tbody>
 				    <tr class="book-info">

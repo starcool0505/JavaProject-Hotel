@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import com.example.entity.Room;
 
+/*你好*/
+
 @Repository
 public class RoomDaoImpl implements RoomDao
 {
@@ -35,6 +37,6 @@ public class RoomDaoImpl implements RoomDao
 		String sql = "SELECT roomId, roomTitle FROM hotel.room";
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Room.class));
 	}
-
+	
 	
 }

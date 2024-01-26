@@ -107,31 +107,31 @@
 	</head>
 	<body>
 		<div class="roomData-container mb-5">
-		  	<div>
-				<table class="pure-table pure-table-bordered pure-table-striped" style="width: 30vw; white-space: nowrap;">
+		  	<div style="width: 100%">
+				<table class="pure-table pure-table-bordered pure-table-striped" style="min-width: 100%; white-space: nowrap;">
 					  <tbody>
 					    <tr>
-					      <th width="30%">住宿期間</th>
-					      <td>
+					      <th scope="col-3">住宿期間</th>
+					      <td scope="col-3">
 							<p class="mb-1 checkinDate" id="checkoutDate" style="margin-bottom: 1vh">入住日期: 2024-01-30 </p>
 							<p class="mb-1checkinDate" id="checkoutDate">退房日期: 2024-01-31 </p>
 						  </td>
 					    </tr>
 					    <tr>
-					      <th width="30%">夜數</th>
-					      <td>
+					      <th scope="col-3">夜數</th>
+					      <td scope="col-3">
 							<p> 1 晚</p>
 						  </td>
 					    </tr>
 					    <tr>
-					      <th width="30%">房型</th>
-					      <td>
+					      <th scope="col-3">房型</th>
+					      <td scope="col-3">
 							<p> 綠意雙人房</p>
 						  </td>
 					    </tr>
 					    <tr>
-					      <th width="30%">小計</th>
-					      <td>
+					      <th scope="col-3">小計</th>
+					      <td scope="col-3">
 							<p>$ 3000 元</p>
 						  </td>
 					    </tr>

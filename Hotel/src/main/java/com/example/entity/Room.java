@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/*你好*/
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,5 +21,4 @@ public class Room
 	String roomDescribe;
 	Double defaultRoomPrice;
 	Double roomPrice;
-	Integer roomOpacity;
 }

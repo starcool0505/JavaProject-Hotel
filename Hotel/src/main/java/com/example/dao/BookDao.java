@@ -7,7 +7,11 @@ import java.util.Optional;
 import com.example.entity.Book;
 import com.example.entity.Room;
 
-public interface BookDao {
+public interface BookDao
+{
+	List<Book> findBookDataByUsername(String username);
+	List<Book> findAllBookData();
+	
 	// 1. 查詢所有訂單(多筆)
 	List<Book> findAllBooks();
 	

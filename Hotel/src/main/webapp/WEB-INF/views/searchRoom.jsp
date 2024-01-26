@@ -1,96 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/header.jsp"%>
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 	<head>
 	  <meta charset="UTF-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  <style>
-	   	body {
-	   	 width: 90%;
-	      font-family: Arial, sans-serif;
-	       overflow-x: hidden; 
-	    }
-	
-	    .container {
-	      width: 90%;
-	      margin: 0 auto;
-	      margin-top: 10vh;
-	      padding: 0 5%; /* 調整左右邊距 */
-	      box-sizing: border-box;
-	      flex-wrap: nowrap;
-	      flex-direction: column; 
-	      display: flex;
-	    }
-	    
-	    .book {
-	      margin-left: 10vw;
-	      transform: scale(1.5);
-	    }
-	          
-	    .book label, .book button {
-	      display: inline-block;
-	      margin-left: 10px;
-	      margin-top: 10px;
-	    }
-	    
-	    .content-container {
-	      display: flex;
-	      flex-direction: row; /* 將子元素設置為垂直方向排列 */
-	      justify-content: flex-start; 
-		  margin-top: 1vh;
-	    }
-	    
-	    .roomlist-container {
-	      display: flex;
-	      flex-direction: column; 
-	      width: 100%;
-	      margin-right: 0;
-	    }
-	
-	    .room-container {
-	      display: flex;
-	      flex-direction: column; /* 將子元素設置為垂直方向排列 */
-	      box-sizing: border-box;
-	      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	      margin-right: 5vw;
-	    }
-	
-	    .room-container, .cart-container {
-	      display: flex;
-	      flex-direction: row; /* 將子元素設置為垂直方向排列 */
-	      box-sizing: border-box;
-	      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	      margin-bottom: 20px; 
-	    }
-	
-	    .room-container img {
-	      width: 40%; 
-	      object-fit: cover;
-	    }
-	
-	    .room-container-text, .cart {
-	      padding: 10px;
-	      width: 100%;
-	    }
-	
-	    .cart-container {
-		  height: 100%; 
-		   width:35%;
-		}
-	
-		.cart {
-		  height: 100%; 
-		  box-shadow: none; 
-		}
-	
-	  </style>
+	  <link rel="stylesheet" href="/Hotel/css/searchRoom_css.css">
 	  <title>訂房</title>
 	</head>
 	
 	<body>
-
 		<div class="container">
 		  	<div class="book mb-3">
 				<label for="checkin" style="font-size: 16px;"> 入住時間: </label>
@@ -130,7 +50,7 @@
 					       <h2>${roomTitle[loopStatus.index]}</h2>
 					       <p>房號: ${roomId[loopStatus.index]}</p>
 					       <p>${roomContext[loopStatus.index]}</p>
-					       <a class="btn color1 text-light" onclick="redirectToBooking()">前往訂房</a>
+					       <a class="btn color1 text-light" onclick="redirectToBooking(${roomId[loopStatus.index]})">前往訂房</a>
 					     </div>
 					   </div>
 				    </c:forEach>
@@ -259,14 +179,13 @@
 			    modal.style.display = "none"; // 隱藏 modal
 			 }
 			 
-			 function redirectToBooking() {
-				 var checkin = encodeURIComponent(document.getElementById('checkin').value);
-				 var checkout = encodeURIComponent(document.getElementById('checkout').value);
+			 function redirectToBooking(roomId) {
+				 var checkInDate = encodeURIComponent(document.getElementById('checkin').value);
+				 var checkOutDate = encodeURIComponent(document.getElementById('checkout').value);
 				 var guests = parseInt(document.getElementById('adult').value, 10) + parseInt(document.getElementById('child').value, 10);
-				 var roomTytle = encodeURIComponent(roomTytle);  
 				 var roomId = encodeURIComponent(roomId);  
-				 // 使用 window.location.href 修改網址
-				 window.location.href = "mvc/searchRoom/book?checkin=" + checkin + "&checkout=" + checkout + "guests" + guests + "&roomId=" + roomId;
+				 // 使用 window.location.href 修改網址(/Hotel/mvc/book?checkInDate=2024-01-26&checkOutDate=2024-01-27&guests=1&roomId=201)
+			 	 window.location.href = "/Hotel/mvc/book?checkInDate=" + checkInDate + "&checkOutDate=" + checkOutDate + "&guests=" + guests + "&roomId=" + roomId;
 			}
 		</script>
 
