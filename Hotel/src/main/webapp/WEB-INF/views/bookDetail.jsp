@@ -5,15 +5,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	    <meta charset="UTF-8">
-	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-	    <link rel="stylesheet" href="Hotel/css/main_color.css">
-	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" >
-	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-	    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-	  <title>訂單完成</title>
-	  
 	  <style>
 	  	.bi-1-circle-fill {
 		    color: darkgrey; 
@@ -32,33 +23,10 @@
 		  String phone = request.getParameter("phone");
 		  String email = request.getParameter("email");
 		  String specialRequests = request.getParameter("special-requests");
-		  String checkInDate = request.getParameter("checkInDate");
-		  String checkOutDate = request.getParameter("checkOutDate");
-		  String guests = request.getParameter("guests");
-		 
 	  %>
-	  <%! 
-		  // 計算日期差的方法
-		  public int calculateDateDifference(String checkInDate, String checkOutDate) {
-		    try {
-		      // 將日期字符串轉換為日期對象
-		      java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
-		      java.util.Date startDate = sdf.parse(checkInDate);
-		      java.util.Date endDate = sdf.parse(checkOutDate);
-		
-		      // 計算兩個日期之間的天數差
-		      long diff = endDate.getTime() - startDate.getTime();
-		      int daysDifference = (int) (diff / (24 * 60 * 60 * 1000));
-		      return daysDifference;
-		    } catch (Exception e) {
-		      e.printStackTrace();
-		      return 0;
-		    }
-		  }
-		%>
-	  <h2>訂單完成</h2>
-	  <div class="container mt-5" style="margin: 0 auto; min-height: 89.3vh;">
 	  
+	  <div class="container mt-5" style="margin: 0 auto; min-height: 100vh;">
+	  <h2 class="mb-3" style="margin-top: 10vh; text-align: center;">訂單完成</h2>
 	  	<div class="d-flex flex-column justify-content-center align-items-center" style="margin: 0 auto">
 			<table class="pure-table pure-table-bordered pure-table-striped mb-5" style="width: 60%">
 				  <tbody>
@@ -72,7 +40,7 @@
 				    <tr class="book-info">
 				      <th width="30%">夜數</th>
 				      <td>
-						 <p><%= calculateDateDifference(checkInDate, checkOutDate) %> 晚</p>
+						<p> 1 晚</p>
 					  </td>
 				    </tr>
 				    <tr class="book-info">

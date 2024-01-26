@@ -182,12 +182,10 @@
 			 function redirectToBooking(roomId) {
 				 var checkInDate = encodeURIComponent(document.getElementById('checkin').value);
 				 var checkOutDate = encodeURIComponent(document.getElementById('checkout').value);
-				 var adult = encodeURIComponent(document.getElementById('adult').value);
-				 var child = encodeURIComponent(document.getElementById('child').value);
 				 var guests = parseInt(document.getElementById('adult').value, 10) + parseInt(document.getElementById('child').value, 10);
 				 var roomId = encodeURIComponent(roomId);  
 				 // 使用 window.location.href 修改網址(/Hotel/mvc/book?checkInDate=2024-01-26&checkOutDate=2024-01-27&guests=1&roomId=201)
-			 	 window.location.href = "/Hotel/mvc/book?checkInDate=" + checkInDate + "&checkOutDate=" + checkOutDate + "&adult=" + adult + "&child=" + child + "&guests=" + guests + "&roomId=" + roomId;
+			 	 window.location.href = "/Hotel/mvc/book?checkInDate=" + checkInDate + "&checkOutDate=" + checkOutDate + "&guests=" + guests + "&roomId=" + roomId;
 			}
 		</script>
 

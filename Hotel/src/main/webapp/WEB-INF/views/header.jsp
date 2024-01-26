@@ -18,6 +18,7 @@
 		
 		<!-- april使用 -->
 		<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrwdSb-WZgrv3mLogWyURlXDiDXaKPFVI&callback=console.debug&libraries=maps,marker&v=beta"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" >
 		
 		<!-- w0616使用 -->
 		<link href="https://fonts.googleapis.com/css?family=EB Garamond" rel="stylesheet">

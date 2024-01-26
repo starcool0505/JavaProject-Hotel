@@ -4,14 +4,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	    <meta charset="UTF-8">
-	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" >
-	    <link rel="stylesheet" href="./css/main_color.css">
-	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-	    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-	    <title>XX飯店訂房</title> 
+	<%
+		String checkInDate=request.getParameter("checkInDate");
+		String checkOutDate=request.getParameter("checkOutDate");
+		String guests=request.getParameter("guests");
+	%>
 		<style>
 		    body {
 		        font-family: Arial, sans-serif;
@@ -28,7 +25,7 @@
 		        background-color: #fff;
 		        border-radius: 8px;
 		        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		        align-items: stretch; 
+		         align-items: stretch; 
 		    }
 		    
 		    .roomData-container{
@@ -106,13 +103,6 @@
 	  	</style>
 	</head>
 	<body>
-		<%
-		  String checkInDate = request.getParameter("checkInDate");
-		  String checkOutDate = request.getParameter("checkOutDate");
-		  String adult = request.getParameter("adult");
-		  String child = request.getParameter("child");
-	  	%>
-	
 		<div class="roomData-container mb-5">
 		  	<div style="width: 100%">
 				<table class="pure-table pure-table-bordered pure-table-striped" style="min-width: 100%; white-space: nowrap;">
@@ -127,26 +117,25 @@
 					    <tr>
 					      <th scope="col-3">夜數</th>
 					      <td scope="col-3">
-							<p> 1 晚</p>
+							<p> ${daysDifference} 晚</p>
 						  </td>
 					    </tr>
 					    <tr>
 					      <th scope="col-3">房型</th>
 					      <td scope="col-3">
-							<p>${room.Title }</p>
+							<p> ${room.roomTitle } </p>
 						  </td>
 					    </tr>
 					    <tr>
 					      <th scope="col-3">人數</th>
 					      <td scope="col-3">
-							<p>${room.Title }</p>
-							<p>${room.Title }</p>
+							<p> <%=guests %>人 </p>
 						  </td>
 					    </tr>
 					    <tr>
 					      <th scope="col-3">小計</th>
 					      <td scope="col-3">
-							<p>$ ${room.roomPrice}元</p>
+							<p>$ ${room.roomPrice } 元</p>
 						  </td>
 					    </tr>
 					  </tbody>
@@ -160,13 +149,13 @@
 			    	<h3>訂房資訊</h3>
 				  	<form action="#" method="post">
 				        <label for="name">姓名<span class="required">*</span></label>
-				        <input type="text" id="name" name="name" required>
+				        <input type="text" id="name" name="name" required value="${userData.userName }">
 				
 				        <label for="phone">電話<span class="required">*</span></label>
-				        <input type="tel" id="phone" name="phone" required>
+				        <input type="tel" id="phone" name="phone" required value="${userData.userPhone }">
 				
 				        <label for="email">Email<span class="required">*</span></label>
-				        <input type="email" id="email" name="email" required>
+				        <input type="email" id="email" name="email" required value="${userData.userEmail }">
 				
 				        <label for="special-requests">特殊要求</label><br>
 				        <textarea id="special-requests" name="special-requests" style="width:100%"></textarea>

@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.example.entity.Room;
 import com.example.entity.User;
 
 @Repository
@@ -40,7 +41,7 @@ public class UserDaoImpl implements UserDao {
 	}
 	
 	@Override
-    public Optional<Integer> findUserTypeByUserName(String username)
+	public Optional<Integer> findUserTypeByUserName(String username)
 	{
 		String sql = "SELECT userType FROM hotel.user where userName=?";
 		try
@@ -53,4 +54,13 @@ public class UserDaoImpl implements UserDao {
 			return Optional.empty();
 		}
 	}
+
+	@Override
+	public User findAllByUserName(String username)
+	{
+		String sql = "SELECT * FROM hotel.user where userName=?";
+		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), username);
+	}
+	
+	
 }
