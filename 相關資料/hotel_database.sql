@@ -40,6 +40,9 @@ create table if not exists book
 (
     bookId int auto_increment primary key,
     userId int,
+	bookName varchar(500),
+	bookPhone varchar(500),
+    bookEmail varchar(100),
     roomId int,
     foreign key (userId) references user(userId),
     foreign key (roomId) references room(roomId),
@@ -103,20 +106,20 @@ insert into room(roomId, roomTitle, roomType, roomImgPaths, roomContext, roomDes
 values(402, "太陽四人房", "四人房", "/Hotel/images/s-room-6.jpg", "太陽四人房充滿陽光，現代裝潢和寬敞空間為多人入住提供輕鬆愉悅的住宿選擇。", "太陽四人房是一個充滿陽光與寬敞感的理想住宿選擇。現代化裝潢營造出明亮舒適的氛圍，供應多人入住所需。寬敞的房間配置舒適床鋪，為您打造一個愉快而富有輕鬆感的住宿環境。讓您在這裡感受到溫暖陽光的同時，享受美好的休息時光。", 4800, 4800*0.9, 4);
 
 -- book預設值
-insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
-values(2024001, 101, 201, "2023-12-27", "2023-12-31", 2, 0, "多一條毛巾",
+insert into book(bookId, userId, bookName, bookPhone, bookEmail, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
+values(2024001, 101, 201, "Jett", "0912345678", "jett@example.com", "2023-12-27", "2023-12-31", 2, 0, "多一條毛巾",
        (SELECT (DATEDIFF("2023-12-31", "2023-12-27") + 1) * roomPrice
         FROM room
         WHERE roomId = 201)
         );
-insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
-values(2024002, 101, 401, "2023-12-30", "2024-01-10", 1, 1, "多2條毛巾",
+insert into book(bookId, userId, bookName, bookPhone, bookEmail, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
+values(2024002, 101, 401, "Jett", "0912345678", "jett@example.com",  "2023-12-30", "2024-01-10", 1, 1, "多2條毛巾",
        (SELECT (DATEDIFF("2024-01-10", "2023-12-30") + 1) * roomPrice
         FROM room
         WHERE roomId = 401)
 );
-insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
-values(2024003, 103, 302, "2024-01-24", "2024-02-10", 1, 0, "我要一本聖經",
+insert into book(bookId, userId, bookName, bookPhone, bookEmail, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
+values(2024003, 103, "Neon", "0945678932", "Neon@example.com", 302, "2024-01-24", "2024-02-10", 1, 0, "我要一本聖經",
        (SELECT (DATEDIFF("2024-02-10", "2024-01-24") + 1) * roomPrice
         FROM room
         WHERE roomId = 302)
