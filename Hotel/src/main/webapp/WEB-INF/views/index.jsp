@@ -30,6 +30,7 @@
 		    transform: translate(-50%, -50%);
 		    background-color: transparent;
 		    padding: 10px;
+		    width: 80%; /* 設置 .centered-text 的寬度為父元素寬度的80% 調整寬度 */
 		}
 		
 		.centered-text span {
@@ -38,6 +39,15 @@
 		    color: #FFFFFF; /* 修改文字顏色 */
 		}
 		
+		.centered-text .book {
+		    border: 2px solid rgba(255, 255, 255, 0.9); /* 白色邊框，透明度0.8 */
+		    background-color: rgba(255, 255, 255, 0.9); /* 白色背景，透明度0.8 */
+		    padding: 15px; /* 添加內邊距，使邊框與內容之間有一些空間 */
+		    border-radius: 10px; /* 可選，添加圓角效果 */
+		    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* 可選，添加陰影效果 */
+		    margin-top: 100px; /* 增加上方 margin */
+		}
+	
 	    /* ------------------消息預覽標題------------------------------------ */
 		.NewsPreviewTitle{
 	        background-color: #EBE3D5; /* 背景顏色 */
@@ -275,6 +285,36 @@
 	            <img src="/Hotel/images/pic1.jpg" class="img-fluid" alt="...">  <!-- 絕對路徑/Hotel/ -->
 	            <div class="centered-text">
 	                <span>Welcome to the hotel</span>
+	                <div class="book mb-3">
+				<label for="checkin" style="font-size: 16px;"> 入住時間: </label>
+				<input type="date" id="checkin" name="checkin" onchange="updateCheckoutDate()" required>
+				<label for="checkout"> 退房時間: </label>
+				<input type="date" id="checkout" name="checkout" >
+				 
+				<label for="adult">成人：</label>
+				<select id="adult" name="adult">
+					<option value="1"> 1人 </option>
+					<option value="2"> 2人 </option>
+					<option value="3"> 3人 </option>
+					<option value="4"> 4人 </option>
+				</select>
+				
+				<label for="child">兒童(12歲以下)：</label>
+				<select id="child" name="child">
+					<option value="0"> 0人 </option>
+					<option value="1"> 1人 </option>
+					<option value="2"> 2人 </option>
+					<option value="3"> 3人 </option>
+					<option value="4"> 4人 </option>
+				</select>
+				
+				<button onclick="checkBooking()"> 查詢
+					<i class="bi bi-search"></i>
+				</button>
+				<button onclick="checkBooking()"> 訂房
+					
+				</button>
+			</div> 
 	            </div>
 	        </div>
 	    </section>
