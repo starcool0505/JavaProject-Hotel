@@ -11,4 +11,6 @@ public interface RoomDao
 	Room findAllRoomById(int roomId);
 	
 	List<Room> findAllTitles();
+	
+	List<Room> findAvailableRooms(String checkInDate, String checkOutDate, int adult, int child);
 }

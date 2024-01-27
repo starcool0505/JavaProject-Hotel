@@ -47,24 +47,24 @@
 </section>
 
 <script>
+	document.querySelector("form").addEventListener("submit", function(e)
+	{
+		let url = getActionUrl();
+		console.log(url);
+		$('form').attr('action',url);
+		//e.preventDefault();
+	});
 
-document.querySelector("form").addEventListener("submit", function(e){
-    let url = getActionUrl();
-    console.log(url);
-    $('form').attr('action',url);
-    //e.preventDefault();
-});
-
-function getActionUrl() {
-	let loginUrl = '${pageContext.request.contextPath}/mvc/login';
-	if(window.sessionStorage.getItem('currentPage') != null) {
-		loginUrl +='?currentPage='+window.sessionStorage.getItem('currentPage');
-		window.sessionStorage.removeItem('currentPage');
+	function getActionUrl()
+	{
+		let loginUrl = '${pageContext.request.contextPath}/mvc/login';
+		if(window.sessionStorage.getItem('currentPage') != null)
+		{
+			loginUrl +='?currentPage='+window.sessionStorage.getItem('currentPage');
+			window.sessionStorage.removeItem('currentPage');
+		}
+		return loginUrl;
 	}
-	return loginUrl;
-}
-
-
 </script>
 
 <%@ include file="/WEB-INF/views/footer.jsp" %>

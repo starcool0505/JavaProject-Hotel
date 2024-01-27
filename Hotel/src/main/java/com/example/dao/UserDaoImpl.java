@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.example.entity.Room;
 import com.example.entity.User;
 
 @Repository
@@ -61,6 +60,4 @@ public class UserDaoImpl implements UserDao {
 		String sql = "SELECT * FROM hotel.user where userName=?";
 		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), username);
 	}
-	
-	
 }

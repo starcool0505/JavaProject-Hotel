@@ -36,5 +36,23 @@ public class RoomDaoImpl implements RoomDao
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Room.class));
 	}
 	
-	
+	@Override
+	public List<Room> findAvailableRooms(String checkInDate, String checkOutDate, int adult, int child)
+	{
+		String sql = "SELECT room.roomId, room.roomTitle, room.roomType, room.roomImgPaths, room.roomContext, room.roomDescribe, room.defaultRoomPrice, room.roomPrice, room.roomOpacity "
+					+"FROM room "
+					+"LEFT JOIN "
+					+"( "
+					+"	SELECT roomId "
+					+"	FROM book "
+					+"	WHERE NOT "
+					+"	( "
+					+"		checkoutDate <= ? "
+					+"		OR checkinDate >= ? "
+					+"	) "
+					+") booked_rooms ON room.roomId = booked_rooms.roomId "
+					+"WHERE booked_rooms.roomId IS NULL "
+					+"AND room.roomOpacity >= ?";
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Room.class), checkInDate, checkOutDate, adult + child);
+	}
 }

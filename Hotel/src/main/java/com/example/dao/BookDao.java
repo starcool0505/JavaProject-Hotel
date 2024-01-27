@@ -26,4 +26,7 @@ public interface BookDao
 	
 	// 5. 刪除訂單
 	void deleteBook(Book book);
+	
+	// 新增訂單
+	void insertBook(Book book);
 }

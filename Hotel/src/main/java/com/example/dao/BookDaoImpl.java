@@ -1,5 +1,7 @@
 package com.example.dao;
 
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -78,5 +80,40 @@ public class BookDaoImpl implements BookDao
 	public void deleteBook(Book book) {
 		String sql = "delete from book where bookId = ?";
 		jdbcTemplate.update(sql,  book.getSepicalReq(), book.getBookPrice());
+	}
+	
+	@Override
+	public void insertBook(Book book)
+	{
+		String sql = "INSERT INTO book (userId, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		// 使用全路径指定的类型
+		org.springframework.jdbc.support.KeyHolder keyHolder = new org.springframework.jdbc.support.GeneratedKeyHolder();
+		
+		jdbcTemplate.update(connection ->
+		{
+			PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			ps.setInt(1, book.getUserId());
+			ps.setInt(2, book.getRoomId());
+			ps.setDate(3, new java.sql.Date(book.getCheckinDate().getTime()));
+			ps.setDate(4, new java.sql.Date(book.getCheckoutDate().getTime()));
+			ps.setInt(5, book.getAdultNum());
+			ps.setInt(6, book.getChildNum());
+			ps.setString(7, book.getSpecialReq());
+			ps.setDouble(8, book.getBookPrice());
+			return ps;
+		}, keyHolder);
+		
+		// 檢查 keyHolder 是否有生成的主鍵
+		if (keyHolder.getKey() != null)
+		{
+			// 如果有生成的主鍵，將其轉換為整數並設定到 Book 物件的 bookId 屬性中
+			book.setBookId(keyHolder.getKey().intValue());
+		}
+		else
+		{
+			// 如果未能生成主鍵，拋出運行時異常，表示未能檢索到為 book 生成的主鍵
+			throw new RuntimeException("Failed to retrieve the generated key for the book");
+		}
 	}
 }

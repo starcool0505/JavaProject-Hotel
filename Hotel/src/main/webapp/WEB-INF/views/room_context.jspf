@@ -48,7 +48,7 @@
 				if (xhr.status === 200)
 				{
 					// 使用者已登入，直接前往訂房頁面
-					window.location.href = '/Hotel/mvc/searchRoom';
+					window.location.href = '/Hotel/mvc/testBook';
 				}
 				else
 				{
