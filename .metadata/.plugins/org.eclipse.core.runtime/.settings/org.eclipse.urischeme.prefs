@@ -1,6 +1,10 @@
 eclipse.preferences.version=1
 <<<<<<< HEAD
+<<<<<<< HEAD
 processedSchemes=,eclipse+command,eclipse+mpc
 =======
 processedSchemes=,eclipse+mpc,eclipse+command
 >>>>>>> refs/heads/main
+=======
+processedSchemes=,eclipse+mpc,eclipse+command
+>>>>>>> refs/remotes/origin/main

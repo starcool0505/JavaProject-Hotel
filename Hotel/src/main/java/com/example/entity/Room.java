@@ -11,12 +11,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Room {
-
+public class Room
+{
 	Integer roomId;
+	String roomTitle;
 	String roomType;
+	String roomImgPaths;
+	String roomContext;
+	String roomDescribe;
 	Double defaultRoomPrice;
 	Double roomPrice;
-	String roomPic;
-	String roomDescription;
 }

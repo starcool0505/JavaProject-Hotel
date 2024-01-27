@@ -16,14 +16,16 @@ import com.example.entity.Activity;
  */
 @Controller
 @RequestMapping("/index")
-public class IndexController {
-    @Autowired
-    private ActivityDaoImpl activityDaoImpl;
+public class IndexController
+{
+	@Autowired
+	private ActivityDaoImpl activityDaoImpl;
 
-    @GetMapping
-    public String index(Model model) {
-        List<Activity> activities = activityDaoImpl.findAllActivities();
-        model.addAttribute("activities", activities);
-        return "index";
-    }
+	@GetMapping
+	public String index(Model model)
+	{
+		List<Activity> activities = activityDaoImpl.findAllActivities();
+		model.addAttribute("activities", activities);
+		return "index";
+	}
 }

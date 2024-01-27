@@ -26,6 +26,7 @@
     <!--
     <Manager pathname="" />
     -->
+<<<<<<< HEAD
     <!-- 連線池 -->
     <Resource 
         name="jdbc/web" 
@@ -35,4 +36,6 @@
         driverClassName="com.mysql.cj.jdbc.Driver"
         url="jdbc:mysql://localhost:3306/hotel?serverTimezone=Asia/Taipei" />
         
+=======
+>>>>>>> refs/remotes/origin/main
 </Context>
