@@ -107,13 +107,13 @@ values(402, "太陽四人房", "四人房", "/Hotel/images/s-room-6.jpg", "太�
 
 -- book預設值
 insert into book(bookId, userId, bookName, bookPhone, bookEmail, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
-values(2024001, 101, 201, "Jett", "0912345678", "jett@example.com", "2023-12-27", "2023-12-31", 2, 0, "多一條毛巾",
+values(2024001, 101, "Jett", "0912345678", "jett@example.com", 201,"2023-12-27", "2023-12-31", 2, 0, "多一條毛巾",
        (SELECT (DATEDIFF("2023-12-31", "2023-12-27") + 1) * roomPrice
         FROM room
         WHERE roomId = 201)
         );
 insert into book(bookId, userId, bookName, bookPhone, bookEmail, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
-values(2024002, 101, 401, "Jett", "0912345678", "jett@example.com",  "2023-12-30", "2024-01-10", 1, 1, "多2條毛巾",
+values(2024002, 101, "Jett", "0912345678", "jett@example.com", 401, "2023-12-30", "2024-01-10", 1, 1, "多2條毛巾",
        (SELECT (DATEDIFF("2024-01-10", "2023-12-30") + 1) * roomPrice
         FROM room
         WHERE roomId = 401)
