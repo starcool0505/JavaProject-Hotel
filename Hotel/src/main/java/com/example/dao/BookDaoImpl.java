@@ -22,7 +22,7 @@ public class BookDaoImpl implements BookDao
 	@Override
 	public List<Book> findBookDataByUsername(String username)
 	{
-		String sql = "SELECT b.bookId, b.roomId, b.checkinDate, b.checkoutDate, b.bookPrice "
+		String sql = "SELECT b.bookId, b.bookName, b.bookPhone, b.roomId, b.checkinDate, b.checkoutDate, b.bookPrice "
 					+"FROM book b "
 					+"JOIN user u ON b.userId = u.userId "
 					+"WHERE u.userName = ?";
@@ -47,7 +47,7 @@ public class BookDaoImpl implements BookDao
 
 	@Override
 	public Optional<Book> findBookById(Integer bookId) {
-		String sql = "select bookId, roomId, checkinDate, checkoutDate, adultNum, childNum, sepicalReq, bookPrice from book where bookId = ?";
+		String sql = "select bookId, bookName, bookPhone, roomId, checkinDate, checkoutDate, adultNum, childNum, sepicalReq, bookPrice from book where bookId = ?";
 		try {
 			Book book = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Book.class), bookId);
 			return Optional.ofNullable(book);
@@ -70,13 +70,13 @@ public class BookDaoImpl implements BookDao
 	
 	@Override
 	public void addBook(Book book) {
-		String sql = "insert into book(roomId, checkinDate, checkoutDate, adultNum, childNum, sepicalReq, bookPrice) values(?,?,?,?,?,?,?)";
-		jdbcTemplate.update(sql, book.getRoomId(), book.getCheckinDate(), book.getCheckoutDate(), book.getAdultNum(), book.getChildNum(), book.getSepicalReq(), book.getBookPrice());
+		String sql = "insert into book( userId, bookName, bookPhone, bookEmail, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice) values(?,?,?,?,?,?,?,?,?,?,?)";
+		jdbcTemplate.update(sql, book.getUserId(), book.getBookName(), book.getBookPhone(),book.getBookEmail(),book.getRoomId(), book.getCheckinDate(), book.getCheckoutDate(), book.getAdultNum(), book.getChildNum(), book.getSepicalReq(), book.getBookPrice());
 	}
 
 	@Override
 	public void deleteBook(Book book) {
 		String sql = "delete from book where bookId = ?";
-		jdbcTemplate.update(sql,  book.getSepicalReq(), book.getBookPrice());
+		jdbcTemplate.update(sql, book.getSepicalReq(), book.getBookPrice());
 	}
 }

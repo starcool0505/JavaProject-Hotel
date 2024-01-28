@@ -13,12 +13,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.dao.BookDaoImpl;
 import com.example.dao.RoomDaoImpl;
 import com.example.dao.UserDao;
+import com.example.entity.Book;
 import com.example.entity.Room;
 import com.example.entity.User;
 
@@ -75,6 +77,39 @@ public class BookController {
 		
 		return "book";
 	}
+	
+	@PostMapping("/submit")
+	public String submitBookForm(
+	        @RequestParam("userId") int userId,
+	        @RequestParam("checkInDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkinDate,
+	        @RequestParam("checkOutDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkoutDate,
+	        @RequestParam("adult") int adultNum,
+	        @RequestParam("child") int childNum,
+	        @RequestParam("roomId") int roomId,
+	        @RequestParam("bookName") String bookName,
+	        @RequestParam("bookEmail") String bookEmail,
+	        @RequestParam("bookPhone") String bookPhone,
+	        @RequestParam("specialReq") String specialReq,
+	        @RequestParam("roomPrice") double roomPrice,
+	        Model model, HttpSession session) {
+
+	        Book book = new Book();
+	        book.setUserId(userId);
+	        book.setCheckinDate(checkinDate);
+	        book.setCheckoutDate(checkoutDate);
+	        book.setAdultNum(adultNum);
+	        book.setChildNum(childNum);
+	        book.setRoomId(roomId);
+	        book.setBookName(bookName);
+	        book.setBookEmail(bookEmail);
+	        book.setBookPhone(bookPhone);
+	        book.setSpecialReq(specialReq);
+	        book.setBookPrice(roomPrice); 
+	        
+	        bookDaoImpl.addBook(book);
+	       
+	        return "redirect:/book/bookDetail";
+	    }
 	
 	@GetMapping("/bookDetail")
 	public String bookDetail(Model model) {

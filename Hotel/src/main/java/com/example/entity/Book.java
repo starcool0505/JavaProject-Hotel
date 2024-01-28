@@ -21,8 +21,11 @@ public class Book
 	String sepicalReq;
 	Double bookPrice;
 	
+	String bookName;
+	String bookPhone;
+	String bookEmail;
+	Integer totalGuests;
 	String userName;
 	String userPhone;
-	Integer totalGuests;
 	String specialReq;
 }

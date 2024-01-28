@@ -158,18 +158,18 @@
 			<div class="form-container">
 			  	<div class="user-container">
 			    	<h3>訂房資訊</h3>
-				  	<form action="#" method="post">
+				  	<form action="/book/submit" method="post">
 				        <label for="name">姓名<span class="required">*</span></label>
-				        <input type="text" id="name" name="name" required value="${userData.userName }">
+				        <input type="text" id="bookName" name="bookName" value="${userData.userName }"  required>
 				
 				        <label for="phone">電話<span class="required">*</span></label>
-				        <input type="tel" id="phone" name="phone" required value="${userData.userPhone }">
+				        <input type="tel" id="bookPhone" name="bookPhone" value="${userData.userPhone }" required>
 				
 				        <label for="email">Email<span class="required">*</span></label>
-				        <input type="email" id="email" name="email" required value="${userData.userEmail }">
+				        <input type="email" id="bookEmail" name="bookEmail" value="${userData.userEmail }" required>
 				
-				        <label for="special-requests">特殊要求</label><br>
-				        <textarea id="special-requests" name="special-requests" style="width:100%"></textarea>
+				        <label for="specialReq">特殊要求</label><br>
+				        <textarea id="specialReq" name="specialReq" style="width:100%"></textarea>
 			      	</form>
 			 	</div>
 				
@@ -196,7 +196,7 @@
 			</div>
 				
 			<div id="confirmation-btn">
-			   <input type="button" value="送出" onclick="showConfirmation()">
+			   <input type="submit" value="送出" onclick="showConfirmation()">
 			</div>
 		</div>
 		  	
@@ -205,16 +205,16 @@
 		  function showConfirmation() {
 		    var isConfirmed = confirm("確認送出?");
 		    if (isConfirmed) {
-		      var name = document.getElementById("name").value;
-		      var phone = document.getElementById("phone").value;
-		      var email = document.getElementById("email").value;
-		      var specialRequests = document.getElementById("special-requests").value;
+		      var name = document.getElementById("bookName").value;
+		      var phone = document.getElementById("bookPhone").value;
+		      var email = document.getElementById("bookEmail").value;
+		      var specialRequests = document.getElementById("specialReq").value;
 		
 		      var redirectURL = '/Hotel/mvc/book/bookDetail' +
-		        '?name=' + encodeURIComponent(name) +
-		        '&phone=' + encodeURIComponent(phone) +
-		        '&email=' + encodeURIComponent(email) +
-		        '&special-requests=' + encodeURIComponent(specialRequests);
+		        '?bookName=' + encodeURIComponent(name) +
+		        '&bookPhone=' + encodeURIComponent(phone) +
+		        '&bookEmail=' + encodeURIComponent(email) +
+		        '&specialReq=' + encodeURIComponent(specialRequests);
 		
 		      window.location.href = redirectURL;
 		    }

@@ -11,6 +11,8 @@
 				<tr>
 					<th scope="col-1"></th>
 					<th scope="col-2">訂單編號</th>
+					<th scope="col-2">訂購人姓名</th>
+					<th scope="col-2">訂購人電話</th>
 					<th scope="col-2">房間編號</th>
 					<th scope="col-2">入住時間</th>
 					<th scope="col-2">退房時間</th>
@@ -23,6 +25,8 @@
 					<tr>
 						<th scope="row">${loopStatus.index + 1}</th>
 						<td>${book.bookId}</td>
+						<td>${book.bookName}</td>
+						<td>${book.bookPhone}</td>
 						<td>${book.roomId}</td>
 						<td><fmt:formatDate value="${book.checkinDate}" pattern="yyyy-MM-dd" /></td>
 						<td><fmt:formatDate value="${book.checkoutDate}" pattern="yyyy-MM-dd" /></td>
