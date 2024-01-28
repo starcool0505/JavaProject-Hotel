@@ -124,8 +124,8 @@ values(2024003, 103, "Neon", "0945678932", "Neon@example.com", 302, "2024-01-24"
         FROM room
         WHERE roomId = 302)
 );
-insert into book(bookId, userId, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
-values(2024004, 101, 201, "2024-01-30", "2024-01-31", 1, 0, "", 3000);
+insert into book(bookId, userId, bookName, bookPhone, bookEmail, roomId, checkinDate, checkoutDate, adultNum, childNum, specialReq, bookPrice)
+values(2024004, 101, "Jett", "0912345678", "jett@example.com", 201, "2024-01-30", "2024-01-31", 1, 0, "", 3000);
 
 
 
