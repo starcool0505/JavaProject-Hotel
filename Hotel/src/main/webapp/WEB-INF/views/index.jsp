@@ -76,6 +76,9 @@
 				</div>
 			</section>
 		</div>
+		<!-- 圓形按鈕 -->
+		<button type="button" class="color2 text-light font-weight-bold fs-4" id="scrollButton" onclick="goToReservation()">前往訂房</button>
+		
 		<!-- slick畫面輪播 使用Center Mode -->
 		<script>
 			$('.center').slick({
@@ -103,6 +106,32 @@
 			         }
 			       ]
 			     });
+			
+			// 當按下前往訂房按鈕時觸發
+			function goToReservation()
+			{
+				// 使用AJAX檢查使用者是否已登入
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function()
+				{
+					if (xhr.readyState === 4)
+					{
+						if (xhr.status === 200)
+						{
+							// 使用者已登入，直接前往訂房頁面
+							window.location.href = '/Hotel/mvc/testBook';
+						}
+						else
+						{
+							// 使用者未登入，導向登入頁面
+							window.sessionStorage.setItem('currentPage',window.location.href);
+							window.location.href = '/Hotel/mvc/login';
+						}
+					}
+				};
+				xhr.open('GET', '/Hotel/mvc/checkLogin', true);
+				xhr.send();
+			}
 		</script>
 	</body>
 </html>

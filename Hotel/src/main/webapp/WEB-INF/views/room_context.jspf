@@ -27,7 +27,6 @@
 			<div class="mt-5 fs-3 text-start">價格：${room.roomPrice}</div>
 		</div>
 		<div class="col-2 d-flex flex-column justify-content-end">
-<!-- 			<button type="button" class="btn s-round-button color2 mb-5" onclick="window.location.href='/Hotel/mvc/searchRoom'">前往訂房</button> -->
 			<button type="button" class="btn s-round-button color2 mb-5" onclick="goToReservation()">前往訂房</button>
 		</div>
 	</div>

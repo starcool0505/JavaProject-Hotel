@@ -33,7 +33,38 @@
 				</div>
 			</c:if>
 		</c:forEach>
+		<div class="position-absolute end-0 col-2 mt-5">
+			<button type="button" class="btn color2 text-light font-weight-bold fs-4" style="width: 100%; border-radius: 50%;" onclick="goToReservation()">前往訂房</button>
+		</div>
 	</div>
 </section>
+
+<script>
+	// 當按下前往訂房按鈕時觸發
+	function goToReservation()
+	{
+		// 使用AJAX檢查使用者是否已登入
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function()
+		{
+			if (xhr.readyState === 4)
+			{
+				if (xhr.status === 200)
+				{
+					// 使用者已登入，直接前往訂房頁面
+					window.location.href = '/Hotel/mvc/testBook';
+				}
+				else
+				{
+					// 使用者未登入，導向登入頁面
+					window.sessionStorage.setItem('currentPage',window.location.href);
+					window.location.href = '/Hotel/mvc/login';
+				}
+			}
+		};
+		xhr.open('GET', '/Hotel/mvc/checkLogin', true);
+		xhr.send();
+	}
+</script>
 
 <%@ include file="/WEB-INF/views/footer.jsp" %>
