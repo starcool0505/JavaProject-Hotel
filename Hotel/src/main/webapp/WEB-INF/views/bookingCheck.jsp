@@ -146,9 +146,9 @@
 		}
 		
 		var bookUserName = document.getElementById('bookUserName').value.trim();
-	    var bookUserPhone = document.getElementById('bookUserPhone').value.trim();
-	    var bookUserEmail = document.getElementById('bookUserEmail').value.trim();
-	    var remark = document.getElementById('remark').value.trim();
+		var bookUserPhone = document.getElementById('bookUserPhone').value.trim();
+		var bookUserEmail = document.getElementById('bookUserEmail').value.trim();
+		var remark = document.getElementById('remark').value.trim();
 		
 		// 如果有错误，阻止表单提交
 		return !hasError;
