@@ -18,7 +18,7 @@ public class Book
 	Date checkoutDate;
 	Integer adultNum;
 	Integer childNum;
-	String sepicalReq;
+	String specialReq;
 	Double bookPrice;
 	
 	String bookName;
@@ -27,5 +27,4 @@ public class Book
 	Integer totalGuests;
 	String userName;
 	String userPhone;
-	String specialReq;
 }

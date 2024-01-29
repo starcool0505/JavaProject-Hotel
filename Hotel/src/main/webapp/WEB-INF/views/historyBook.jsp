@@ -24,13 +24,13 @@
 				<c:forEach var="book" items="${historyBooks}" varStatus="loopStatus">
 					<tr>
 						<th scope="row">${loopStatus.index + 1}</th>
-						<td>${book.bookId}</td>
-						<td>${book.bookName}</td>
+						<td style="text-align: center;"> ${book.bookId}</td>
+						<td style="text-align: center;">${book.bookName}</td>
 						<td>${book.bookPhone}</td>
-						<td>${book.roomId}</td>
+						<td style="text-align: center;">${book.roomId}</td>
 						<td><fmt:formatDate value="${book.checkinDate}" pattern="yyyy-MM-dd" /></td>
 						<td><fmt:formatDate value="${book.checkoutDate}" pattern="yyyy-MM-dd" /></td>
-						<td>${book.bookPrice}</td>
+						<td>$ ${book.bookPrice} 元</td>
 					</tr>
 				</c:forEach>
 			</tbody>

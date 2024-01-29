@@ -14,25 +14,24 @@
 		<div class="container">
 		  	<div class="book mb-3">
 				<label for="checkin" style="font-size: 16px;"> 入住時間: </label>
-				<input type="date" id="checkin" name="checkin" onchange="updateCheckoutDate()" required>
+				<input type="date" id="checkin" name="checkin" onchange="updateCheckoutDate()" value="${ chcekinDate }" required>
 				<label for="checkout"> 退房時間: </label>
-				<input type="date" id="checkout" name="checkout" >
-				 
+				<input type="date" id="checkout" name="checkout" value="${ checkoutDate }" >
 				<label for="adult">成人：</label>
 				<select id="adult" name="adult">
-					<option value="1"> 1人 </option>
-					<option value="2"> 2人 </option>
-					<option value="3"> 3人 </option>
-					<option value="4"> 4人 </option>
+					<option value="1" ${ adult == 1 ? 'selected':'' }> 1人 </option>
+					<option value="2" ${ adult == 2 ? 'selected':'' }> 2人 </option>
+					<option value="3" ${ adult == 3 ? 'selected':'' }> 3人 </option>
+					<option value="4" ${ adult == 4 ? 'selected':'' }> 4人 </option>
 				</select>
 				
 				<label for="child">兒童(12歲以下)：</label>
 				<select id="child" name="child">
-					<option value="0"> 0人 </option>
-					<option value="1"> 1人 </option>
-					<option value="2"> 2人 </option>
-					<option value="3"> 3人 </option>
-					<option value="4"> 4人 </option>
+					<option value="0" ${ child == 0 ? 'selected':'' }> 0人 </option>
+					<option value="1" ${ child == 1 ? 'selected':'' }> 1人 </option>
+					<option value="2" ${ child == 2 ? 'selected':'' }> 2人 </option>
+					<option value="3" ${ child == 3 ? 'selected':'' }> 3人 </option>
+					<option value="4" ${ child == 4 ? 'selected':'' }> 4人 </option>
 				</select>
 				
 				<button onclick="checkBooking()"> 查詢
@@ -69,25 +68,34 @@
 	  </div>
 
 	<script>
+	        
 			window.onload = function () {
-			    var checkinDateInput = document.getElementById("checkin");
-			    var checkoutDateInput = document.getElementById("checkout");
-	
-			    // 格式化
-			    var today = new Date().toISOString().split('T')[0];
-			    checkinDateInput.setAttribute('min', today);
-			    checkinDateInput.value = today;
-	
-			    // 計算隔天日期
-			    var nextDay = new Date();
-			    nextDay.setDate(nextDay.getDate() + 1);
-	
-			    // 設定 checkout 的預設值為隔天
-			    checkoutDateInput.valueAsDate = nextDay;
-	
-			    // 格式化
-			    var tomorrow = nextDay.toISOString().split('T')[0];
-			    checkoutDateInput.setAttribute('min', tomorrow);
+				
+				if(!${refresh}) {
+					 var checkinDateInput = document.getElementById("checkin");
+					    var checkoutDateInput = document.getElementById("checkout");
+			
+					    // 格式化
+					    var today = new Date().toISOString().split('T')[0];
+					    checkinDateInput.setAttribute('min', today);
+					    checkinDateInput.value = today;
+			
+					    // 計算隔天日期
+					    var nextDay = new Date();
+					    nextDay.setDate(nextDay.getDate() + 1);
+			
+					    // 設定 checkout 的預設值為隔天
+					    checkoutDateInput.valueAsDate = nextDay;
+			
+					    // 格式化
+					    var tomorrow = nextDay.toISOString().split('T')[0];
+					    checkoutDateInput.setAttribute('min', tomorrow);
+				}
+				
+			    
+				if(${refresh}) {
+					checkBooking();
+				}
 			};
 
 			//格式化
@@ -125,6 +133,7 @@
 			         url: 'searchRoom/showRooms',
 			         data: {
 			             checkinDate: checkin,
+			             checkoutDate: checkout,
 			             guests: guests
 			         },
 			         success: function (data) {
