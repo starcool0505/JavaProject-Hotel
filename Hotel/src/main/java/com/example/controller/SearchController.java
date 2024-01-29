@@ -33,7 +33,11 @@ public class SearchController
 	BookDaoImpl bookDaoImpl;
 	
 	@GetMapping()
-	public String searchRoom(Model model){
+	public String searchRoom(Model model, 
+			@RequestParam(value = "checkinDate", required = false) String checkinDate,
+			@RequestParam(value = "checkoutDate", required = false) String checkoutDate,
+			@RequestParam(value = "adult", required = false) Integer adult,
+			@RequestParam(value = "child", required = false) Integer child){
 		List<Room> rooms = roomDaoImpl.findAllRooms();
 		
 		model.addAttribute("rooms", rooms);
@@ -52,12 +56,24 @@ public class SearchController
 		model.addAttribute("roomContext", roomContext);
 		model.addAttribute("roomDescribe", roomDescribe);
 		
+		model.addAttribute("chcekinDate", checkinDate);
+		model.addAttribute("checkoutDate", checkoutDate);
+		model.addAttribute("adult", adult);
+		model.addAttribute("child", child);
+		if (checkinDate!=null) {
+			model.addAttribute("refresh", true);
+		} else {
+			model.addAttribute("refresh", false);
+		}
+
+
 		return "searchRoom";
 	}
 	
+	
 	@GetMapping("/showRooms")
 	public ResponseEntity<List<Room>> searchRooms(@RequestParam("checkinDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkinDate,
-			@RequestParam("checkinDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkoutDate,
+			@RequestParam("checkoutDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkoutDate,
             @RequestParam("guests") int guests) {
 		
 		List<Room> availableRooms = bookDaoImpl.findAvailableRoom(checkinDate, checkoutDate, guests);

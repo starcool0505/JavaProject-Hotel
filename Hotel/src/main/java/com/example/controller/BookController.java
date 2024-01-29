@@ -1,12 +1,15 @@
 package com.example.controller;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.jasper.tagplugins.jstl.core.If;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.dao.BookDaoImpl;
 import com.example.dao.RoomDaoImpl;
@@ -79,8 +83,8 @@ public class BookController {
 	}
 	
 	@PostMapping("/submit")
-	public String submitBookForm(
-	        @RequestParam("userId") int userId,
+	@ResponseBody
+	public Map<String,Object> submitBookForm(
 	        @RequestParam("checkInDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkinDate,
 	        @RequestParam("checkOutDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkoutDate,
 	        @RequestParam("adult") int adultNum,
@@ -93,8 +97,10 @@ public class BookController {
 	        @RequestParam("roomPrice") double roomPrice,
 	        Model model, HttpSession session) {
 
-	        Book book = new Book();
-	        book.setUserId(userId);
+		    User user = (User)session.getAttribute("user");		
+	        
+		    Book book = new Book();
+	        book.setUserId(user.getUserId());
 	        book.setCheckinDate(checkinDate);
 	        book.setCheckoutDate(checkoutDate);
 	        book.setAdultNum(adultNum);
@@ -107,13 +113,19 @@ public class BookController {
 	        book.setBookPrice(roomPrice); 
 	        
 	        bookDaoImpl.addBook(book);
-	       
-	        return "redirect:/book/bookDetail";
+	        
+	        Map<String,Object> result = new HashMap<>();
+	        result.put("message", "OK"); 
+	        result.put("bookId", book.getBookId());
+	        return result;
 	    }
 	
 	@GetMapping("/bookDetail")
-	public String bookDetail(Model model) {
-		
+	public String bookDetail(@RequestParam("bookId") Integer bookId ,Model model) {
+		Optional<Book> bookOpt = bookDaoImpl.findBookById(bookId);
+		if(bookOpt.isPresent()) {
+			model.addAttribute("book", bookOpt.get());
+		}
 		return "bookDetail";
 	}
 	

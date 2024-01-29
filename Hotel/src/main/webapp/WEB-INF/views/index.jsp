@@ -36,7 +36,7 @@
 						<option value="4"> 4人 </option>
 					</select>
 					
-					<button onclick="checkBooking()" style="margin-left: 3vw"> 訂房</button>
+					<button onclick="goToReservation()" style="margin-left: 3vw"> 訂房</button>
 					</div>
 				</div>
 			</div>
@@ -169,30 +169,38 @@
 			 	checkoutDate.setAttribute('min', tomorrow);
 			 }
 			
-			function checkBooking() {
-				 const checkin = document.getElementById('checkin').value;
-				 const checkout = document.getElementById('checkout').value;
-			     const guests = parseInt(document.getElementById('adult').value, 10) + parseInt(document.getElementById('child').value, 10);
-			    
-			     // 使用 AJAX 向後端發送請求
-			     $.ajax({
-			         type: 'GET',
-			         url: 'searchRoom/showRooms',
-			         data: {
-			             checkinDate: checkin,
-			             guests: guests
-			         },
-			         success: function (data) {
-			             // data 是從後端返回的 List<Book>
-			        	 displayAvailableRooms(data);
-			         },
-			         error: function (jqXHR, textStatus, errorThrown) {
-			             // 在控制台輸出詳細錯誤信息
-			             console.error('AJAX Error:', textStatus, errorThrown);
-			             alert('查詢出現錯誤');
-			         }
-			     });
-			 }
+			// 當按下前往訂房按鈕時觸發
+			function goToReservation()
+			{
+				var checkinDate = document.getElementById("checkin").value;
+			    var checkoutDate = document.getElementById("checkout").value;
+			    var adult = document.getElementById("adult").value;
+			    var child = document.getElementById("child").value;
+				// 使用AJAX檢查使用者是否已登入
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function()
+				{
+					if (xhr.readyState === 4)
+					{
+						if (xhr.status === 200)
+						{
+							// 使用者已登入，直接前往訂房頁面
+							 window.location.href = '/Hotel/mvc/searchRoom?checkinDate=' + encodeURIComponent(checkinDate) +
+			                    '&checkoutDate=' + encodeURIComponent(checkoutDate) +
+			                    '&adult=' + encodeURIComponent(adult)+
+			                    '&child=' + encodeURIComponent(child);
+						}
+						else
+						{
+							// 使用者未登入，導向登入頁面
+							window.sessionStorage.setItem('currentPage',window.location.href);
+							window.location.href = '/Hotel/mvc/login';
+						}
+					}
+				};
+				xhr.open('GET', '/Hotel/mvc/checkLogin', true);
+				xhr.send();
+			}
 		</script>
 	</body>
 </html>

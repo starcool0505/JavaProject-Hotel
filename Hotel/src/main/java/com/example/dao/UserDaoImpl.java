@@ -28,7 +28,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public Optional<User> findUserByUserName(String username)
 	{
-		String sql="SELECT userName, userPassword FROM hotel.user where userName=?";
+		String sql="SELECT userId, userName, userPhone, userPassword, userType, userEmail, userBirth FROM hotel.user where userName=?";
 		try
 		{
 			User user = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), username);
