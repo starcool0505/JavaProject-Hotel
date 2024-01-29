@@ -51,3 +51,16 @@
 	align-items: center;
 	justify-content: center;
 }
+
+.custom-border
+{
+	border: 2px solid gray; /* 设置边框的颜色和初始宽度 */
+	padding: 2%; /* 为了更好的可视效果，添加一些内边距 */
+}
+
+.required-field::after
+{
+	content: '*';
+	color: red;
+	margin-left: 2px;
+}

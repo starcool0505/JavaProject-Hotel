@@ -4,7 +4,7 @@
 <%@ include file="/WEB-INF/views/header.jsp" %>
 
 <div class="d-flex flex-column justify-content-flex-start align-items-center" style="margin: 0 20%; margin-top: 10vh; min-height: 100vh;">
-	<div>
+	<div class="fs-5">
 		<form action="${pageContext.request.contextPath}/mvc/testBook/searchRooms" method="post" style="min-width: 100%;">
 			<label for="checkInDate">入住日期：</label>
 			<input type="date" id="checkInDate" name="checkInDate" required value="${param.checkInDate}">
@@ -38,6 +38,7 @@
 			<div class="col-5">
 				<h2 class="font-weight-bold">${room.roomTitle}</h2>
 				<p class="fs-5">房號：${room.roomId}</p>
+				<p class="fs-5">價格：${room.roomPrice}元</p>
 				<p>${room.roomContext}</p>
 				<a href="#" onclick="validateAndRedirect(${room.roomId});" class="btn color1 text-light">前往訂房</a>
 			</div>
@@ -47,10 +48,10 @@
 		</c:if>
 	</div>
 	<c:if test="${not empty error}">
-    <div class="alert alert-danger">
-        ${error}
-    </div>
-</c:if>
+		<div class="alert alert-danger">
+			${error}
+		</div>
+	</c:if>
 </div>
 
 <script>

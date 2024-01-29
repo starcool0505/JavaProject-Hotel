@@ -26,7 +26,7 @@
 						<td>${book.roomId}</td>
 						<td><fmt:formatDate value="${book.checkinDate}" pattern="yyyy-MM-dd" /></td>
 						<td><fmt:formatDate value="${book.checkoutDate}" pattern="yyyy-MM-dd" /></td>
-						<td>${book.bookPrice}</td>
+						<td>${book.bookPrice}元</td>
 					</tr>
 				</c:forEach>
 			</tbody>

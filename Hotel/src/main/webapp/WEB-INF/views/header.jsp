@@ -5,6 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel="icon" href="/Hotel/images/logopng.png" type="image/png">
 		<!-- 常駐使用 -->
 		<title>xx飯店</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">

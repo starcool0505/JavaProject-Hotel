@@ -34,7 +34,7 @@
 						<td><fmt:formatDate value="${book.checkoutDate}" pattern="yyyy-MM-dd" /></td>
 						<td>${book.totalGuests}</td>
 						<td>${book.specialReq}</td>
-						<td>${book.bookPrice}</td>
+						<td>${book.bookPrice}元</td>
 					</tr>
 				</c:forEach>
 			</tbody>

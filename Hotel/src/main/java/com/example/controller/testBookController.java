@@ -78,7 +78,9 @@ public class testBookController
 	}
 	
 	@GetMapping("/bookingCheck")
-	public String bookingCheck(@RequestParam("roomId") int roomId, Model model, HttpSession session)
+	public String bookingCheck(@RequestParam("roomId") int roomId,
+			
+			Model model, HttpSession session)
 	{
 		// 從session中獲取參數
 		String checkInDate = (String) session.getAttribute("checkInDate");
@@ -120,7 +122,7 @@ public class testBookController
 		model.addAttribute("checkOutDate", checkOutDate);
 		model.addAttribute("adult", adult);
 		model.addAttribute("child", child);
-		model.addAttribute("stayDays", stayDays);
+		model.addAttribute("stayDays", stayDays);	
 		
 		Room room = roomDaoImpl.findAllRoomById(roomId);
 		model.addAttribute("room", room);
@@ -139,22 +141,11 @@ public class testBookController
 		return "bookingCheck";
 	}
 	
-	@GetMapping("/pay")
-	public String pay(Model model, HttpSession session)
-	{
-		// 從session中獲取使用者資訊
-		User user = (User) session.getAttribute("user");
-		if (user != null)
-		{
-			// 在這裡你可以使用user的相關資訊，例如user.getUsername()
-			model.addAttribute("loggedInUsername", user.getUserName());
-		}
-		
-		return "pay";
-	}
-	
-	@GetMapping("/details")
-	public String details(Model model, HttpSession session)
+	@PostMapping("/details")
+	public String details(@RequestParam(value = "bookUserName", required = true) String bookUserName,
+			  @RequestParam(value = "bookUserPhone", required = true) String bookUserPhone,
+			  @RequestParam(value = "bookUserEmail", required = true) String bookUserEmail,
+			  @RequestParam(value = "remark", required = false, defaultValue = "") String remark,Model model, HttpSession session)
 	{
 		// 從session中獲取使用者資訊
 		User user = (User) session.getAttribute("user");
@@ -174,7 +165,6 @@ public class testBookController
 		int roomId = (int) session.getAttribute("selectedRoomId");
 		
 		// 设置默认值和计算天数
-		String specialReq = null;
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate checkIn = LocalDate.parse(checkInDate, formatter);
 		LocalDate checkOut = LocalDate.parse(checkOutDate, formatter);
@@ -185,6 +175,11 @@ public class testBookController
 		model.addAttribute("adult", adult);
 		model.addAttribute("child", child);
 		model.addAttribute("stayDays", stayDays);
+		
+		model.addAttribute("bookUserName", bookUserName);
+	    model.addAttribute("bookUserPhone", bookUserPhone);
+	    model.addAttribute("bookUserEmail", bookUserEmail);
+	    model.addAttribute("remark", remark);
 
 		Room room = roomDaoImpl.findAllRoomById(roomId);
 		model.addAttribute("room", room);
@@ -201,7 +196,7 @@ public class testBookController
 		book.setCheckoutDate(Date.valueOf(checkOut));
 		book.setAdultNum(adult);
 		book.setChildNum(child);
-		book.setSepicalReq(specialReq);
+		book.setSpecialReq(remark);
 		book.setBookPrice(bookPrice);
 
 		// 調用 BookDao 的方法將訂單資訊插入資料庫

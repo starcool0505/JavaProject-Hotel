@@ -35,8 +35,9 @@ public class BookDaoImpl implements BookDao
 	public List<Book> findAllBookData()
 	{
 		String sql = "SELECT b.bookId, b.userId, b.roomId, u.userName, u.userPhone, b.checkinDate, b.checkoutDate, (b.adultNum + b.childNum) AS totalGuests, b.specialReq, b.bookPrice "
-				+ "FROM hotel.book b "
-				+ "JOIN hotel.user u ON b.userId = u.userId";
+					+"FROM hotel.book b "
+					+"JOIN hotel.user u ON b.userId = u.userId "
+					+"group by b.bookId";
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Book.class));
 	}
 	
@@ -73,13 +74,13 @@ public class BookDaoImpl implements BookDao
 	@Override
 	public void addBook(Book book) {
 		String sql = "insert into book(roomId, checkinDate, checkoutDate, adultNum, childNum, sepicalReq, bookPrice) values(?,?,?,?,?,?,?)";
-		jdbcTemplate.update(sql, book.getRoomId(), book.getCheckinDate(), book.getCheckoutDate(), book.getAdultNum(), book.getChildNum(), book.getSepicalReq(), book.getBookPrice());
+		jdbcTemplate.update(sql, book.getRoomId(), book.getCheckinDate(), book.getCheckoutDate(), book.getAdultNum(), book.getChildNum(), book.getSpecialReq(), book.getBookPrice());
 	}
 
 	@Override
 	public void deleteBook(Book book) {
 		String sql = "delete from book where bookId = ?";
-		jdbcTemplate.update(sql,  book.getSepicalReq(), book.getBookPrice());
+		jdbcTemplate.update(sql,  book.getSpecialReq(), book.getBookPrice());
 	}
 	
 	@Override

@@ -18,11 +18,10 @@ public class Book
 	Date checkoutDate;
 	Integer adultNum;
 	Integer childNum;
-	String sepicalReq;
+	String specialReq;
 	Double bookPrice;
 	
 	String userName;
 	String userPhone;
 	Integer totalGuests;
-	String specialReq;
 }
