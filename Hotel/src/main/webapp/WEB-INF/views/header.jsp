@@ -7,6 +7,7 @@
 		<meta charset="UTF-8">
 		<!-- 常駐使用 -->
 		<title>xx飯店</title>
+		<link rel="icon" href="../images/logopng.png" type="image/png">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
